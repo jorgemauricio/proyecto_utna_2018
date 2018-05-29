@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Practica con indice en html</title>
+    <title>Estación</title>
     <style>
       h1 {font-size:2.2em; color:blue; font-weight:bold; text-decoration:underline; text-align:center;}
       boton{}
     </style>
   </head>
   <body>
-    <h1> INDEX </h1>
+    <h1> Estación </h1>
     <h2>Equipo dinamita</h2>
     <ul>
-      {%for d,v in da.items()%}
-        <li><a href="{{v}}/{{d+1}}">{{v}}</a></li>
+      {%for e,x in da1.items()%}
+        <li><a href ="/{{estado}}/{{nums}}/{{x}}/{{estaci[e]}}">{{x}}</a></li>
       {%endfor%}
     </ul>
   </body>
