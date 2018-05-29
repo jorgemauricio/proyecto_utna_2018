@@ -1,0 +1,13 @@
+<html>
+  <head>
+    <title>Practica de flask !</title>
+  </head>
+  <body>
+    <hi>Estados</h1>
+    <ul>
+      {%for d,v in dato.items()%}
+        <li><a href="{{v}}/{{d+1}}">{{v}}</a></li>
+      {% endfor %}
+    <ul>
+  </body>
+</html>
