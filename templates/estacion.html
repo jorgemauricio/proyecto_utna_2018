@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Estados</title>
+    <style>
+      h1 {font-size:2.2em; color:blue; font-weight:bold; text-align:center;}
+      boton{}
+    </style>
+  </head>
+  <body>
+    <h1> Estados</h1>
+    <ul>
+      {%for d,v in dato.items()%}
+        <li><a href="{{v}}/{{d+1}}">{{v}}</a></li>
+      {%endfor%}
+    </ul>
+  </body>
+</html>

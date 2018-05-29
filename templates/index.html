@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://clima.inifap.gob.mx/lnmysr/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <title>Estados</title>
+
+    <style>
+    body {
+        font: 20px Montserrat, sans-serif;
+        line-height: 1.8;
+        color: #f5f6f7;
+    }
+    p {font-size: 16px;}
+    .margin {margin-bottom: 45px;}
+    .bg-1 {
+        background-color: #B18904 ; /* Brown Green #1abc9c*/
+        color: #ffffff;
+    }
+    .bg-2 {
+        background-color: #474e5d; /* Dark Blue */
+        color: #ffffff;
+    }
+    .bg-3 {
+        background-color: #ffffff; /* White */
+        color: #555555;
+    }
+    .bg-4 {
+        background-color: #2f2f2f; /* Black Gray */
+        color: #fff;
+    }
+    .container-fluid {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .navbar {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        border: 0;
+        border-radius: 0;
+        margin-bottom: 0;
+        font-size: 12px;
+        letter-spacing: 5px;
+    }
+    .navbar-nav  li a:hover {
+        color: #B18904 !important;<!-- #1abc9c -->
+    }
+    </style>
+  </head>
+  <body>
+
+<nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+      <a class="navbar-brand" href="http://clima.inifap.gob.mx/lnmysr/Principal/Index">LNMySR</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Regresar</a></li>
+      </div>
+    </div>
+</nav>
+</br>
+<div class="container">
+  <center>
+  <img src="http://clima.inifap.gob.mx/lnmysr/Content/documentos/INIFAP_Website/header_4_v2.png" class="img-responsive" width="1000" height="300">
+</center>
+</div>
+<div class="container-fluid bg-3 text-center">
+  <h1 class="margin">Datos Diarios</h1><br>
+<div class="container-fluid bg-2 ">
+      <p>Responsable de emitir los pronósticos de las condiciones de humedad y temperatura.
+        Se emiten dos prónosticos: uno Estacional y otro de corto Plazo.</p>
+</div>
+</div>
+
+<div class="container bg-3">
+  <h2>Estados</h2>
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#Seleccion">Selecionar</a>
+        </h4>
+      </div>
+      <div id="Seleccion" class="panel-collapse collapse">
+        <ul class="list-group">
+          {%for d,v in dato.items()%}
+          <h4>  <li class="list-group-item"><a href="{{v}}/{{d+1}}">{{v}}</a></li></h4>
+          {%endfor%}
+        </ul>
+        <div class="panel-footer"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</br>
+</br>
+</br>
+</br>
+
+<div class="container-fluid bg-1 text-center">
+<p><strong>INIFAP - Campo Experimental Pabellón - Laboratorio Nacional de Modelaje y Sensores Remotos</p></strong>
+<h5>Km. 32.5 Carretera Panamericana Aguascalientes - Zacatecas
+Pabellón de Arteaga, Aguascalientes, México
+Apartado Postal No. 20 // C.P. 20670
+01 800 088 22 22 ext 82536. </h5>
+</div>
+  </body>
+</html>
