@@ -12,7 +12,7 @@ def datos():
         source=response.read()
     data=json.loads(source)
     df = pd.DataFrame(data['estados'])
-    return render_template('index.html',da=df['Nombre'])
+    return render_template('pagina.html',da=df['Nombre'])
 #@app.route('/<string:name>')
 #def hello(name):
     #return "<h1>Tu elegiste: {}</h1>".format(name.upper())

@@ -30,8 +30,9 @@
       font-weight: 400;
       margin-bottom: 30px;
   }
+
   .jumbotron {
-      background-color: #f4511e;
+      background-color: #088A08;
       color: #fff;
       padding: 100px 25px;
       font-family: Montserrat, sans-serif;
@@ -95,7 +96,7 @@
   }
   .panel-heading {
       color: #fff !important;
-      background-color: #f4511e !important;
+      background-color: #298A08 !important;
       padding: 25px;
       border-bottom: 1px solid transparent;
       border-top-left-radius: 0px;
@@ -120,7 +121,7 @@
   }
   .navbar {
       margin-bottom: 0;
-      background-color: #f4511e;
+      background-color: #0B3B17;
       z-index: 9999;
       border: 0;
       font-size: 12px !important;
@@ -200,7 +201,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#myPage">Logo</a>
+      <a class="navbar-brand" href="http://clima.inifap.gob.mx/lnmysr/">LNMySR</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
@@ -231,8 +232,36 @@
 <div id="about" class="container-fluid">
   <div class="row">
     <div class="col-sm-8">
-      <h2>About Company Page</h2><br>
-      <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
+
+      <h2>Estados</h2><br>
+      <div class="container bg-3">
+         <div class="panel-group">
+           <div class="panel panel-default">
+
+           <div class="panel-heading">
+           <h3 class="panel-title">
+             <a data-toggle="collapse" href="#Seleccion">Selecciona un estado</a>
+           </h3>
+         </div>
+           <div id="Seleccion" class="panel-collapse collapse">
+             <ul class="list-group">
+
+        {%for d,v in da.items()%}
+          <li class="list-group-item"><a href="{{v}}/{{d+1}}">{{v}}</a></li>
+        {%endfor%}
+      </ul>
+
+      <div class="panel-footer"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+      <br>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       <br><button class="btn btn-default btn-lg">Get in Touch</button>
     </div>
