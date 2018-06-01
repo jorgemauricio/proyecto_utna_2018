@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <!-- Theme Made By www.w3schools.com - No Copyright -->
-  <title>INIFAP Estados</title>
+  <title>INIFAP Estacione</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -216,11 +216,11 @@
 </nav>
 
 <div class="jumbotron text-center">
-  <h1>Estado</h1>
+  <h1>Estaciones</h1>
   <p>INIFAP Campo Experimental</p>
   <form>
     <div class="input-group">
-      <input type="email" class="form-control" size="50" placeholder="Buscar estado" required>
+      <input type="email" class="form-control" size="50" placeholder="Buscar estación" required>
       <div class="input-group-btn">
         <button type="button" class="btn btn-danger">Buscar</button>
       </div>
@@ -240,14 +240,14 @@
 
            <div class="panel-heading">
            <h3 class="panel-title">
-             <a data-toggle="collapse" href="#Seleccion">Selecciona un estado</a>
+             <a data-toggle="collapse" href="#Seleccion">Selecciona una estación</a>
            </h3>
          </div>
            <div id="Seleccion" class="panel-collapse collapse">
              <ul class="list-group">
 
-        {%for d,v in da.items()%}
-          <li class="list-group-item"><a href="{{v}}/{{d+1}}">{{v}}</a></li>
+        {%for e,x in da1.items()%}
+          <li class="list-group-item"><a href ="/{{estado}}/{{nums}}/{{x}}/{{estaci[e]}}">{{x}}</a></li>
         {%endfor%}
       </ul>
 
@@ -506,8 +506,7 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
   <a href="#myPage" title="To Top">
     <span class="glyphicon glyphicon-chevron-up"></span>
   </a>
-  <p>© 2018 - INIFAP - Campo Experimental Pabellón - Laboratorio Nacional de Modelaje y Sensores Remotos - Algunos Derechos Reservados.</p>
-  <p> <a href="http://clima.inifap.gob.mx" title="Visit INIFAP">http://clima.inifap.gob.mx</a></p>
+  <p>Bootstrap Theme Made By <a href="https://www.w3schools.com" title="Visit w3schools">www.w3schools.com</a></p>
 </footer>
 
 <script>
