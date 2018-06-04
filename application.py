@@ -11,7 +11,6 @@ a=""
 def datos():
     acceso=claves()
     cons=acceso.consultaEstados
-    #consulta='http://clima.inifap.gob.mx/wapi/api/Estacion?'
     with urlopen(cons) as response:
         source=response.read()
     data=json.loads(source)
@@ -24,7 +23,6 @@ def datos():
 def est(name,id):
     acceso=claves()
     cons=acceso.consultaEstaciones
-    #consulta="http://clima.inifap.gob.mx/wapi/api/Estacion?idEstado={}".format(id)
     with urlopen("{}idEstado={}".format(cons,id)) as response:
         source=response.read()
     data=json.loads(source)
@@ -37,7 +35,6 @@ def estacion(fir,esta,estacion,numes):
     print(fir,"  ",esta,"  ",estacion,"  ",numes)
     acceso=claves()
     cons=acceso.consultaDatos
-    #consulta="http://clima.inifap.gob.mx/wapi/api/Datos?idEstado={}&IdEstacion={}".format(esta,numes)
     print("***** consulta",cons)
     with urlopen('{}idEstado={}&IdEstacion={}'.format(cons,esta,numes)) as response:
         source=response.read()
