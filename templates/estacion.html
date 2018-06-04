@@ -1,18 +1,88 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://clima.inifap.gob.mx/lnmysr/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <title>Estados</title>
     <style>
-      h1 {font-size:2.2em; color:blue; font-weight:bold; text-align:center;}
-      boton{}
+    body {
+        font: 20px Montserrat, sans-serif;
+        line-height: 1.8;
+        color: #f5f6f7;
+    }
+    p {font-size: 16px;}
+    .margin {margin-bottom: 45px;}
+    .bg-1 {
+        background-color: #B18904 ; /* Brown Green #1abc9c*/
+        color: #ffffff;
+    }
+    .bg-2 {
+        background-color: #474e5d; /* Dark Blue */
+        color: #ffffff;
+    }
+    .bg-3 {
+        background-color: #ffffff; /* White */
+        color: #555555;
+    }
+    .bg-4 {
+        background-color: #2f2f2f; /* Black Gray */
+        color: #fff;
+    }
+    .container-fluid {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .navbar {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        border: 0;
+        border-radius: 0;
+        margin-bottom: 0;
+        font-size: 12px;
+        letter-spacing: 5px;
+    }
+    .navbar-nav  li a:hover {
+        color: #B18904 !important;<!-- #1abc9c -->
+    }
     </style>
   </head>
   <body>
-    <h1> Estados</h1>
-    <ul>
-      {%for d,v in dato.items()%}
-        <li><a href="{{v}}/{{d+1}}">{{v}}</a></li>
-      {%endfor%}
-    </ul>
+    <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+          <a class="navbar-brand" href="http://clima.inifap.gob.mx/lnmysr/Principal/Index">LNMySR</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="index.html">Regresar</a></li>
+          </div>
+        </div>
+    </nav>
+
+    <div class="container bg-3">
+      <center>
+      <h2>Estados</h2>
+    </center>
+      <div class="panel-group">
+        {%for d,v in dato1.items()%}
+          <li><a href="/{{estado}}/{{num}}/{{v}}/{{estac[d]}}">{{v}}</a></li>
+        {% endfor %}
+        <div class="panel-footer"></div>
+
+    </div>
+  </div>
+
+<div class="container-fluid bg-1 text-center">
+<p><strong>INIFAP - Campo Experimental Pabellón - Laboratorio Nacional de Modelaje y Sensores Remotos</p></strong>
+<h5>Km. 32.5 Carretera Panamericana Aguascalientes - Zacatecas
+Pabellón de Arteaga, Aguascalientes, México
+Apartado Postal No. 20 // C.P. 20670
+01 800 088 22 22 ext 82536. </h5>
+</div>
   </body>
 </html>
