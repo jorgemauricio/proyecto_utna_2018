@@ -5,6 +5,9 @@ from urllib.request import urlopen
 from flask import Flask, render_template
 from api import claves
 app = Flask(__name__)
+
+
+
 @app.route('/')#
 def index():
     acceso=claves()

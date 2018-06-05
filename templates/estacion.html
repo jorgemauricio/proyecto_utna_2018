@@ -7,7 +7,7 @@
    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <title>Estados</title>
+    <title>Estaciones</title>
     <style>
     body {
         font: 20px Montserrat, sans-serif;
@@ -17,7 +17,7 @@
     p {font-size: 16px;}
     .margin {margin-bottom: 45px;}
     .bg-1 {
-        background-color: #B18904 ; /* Brown Green #1abc9c*/
+        background-color: #088A29 ; /* Green INIFAP #088A29*/
         color: #ffffff;
     }
     .bg-2 {
@@ -50,6 +50,15 @@
         color: #B18904 !important;<!-- #1abc9c -->
     }
     </style>
+<!--
+    <style>
+    .panel-default > .panel-heading {
+      color: #333;
+      background-color: #BDBDBD;
+      border-color: #1C1C1C;
+    }
+
+  </style>-->
   </head>
   <body>
     <nav class="navbar navbar-default">
@@ -64,19 +73,43 @@
         </div>
     </nav>
 
+    <div class="container">
+      <center>
+      <img src="http://clima.inifap.gob.mx/lnmysr/Content/documentos/INIFAP_Website/header_4_v2.png" class="img-responsive" width="1000" height="300">
+    </center>
+    </div>
+
     <div class="container bg-3">
       <center>
-      <h2>Estados</h2>
+      </br>
+      <h2>Estaciones</h2>
+    </br>
     </center>
+    <div class="container bg-3">
       <div class="panel-group">
-        {%for d,v in dato1.items()%}
-          <li><a href="/{{estado}}/{{num}}/{{v}}/{{estac[d]}}">{{v}}</a></li>
-        {% endfor %}
-        <div class="panel-footer"></div>
-
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" href="#Seleccion">Selecionar</a>
+            </h4>
+          </div>
+          <div id="Seleccion" class="panel-collapse collapse">
+            <ul class="list-group">
+              {%for d,v in dato1.items()%}
+              <div class="panel-body"><a href="/{{estado}}/{{num}}/{{v}}/{{estac[d]}}">{{v}}</a></div>
+              {% endfor %}
+          </ul>
+          <div class="panel-footer"></div>
+        </div>
+      </div>
     </div>
   </div>
-
+</div>
+</br>
+</br>
+</br>
+</br>
+</br>
 <div class="container-fluid bg-1 text-center">
 <p><strong>INIFAP - Campo Experimental Pabellón - Laboratorio Nacional de Modelaje y Sensores Remotos</p></strong>
 <h5>Km. 32.5 Carretera Panamericana Aguascalientes - Zacatecas

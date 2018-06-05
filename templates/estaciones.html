@@ -3,18 +3,160 @@
   <head>
     <title>Estacion</title>
   </head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="http://clima.inifap.gob.mx/lnmysr/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+ <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <title>Estación</title>
+  <style>
+  body {
+      font: 20px Montserrat, sans-serif;
+      line-height: 1.8;
+      color: #f5f6f7;
+  }
+  p {font-size: 16px;}
+  .margin {margin-bottom: 45px;}
+  .bg-1 {
+      background-color: #088A29 ; /*  Green #088A29*/
+      color: #ffffff;
+  }
+  .bg-2 {
+      background-color: #474e5d; /* Dark Blue */
+      color: #ffffff;
+  }
+  .bg-3 {
+      background-color: #ffffff; /* White */
+      color: #555555;
+  }
+  .bg-4 {
+      background-color: #2f2f2f; /* Black Gray */
+      color: #fff;
+  }
+  .container-fluid {
+      padding-top: 20px;
+      padding-bottom: 20px;
+  }
+
+  .navbar {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border: 0;
+      border-radius: 0;
+      margin-bottom: 0;
+      font-size: 12px;
+      letter-spacing: 5px;
+  }
+  .navbar-nav  li a:hover {
+      color: #B18904 !important;<!-- #1abc9c -->
+  }
+  </style>
+
+  <style>
+  .panel-default > .panel-heading {
+    color: #333;
+    background-color: #D8D8D8;
+    border-color: #1C1C1C;
+  }
+
+</style>
   <body>
-   <hi>Ultimo dato</h1>
-   <h2>Numero: {{dato2['estaciones'][0]['Numero']}}</h2>
-   <h2>Dirv: {{dato2['estaciones'][0]['Dirv']}}</h2>
-   <h2>Eto: {{dato2['estaciones'][0]['Eto']}}</h2>
-   <h2>Fecha: {{dato2['estaciones'][0]['Fecha']}}</h2>
-   <h2>FechaParseo: {{dato2['estaciones'][0]['FechaParseo']}}</h2>
-   <h2>Humh: {{dato2['estaciones'][0]['Humh']}}</h2>
-   <h2>Humr: {{dato2['estaciones'][0]['Humr']}}</h2>
-   <h2>Prec: {{dato2['estaciones'][0]['Prec']}}</h2>
-   <h2>Radg: {{dato2['estaciones'][0]['Radg']}}</h2>
-   <h2>Temt: {{dato2['estaciones'][0][Temt]}}</h2>
-   <h2>Velv: {{dato2['estaciones'][0]['Velv']}}</h2>
+    <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+          <a class="navbar-brand" href="http://clima.inifap.gob.mx/lnmysr/Principal/Index">LNMySR</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/proyecto_utna_2018/templates/estacion.html">Regresar</a></li>
+          </div>
+        </div>
+    </nav>
+
+    <div class="container">
+      <center>
+      <img src="http://clima.inifap.gob.mx/lnmysr/Content/documentos/INIFAP_Website/header_4_v2.png" class="img-responsive" width="1000" height="300">
+    </center>
+    </div>
+</br>
+<center>
+<div class="container bg-3">
+  <div class="panel-group">
+    <div class="panel panel-default">
+       <div class="panel-heading"><h3>ULTIMO DATO</h3></div>
+       <div class="panel-body">
+         <table class="table table-hover">
+           <thead>
+             <tr>
+               <th>Descripción</th>
+               <th>Dato</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr>
+               <td>Numero</td>
+               <td>{{dato2['estaciones'][0]['Numero']}}</td>
+             </tr>
+             <tr>
+               <td>Dirv</td>
+               <td>{{dato2['estaciones'][0]['Dirv']}}</td>
+             </tr>
+             <tr>
+               <td>Eto</td>
+               <td>{{dato2['estaciones'][0]['Eto']}}</td>
+             </tr>
+             <tr>
+               <td>Fecha</td>
+               <td>{{dato2['estaciones'][0]['Fecha']}}</td>
+             </tr>
+             <tr>
+               <td>FechaParseo</td>
+               <td>{{dato2['estaciones'][0]['FechaParseo']}}</td>
+             </tr>
+             <tr>
+               <td>Fecha</td>
+               <td>{{dato2['estaciones'][0]['Fecha']}}</td>
+             </tr>
+             <tr>
+               <td>Humh</td>
+               <td>{{dato2['estaciones'][0]['Humh']}}</td>
+             </tr>
+             <tr>
+               <td>Humr</td>
+               <td>{{dato2['estaciones'][0]['Humr']}}</td>
+             </tr>
+             <tr>
+               <td>Prec</td>
+               <td>{{dato2['estaciones'][0]['Prec']}}</td>
+             </tr>
+             <tr>
+               <td>Radg</td>
+               <td>{{dato2['estaciones'][0]['Radg']}}</td>
+             </tr>
+             <tr>
+               <td>Temt</td>
+               <td>{{dato2['estaciones'][0]['Temt']}}</td>
+             </tr>
+             <tr>
+               <td>Velv</td>
+               <td>{{dato2['estaciones'][0]['Velv']}}</td>
+             </tr>
+           </tbody>
+         </table>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+
+</center>
+<div class="container-fluid bg-1 text-center">
+<p><strong>INIFAP - Campo Experimental Pabellón - Laboratorio Nacional de Modelaje y Sensores Remotos</p></strong>
+<h5>Km. 32.5 Carretera Panamericana Aguascalientes - Zacatecas
+Pabellón de Arteaga, Aguascalientes, México
+Apartado Postal No. 20 // C.P. 20670
+01 800 088 22 22 ext 82536. </h5>
+</div>
   </body>
 </html>
