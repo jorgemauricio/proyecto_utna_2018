@@ -192,6 +192,23 @@
   }
   </style>
 </head>
+<script>
+var search = document.getElementById("search"),
+    food = document.getElementsByTagName("span"),
+    forEach = Array.prototype.forEach;
+
+search.addEventListener("keyup", function(e){
+    var choice = this.value;
+
+    forEach.call(food, function(f){
+        if (f.innerHTML.toLowerCase().search(choice.toLowerCase()) == -1)
+            f.parentNode.style.display = "none";
+        else
+            f.parentNode.style.display = "block";
+    });
+}, false);
+</script>
+
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -221,7 +238,9 @@
   <p>Laboratorio Nacional de Modelaje y Sensores Remotos</p>
   <form>
     <div class="input-group">
-      <input type="email" class="form-control" size="50" placeholder="Buscar estado" required>
+      <label for = "search">Escoge un estado</label>
+      <input type = "text" id = "search" placeholder = "Your choice" autofocus />
+
       <div class="input-group-btn">
         <button type="button" class="btn btn-danger">Buscar</button>
       </div>
@@ -249,9 +268,15 @@
            <div id="Seleccion" class="panel-collapse collapse">
              <ul class="list-group">
 
+
+
+
+
+       <section>
         {%for d,v in da.items()%}
-          <li class="list-group-item"><a href="{{v}}/{{d+1}}">{{v}}</a></li>
+          <li class="list-group-item"><span><a href="{{v}}/{{d+1}}">{{v}}</a><span></li>
         {%endfor%}
+      </section>
       </ul>
 
       <div class="panel-footer"></div>
@@ -259,6 +284,14 @@
           </div>
         </div>
       </div>
+
+
+
+
+
+      <br>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <br><button class="btn btn-default btn-lg">Get in Touch</button>
     </div>
     <div class="col-sm-4">
 
@@ -269,26 +302,27 @@
 <div class="container-fluid bg-grey">
   <div class="row">
     <div class="col-sm-4">
-  <img class="img-responsive" src="/home/acer/Documentos/proyecto_utna_2018/templates/mapa.png">
+      <span class="glyphicon glyphicon-globe logo slideanim"></span>
     </div>
     <div class="col-sm-8">
-      <h2>INIFAP</h2><br>
-      <h4><strong>Pronóstico del clima</strong><br>El Laboratorio Nacional de Modelaje y Sensores Remotos (LNMySR), es el responsable por INIFAP de emitir los pronósticos de las condiciones de humedad y temperatura. Se emiten dos prónosticos: uno Estacional y otro de corto Plazo.</h4><br>
-      <p><strong>Red Nacional de Estaciones Agrometeorológicas Automatizadas</strong><br> La Red Nacional de Estaciones Agroclimáticas Automatizadas (RNEAA), fue diseñada para proveer el servicio de monitoreo de las variables del clima. Con una distribución geográfica nacional, las estaciones están equipadas con sensores electrónicos que registran datos de: temperatura, humedad relativa, precipitación, radiación solar global, y velocidad y dirección del viento, a una frecuencia continua de 15 minutos. Una vez sometidos a pruebas de análisis de calidad, los paquetes de datos son manejados y almacenados en el Laboratorio Nacional de modelaje y Sensores Remotos.</p>
+      <h2>Our Values</h2><br>
+      <h4><strong>MISSION:</strong> Our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
+      <p><strong>VISION:</strong> Our vision Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
   </div>
 </div>
 
 <!-- Container (Services Section) -->
 <div id="services" class="container-fluid text-center">
-  <h2>SERVICIOS</h2>
+  <h2>SERVICES</h2>
   <h4>What we offer</h4>
   <br>
   <div class="row slideanim">
     <div class="col-sm-4">
       <span class="glyphicon glyphicon-off logo-small"></span>
-      <h4><a href="https://es-la.facebook.com/inifap/" title="Visita nuestra página de facebook">INIFAP</a></h4>
-      <p><href>Facebook Oficial</p>
+      <h4>POWER</h4>
+      <p>Lorem ipsum dolor sit amet..</p>
     </div>
     <div class="col-sm-4">
       <span class="glyphicon glyphicon-heart logo-small"></span>
@@ -480,9 +514,17 @@
 </div>
 
 <!-- Add Google Maps -->
-<div class="Container">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3695.071579683097!2d-102.27103644987454!3d22.16134718532423!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8429e2a0a4981e9d%3A0x5a9ab52cd4e348b0!2sInifap!5e0!3m2!1ses-419!2smx!4v1528295375462" width="1100" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-</div>
+<div id="googleMap" style="height:400px;width:100%;"></div>
+<script>
+function myMap() {
+var myCenter = new google.maps.LatLng(41.878114, -87.629798);
+var mapProp = {center:myCenter, zoom:12, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+var marker = new google.maps.Marker({position:myCenter});
+marker.setMap(map);
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
 <!--
 To use this code on your website, get a free API key from Google.
 Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp

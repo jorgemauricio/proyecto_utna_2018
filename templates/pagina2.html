@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="http://clima.inifap.gob.mx/lnmysr/favicon.ico" rel="shortcut icon" type="image/x-icon" />
   <style>
   body {
       font: 400 15px Lato, sans-serif;
@@ -82,7 +83,7 @@
       font-style: normal;
   }
   .panel {
-      border: 1px solid #f4511e;
+      border: 1px solid #A9F5A9;
       border-radius:0 !important;
       transition: box-shadow 0.5s;
   }
@@ -134,7 +135,7 @@
       color: #fff !important;
   }
   .navbar-nav li a:hover, .navbar-nav li.active a {
-      color: #f4511e !important;
+      color: #298A08 !important;
       background-color: #fff !important;
   }
   .navbar-default .navbar-toggle {
@@ -192,8 +193,8 @@
   </style>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-
 <nav class="navbar navbar-default navbar-fixed-top">
+
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -205,7 +206,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#about">Estaciones</a></li>
         <li><a href="#services">SERVICES</a></li>
         <li><a href="#portfolio">PORTFOLIO</a></li>
         <li><a href="#pricing">PRICING</a></li>
@@ -217,17 +218,19 @@
 
 <div class="jumbotron text-center">
   <h1>Estaciones</h1>
-  <p>INIFAP Campo Experimental</p>
+  <p>Laboratorio Nacional de Modelaje y Sensores Remotos</p>
   <form>
     <div class="input-group">
-      <input type="email" class="form-control" size="50" placeholder="Buscar estación" required>
+      <input type="text" class="form-control" size="50" placeholder="Buscar estación" required>
       <div class="input-group-btn">
         <button type="button" class="btn btn-danger">Buscar</button>
       </div>
     </div>
   </form>
 </div>
-
+<div class="container">
+  <img class="img-responsive" src="http://clima.inifap.gob.mx/lnmysr/Content/documentos/INIFAP_Website/header_4_v2.png">
+</div>
 <!-- Container (About Section) -->
 <div id="about" class="container-fluid">
   <div class="row">
@@ -243,14 +246,14 @@
              <a data-toggle="collapse" href="#Seleccion">Selecciona una estación</a>
            </h3>
          </div>
+
            <div id="Seleccion" class="panel-collapse collapse">
              <ul class="list-group">
 
-        {%for e,x in da1.items()%}
-          <li class="list-group-item"><a href ="/{{estado}}/{{nums}}/{{x}}/{{estaci[e]}}">{{x}}</a></li>
+        {%for i,x in da1.items()%}
+          <li class="list-group-item"><a href ="/{{estado}}/{{nums}}/{{x}}/{{estaci[i]}}">{{x}}</a></li>
         {%endfor%}
       </ul>
-
       <div class="panel-footer"></div>
             </div>
           </div>
@@ -266,7 +269,7 @@
       <br><button class="btn btn-default btn-lg">Get in Touch</button>
     </div>
     <div class="col-sm-4">
-      <span class="glyphicon glyphicon-signal logo"></span>
+
     </div>
   </div>
 </div>
@@ -328,35 +331,7 @@
 </div>
 
 <!-- Container (Portfolio Section) -->
-<div id="portfolio" class="container-fluid text-center bg-grey">
-  <h2>Portfolio</h2><br>
-  <h4>What we have created</h4>
-  <div class="row text-center slideanim">
-    <div class="col-sm-4">
-      <div class="thumbnail">
-        <img src="paris.jpg" alt="Paris" width="400" height="300">
-        <p><strong>Paris</strong></p>
-        <p>Yes, we built Paris</p>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="thumbnail">
-        <img src="newyork.jpg" alt="New York" width="400" height="300">
-        <p><strong>New York</strong></p>
-        <p>We built New York</p>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="thumbnail">
-        <img src="sanfran.jpg" alt="San Francisco" width="400" height="300">
-        <p><strong>San Francisco</strong></p>
-        <p>Yes, San Fran is ours</p>
-      </div>
-    </div>
-  </div><br>
 
-  <h2>What our customers say</h2>
-  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
