@@ -7,8 +7,9 @@
    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <title>Estados - LNMySR</title>
+    <title>Datos Diarios - LNMySR</title>
 
+<!--Estilo de la página-->
     <style>
     body {
         font: 20px Montserrat, sans-serif;
@@ -51,7 +52,7 @@
         color: #B18904 !important;<!-- #1abc9c -->
     }
     </style>
-
+<!--Estilo del mapa-->
     <style>
          /* Always set the map height explicitly to define the size of the div
           * element that contains the map. */
@@ -65,6 +66,41 @@
            padding: 0;
          }
        </style>
+<!--Estilo del los iconos sociales-->
+      <style>
+      .social:hover {
+           -webkit-transform: scale(1.1);
+           -moz-transform: scale(1.1);
+           -o-transform: scale(1.1);
+       }
+       .social {
+           -webkit-transform: scale(0.8);
+           /* Browser Variations: */
+
+           -moz-transform: scale(0.8);
+           -o-transform: scale(0.8);
+           -webkit-transition-duration: 0.5s;
+           -moz-transition-duration: 0.5s;
+           -o-transition-duration: 0.5s;
+       }
+
+      /*
+          Multicoloured Hover Variations
+      */
+
+       #social-fb:hover {
+           color: #3B5998;
+       }
+       #social-tw:hover {
+           color: #4099FF;
+       }
+       #social-gp:hover {
+           color: #d34836;
+       }
+       #social-em:hover {
+           color: #f39c12;
+       }
+      </style>
 
 </head>
 <body>
@@ -90,6 +126,7 @@
 </div>
 
 <div id="map"></div>
+<!-- Script del mapa -->
      <script>
 
        function initMap() {
@@ -166,9 +203,25 @@
 </br>
 </br>
 
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<!-- Iconos de redes sociales -->
+<div class="container">
+    <hr>
+        <div class="text-center center-block">
+            <p class="txt-railway"> Siguenos </p>
+            <br />
+              <a href="https://www.facebook.com/Laboratorio-Nacional-de-Modelaje-y-Sensores-Remotos-Inifap-1302854409816630/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+	            <a href="https://accounts.google.com/signin/v2/identifier?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F%3Ftab%3Dwm&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+	            <a href="https://mail.inifap.gob.mx/owa"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+</div>
+    <hr>
+</div>
+
+<br />
 
 <div class="container-fluid bg-1 text-center">
-<p><strong>INIFAP - Campo Experimental Pabellón - Laboratorio Nacional de Modelaje y Sensores Remotos</p></strong>
+<p><strong>© 2018 - INIFAP - Campo Experimental Pabellón - Laboratorio Nacional de Modelaje y Sensores Remotos</p></strong>
 <h5>Km. 32.5 Carretera Panamericana Aguascalientes - Zacatecas
 Pabellón de Arteaga, Aguascalientes, México
 Apartado Postal No. 20 // C.P. 20670

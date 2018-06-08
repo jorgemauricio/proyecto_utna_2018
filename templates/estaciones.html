@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Estacion</title>
+    <title>Estación - LNMySR</title>
   </head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,7 +9,7 @@
  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <title>Estación</title>
+
   <style>
   body {
       font: 20px Montserrat, sans-serif;
@@ -69,7 +69,7 @@
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/proyecto_utna_2018/templates/estacion.html">Regresar</a></li>
+            <li><a href="{{u}}">Regresar</a></li>
           </div>
         </div>
     </nav>
@@ -89,58 +89,62 @@
          <table class="table table-hover">
            <thead>
              <tr>
-               <th>Descripción</th>
-               <th>Dato</th>
+               <th class="col-sm-4">Descripción</th>
+               <th class="col-sm-4">Dato</th>
              </tr>
            </thead>
            <tbody>
              <tr>
-               <td>Numero</td>
-               <td>{{dato2['estaciones'][0]['Numero']}}</td>
+               <td><h4>Número de Estación</td>
+               <td><h4>{{dato2['estaciones'][0]['Numero']}}</td>
              </tr>
              <tr>
-               <td>Dirv</td>
-               <td>{{dato2['estaciones'][0]['Dirv']}}</td>
+               <td><h4>Dirección promedio del viento (Dirv)</td>
+               <td><h4>{{dato2['estaciones'][0]['Dirv']}}</td>
              </tr>
              <tr>
-               <td>Eto</td>
-               <td>{{dato2['estaciones'][0]['Eto']}}</td>
+               <td><h4>Evapotranspiración (Eto)</td>
+               <td><h4>{{dato2['estaciones'][0]['Eto']}}</td>
              </tr>
              <tr>
-               <td>Fecha</td>
-               <td>{{dato2['estaciones'][0]['Fecha']}}</td>
+               <td><h4>Fecha </td>
+               <td><h4>{{dato2['estaciones'][0]['Fecha']}}</td>
              </tr>
              <tr>
-               <td>FechaParseo</td>
-               <td>{{dato2['estaciones'][0]['FechaParseo']}}</td>
+               <td><h4>FechaParseo</td>
+               <td><h4>{{dato2['estaciones'][0]['FechaParseo']}}</td>
              </tr>
              <tr>
-               <td>Fecha</td>
-               <td>{{dato2['estaciones'][0]['Fecha']}}</td>
+               <td><h4>Humedad (Humh)</td>
+               <td><h4>{{dato2['estaciones'][0]['Humh']}}</td>
              </tr>
              <tr>
-               <td>Humh</td>
-               <td>{{dato2['estaciones'][0]['Humh']}}</td>
+               <td><h4>Humedad relativa (Humr)</td>
+               <td><h4>{{dato2['estaciones'][0]['Humr']}}</td>
              </tr>
              <tr>
-               <td>Humr</td>
-               <td>{{dato2['estaciones'][0]['Humr']}}</td>
+               <td><h4>Precipitación (Prec)</td>
+               <td><h4>{{dato2['estaciones'][0]['Prec']}}</td>
              </tr>
              <tr>
-               <td>Prec</td>
-               <td>{{dato2['estaciones'][0]['Prec']}}</td>
+               <td><h4>Radiación global (Radg)</td>
+               <td><h4>{{dato2['estaciones'][0]['Radg']}}</td>
              </tr>
              <tr>
-               <td>Radg</td>
-               <td>{{dato2['estaciones'][0]['Radg']}}</td>
+               <td><h4>Temperatura (Temt)</td>
+               <td><h4>{{dato2['estaciones'][0]['Temt']}}</td>
              </tr>
              <tr>
-               <td>Temt</td>
-               <td>{{dato2['estaciones'][0]['Temt']}}</td>
+               <td><h4>Velocidad (Velv)</td>
+               <td><h4>{{dato2['estaciones'][0]['Velv']}}</td>
              </tr>
              <tr>
-               <td>Velv</td>
-               <td>{{dato2['estaciones'][0]['Velv']}}</td>
+               <td><h4>Indíce de calor (IC)</td>
+               <td><h4>{{dat3}}</td>
+             </tr>
+             <tr>
+               <td><h4>Punto de rocío (PR)</td>
+               <td><h4>{{pr}}</td>
              </tr>
            </tbody>
          </table>
@@ -152,7 +156,7 @@
 
 </center>
 <div class="container-fluid bg-1 text-center">
-<p><strong>INIFAP - Campo Experimental Pabellón - Laboratorio Nacional de Modelaje y Sensores Remotos</p></strong>
+<p><strong>© 2018 - INIFAP - Campo Experimental Pabellón - Laboratorio Nacional de Modelaje y Sensores Remotos</p></strong>
 <h5>Km. 32.5 Carretera Panamericana Aguascalientes - Zacatecas
 Pabellón de Arteaga, Aguascalientes, México
 Apartado Postal No. 20 // C.P. 20670
