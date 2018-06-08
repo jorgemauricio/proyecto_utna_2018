@@ -1,13 +1,299 @@
-<html>
+<!DOCTYPE html>
+
+<html lang="en">
   <head>
-    <title>Practica de flask !</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://clima.inifap.gob.mx/lnmysr/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+   <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 50%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+
+    <title>Estados - LNMySR</title>
+
+    <style>
+    body {
+        font: 20px Montserrat, sans-serif;
+        line-height: 1.8;
+        color: #f5f6f7;
+    }
+    p {font-size: 16px;}
+    .margin {margin-bottom: 45px;}
+    .bg-1 {
+        background-color: #B18904 ; /* Brown Green #1abc9c*/
+        color: #ffffff;
+    }
+    .bg-2 {
+        background-color: #474e5d; /* Dark Blue */
+        color: #ffffff;
+    }
+    .bg-3 {
+        background-color: #ffffff; /* White */
+        color: #555555;
+    }
+    .bg-4 {
+        background-color: #2f2f2f; /* Black Gray */
+        color: #fff;
+    }
+    .container-fluid {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .navbar {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        border: 0;
+        border-radius: 0;Se emiten dos prónosticos: uno Estacional y otro de corto Plazo
+        margin-bottom: 0;
+        font-size: 12px;
+        letter-spacing: 5px;
+    }
+    .navbar-nav  li a:hover {
+        color: #B18904 !important;<!-- #1abc9c -->
+    }
+    </style>
+
+  <style>
+  .container {
+      margin-top: 10px;
+  }
+
+  /* Carousel Styles */
+  .carousel-indicators .active {
+      background-color: #2980b9;
+  }
+
+  .carousel-inner img {
+      width: 130%;
+      max-height: 460px
+  }
+
+  .carousel-control {
+      width: 0;
+  }
+
+  .carousel-control.left,
+  .carousel-control.right {
+  	opacity: 1;
+  	filter: alpha(opacity=100);
+  	background-image: none;
+  	background-repeat: no-repeat;
+  	text-shadow: none;
+  }
+
+  .carousel-control.left span {
+  	padding: 0px;
+  }
+
+  .carousel-control.right span {
+  	padding: 0px;
+  }
+
+  .carousel-control .glyphicon-chevron-left,
+  .carousel-control .glyphicon-chevron-right,
+  .carousel-control .icon-prev,
+  .carousel-control .icon-next {
+  	position: absolute;
+  	top: 45%;
+  	z-index: 5;
+  	display: inline-block;
+  }
+
+  .carousel-control .glyphicon-chevron-left,
+  .carousel-control .icon-prev {
+  	left: 0;
+  }
+
+  .carousel-control .glyphicon-chevron-right,
+  .carousel-control .icon-next {
+  	right: 0;
+  }
+
+  .carousel-control.left span,
+  .carousel-control.right span {
+  	background-color: #000;
+  }
+
+  .carousel-control.left span:hover,
+  .carousel-control.right span:hover {
+  	opacity: .7;
+  	filter: alpha(opacity=70);
+  }
+
+  /* Carousel Header Styles */
+  .header-text {
+      position: absolute;
+      top: 20%;
+      left: 1.8%;
+      right: auto;
+      width: 96.66666666666666%;
+      color: #fff;
+  }
+
+  .header-text h2 {
+      font-size: 40px;
+  }
+
+  .header-text h2 span {
+      background-color: #2980b9;
+  	padding: 10px;
+  }
+
+  .header-text h3 span {
+  	background-color: #000;
+  	padding: 15px;
+  }
+
+  .btn-min-block {
+      min-width: 170px;
+      line-height: 26px;
+  }
+
+  .btn-theme {
+      color: #fff;
+      background-color: transparent;
+      border: 2px solid #fff;
+      margin-right: 15px;
+  }
+
+  .btn-theme:hover {
+      color: #000;
+      background-color: #fff;
+      border-color: #fff;
+  }
+  </style>
+
   </head>
   <body>
-    <hi>Estados</h1>
-    <ul>
-      {%for d,v in dato.items()%}
-        <li><a href="{{v}}/{{d+1}}">{{v}}</a></li>
-      {% endfor %}
-    <ul>
+
+
+
+<nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+      <a class="navbar-brand" href="http://clima.inifap.gob.mx/lnmysr/Principal/Index">LNMySR</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+      </div>
+    </div>
+</nav>
+</br>
+<div class="container">
+  <center>
+  <img src="http://clima.inifap.gob.mx/lnmysr/Content/documentos/INIFAP_Website/header_4_v2.png" class="img-responsive" width="1000" height="300">
+</center>
+</div>
+<div class="container-fluid bg-3 text-center">
+  <h1 class="margin">Datos Diarios</h1><br>
+</div>
+
+  <div id="map"></div>
+     <script>
+
+       function initMap() {
+         var uluru = {lat: 22.162131, lng: -102.295401};
+         var map = new google.maps.Map(document.getElementById('map'), {
+           zoom: 6,
+           center: uluru
+         });
+
+         var contentString = '<div id="content">'+
+             '<div id="siteNotice">'+
+             '</div>'+
+             '<h1 id="firstHeading" class="firstHeading" style="color:#000000";>LNMySR</h1>'+
+             '<div id="bodyContent">'+
+             '<p style="color:#000000";>Se localiza en el Municipio de Pabellón de Arteaga del Estado de Aguascalientes, México'+
+             '<p style="color:#000000";>y se encuentra en las coordenadas GPS:'+
+             '<p style="color:#000000";>Longitud (dec): -102.294444'+
+             '<p style="color:#000000";>Latitud (dec): 22.162778'+
+             '<p style="color:#000000";>La localidad se encuentra a una mediana altura de 1922 metros sobre el nivel del mar.</p>'+
+             '</div>'+
+             '</div>';
+
+         var infowindow = new google.maps.InfoWindow({
+           content: contentString
+         });
+
+         var marker = new google.maps.Marker({
+           position: uluru,
+           map: map,
+           title: 'INIFAP'
+         });
+         marker.addListener('click', function() {
+           infowindow.open(map, marker);
+         });
+       }
+     </script>
+     <script async defer
+     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyoOSCgSzgU2MQZkQ8LnaK74GJxUtmjGM&callback=initMap">
+     </script>
+</br>
+</br>
+
+<div class="container-fluid bg-2 ">
+      <p>Responsable de emitir los pronósticos de las condiciones de humedad y temperatura.
+        Se emiten dos prónosticos: uno Estacional y otro de corto Plazo.</p>
+</div>
+</div>
+
+
+
+
+<div class="container bg-3">
+  <h2>Estados</h2>
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#Seleccion">Selecionar</a>
+        </h4>
+      </div>
+      <div id="Seleccion" class="panel-collapse collapse">
+        <ul class="list-group">
+          {%for d,v in dato.items()%}
+          <h4>  <li class="list-group-item"><a href="{{v}}/{{d+1}}">{{v}}</a></li></h4>
+          {%endfor%}
+        </ul>
+        <div class="panel-footer"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</br>
+</br>
+</br>
+</br>
+
+
+
+
+
+<div class="container-fluid bg-1 text-center">
+<p><strong>INIFAP - Campo Experimental Pabellón - Laboratorio Nacional de Modelaje y Sensores Remotos</p></strong>
+<h5>Km. 32.5 Carretera Panamericana Aguascalientes - Zacatecas
+Pabellón de Arteaga, Aguascalientes, México
+Apartado Postal No. 20 // C.P. 20670
+01 800 088 22 22 ext 82536. </h5>
+</div>
+
+
+
   </body>
 </html>

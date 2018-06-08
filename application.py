@@ -29,7 +29,7 @@ def est(name,id):
     df
     tac=df['Numero']
     tac
-#estac=tac
+     #estac=tac
     #print(df)
     return render_template('estacion.html',dato1=df['Nombre'],estado=name, num=id,estac=tac)
 
@@ -46,6 +46,10 @@ def estacion(estado,numesta,estacion,numero):
     data=json.loads(source)
     dicc=[]
     dicc=dict(data)
-
+    t= dicc['estaciones'][0]['Temt']#temperatura
+    h= dicc['estaciones'][0]['Humr']#humedad relativa
+    T=(9*int(t)/5)+32#conversion de °c a °f
+    HI = -42.379 + 2.04901523*T + 10.14333127*h - .22475541*T*h - .00683783*T*T - .05481717*h*h + .00122874*T*T*h + .00085282*T*h*h - .00000199*T*T*h*h
+    Pr= ((h/100)**(1/8))*(112+0.9*t)+0.1*t-112
     #print(df)
-    return render_template('estaciones.html',dato2=dicc)
+    return render_template('estaciones.html',dato2=dicc,dat3=HI,pr=Pr)
