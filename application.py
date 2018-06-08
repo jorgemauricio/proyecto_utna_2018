@@ -1,6 +1,7 @@
 #LIbrerias
 import pandas as pd
 import json
+import math
 from urllib.request import urlopen
 from flask import Flask, render_template
 from api import claves
@@ -45,5 +46,7 @@ def estacion(fir,esta,estacion,numes):
     T =F * 1.8000 + 32.00
 #IC = (-42.379 + (2.04901523 * T) + (10.14333127 * R) - (0.22475541 * (T*R))  - (6.83783e-3 * (T*T)) - (5.481717e-2 * (R*R)) + ( 1.22874e-3 * (T*T*R)) + (8.5282e-4 * (T*R*R)) - (1.99e-6 * (T*T*R*R)))
     IC=  -42.379 + 2.04901523*T + 10.14333127*RH - .22475541*T*RH - .00683783*T*T - .05481717*RH*RH + .00122874*T*T*RH + .00085282*T*RH*RH - .00000199*T*T*RH*RH
-    Pr= ((RH/100)*(100+F)-100)/8
+
+    Pr=((RH/100)**(1/8)) *(112+0.9*F)+0.1*F-112
+    print("temperatura: {}  hum= {} punto de rocio  {}".format(F,RH,Pr))
     return render_template('pagina3_1.html',da2=d,c=IC,pr=Pr)
