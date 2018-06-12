@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"><!--Establece el lenguaje, en este caso Español-->
   <head>
-    <meta charset="utf-8">
+    <!-- META controlar las dimensiones y la escala de la página.-->
+    <meta charset="utf-8"><!--Codificación de Caracteres-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="http://clima.inifap.gob.mx/lnmysr/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="http://clima.inifap.gob.mx/lnmysr/favicon.ico" rel="shortcut icon" type="image/x-icon" /><!--Icono-->
+   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"><!--Enlaces a bootstrap-->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <title>Datos Diarios - LNMySR</title>
 
-<!--Estilo de la página-->
+<!--Estilo del cuerpo de la página-->
     <style>
     body {
         font: 20px Montserrat, sans-serif;
@@ -18,6 +19,7 @@
     }
     p {font-size: 16px;}
     .margin {margin-bottom: 45px;}
+    /*Estilos a los fondos y del texto*/
     .bg-1 {
         background-color: #088A29 ; /*  Green #088A29*/
         color: #ffffff;
@@ -34,12 +36,12 @@
         background-color: #2f2f2f; /* Black Gray */
         color: #fff;
     }
-    .container-fluid {
+    .container-fluid { /*Contenedor*/
         padding-top: 20px;
         padding-bottom: 20px;
     }
 
-    .navbar {
+    .navbar { /* Barra de navegación */
         padding-top: 15px;
         padding-bottom: 15px;
         border: 0;
@@ -85,7 +87,7 @@
        }
 
       /*
-          Multicoloured Hover Variations
+          Estilos de los iconos
       */
 
        #social-fb:hover {
@@ -94,9 +96,6 @@
        #social-tw:hover {
            color: #4099FF;
        }
-       #social-gp:hover {
-           color: #d34836;
-       }
        #social-em:hover {
            color: #f39c12;
        }
@@ -104,10 +103,10 @@
 
 </head>
 <body>
-
+<!--Etiquetas de la barra de navegación-->
 <nav class="navbar navbar-default">
-    <div class="container">
-      <div class="navbar-header">
+    <div class="container"><!--Contenedor-->
+      <div class="navbar-header"><!--El encabezado de la barra-->
       <a class="navbar-brand" href="http://clima.inifap.gob.mx/lnmysr/Principal/Index">LNMySR</a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
@@ -116,6 +115,7 @@
     </div>
 </nav>
 </br>
+<!--Contenedor de la imagen del INIFAP-->
 <div class="container">
   <center>
   <img src="http://clima.inifap.gob.mx/lnmysr/Content/documentos/INIFAP_Website/header_4_v2.png" class="img-responsive" width="1000" height="300">
@@ -139,13 +139,13 @@
          var contentString = '<div id="content">'+
              '<div id="siteNotice">'+
              '</div>'+
-             '<h1 id="firstHeading" class="firstHeading" style="color:#000000";>LNMySR</h1>'+
+             '<h2 id="firstHeading" class="firstHeading" style="color:#000000";>LNMySR</h2>'+
              '<div id="bodyContent">'+
-             '<p style="color:#000000";>Se localiza en el Municipio de Pabellón de Arteaga del Estado de Aguascalientes, México'+
-             '<p style="color:#000000";>y se encuentra en las coordenadas GPS:'+
-             '<p style="color:#000000";>Longitud (dec): -102.294444'+
-             '<p style="color:#000000";>Latitud (dec): 22.162778'+
-             '<p style="color:#000000";>La localidad se encuentra a una mediana altura de 1922 metros sobre el nivel del mar.</p>'+
+             '<h6 style="color:#000000";>Municipio de Pabellón de Arteaga, Aguascalientes, México'+
+             '<h6 style="color:#000000";>y se encuentra en las coordenadas GPS:'+
+             '<h6 style="color:#000000";>Longitud (dec): -102.294444'+
+             '<h6 style="color:#000000";>Latitud (dec): 22.162778'+
+             '<h6 style="color:#000000";>La localidad se encuentra a una mediana altura de 1922 metros sobre el nivel del mar.</h6>'+
              '</div>'+
              '</div>';
 
@@ -156,13 +156,14 @@
          var marker = new google.maps.Marker({
            position: uluru,
            map: map,
-           title: 'INIFAP'
+           title: 'INIFAP (LNMySR)'
          });
          marker.addListener('click', function() {
            infowindow.open(map, marker);
          });
        }
      </script>
+     <!--API o Clave del Google Maps-->
      <script async defer
      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyoOSCgSzgU2MQZkQ8LnaK74GJxUtmjGM&callback=initMap">
      </script>
@@ -177,23 +178,25 @@
       </center>
 </div>
 </div>
-
+<!--Contenedor para el panel de selección-->
 <div class="container bg-3">
-  <h2>Estados</h2>
+</br>
+  <center><h2>Estados</h2></center>
+</br>
   <div class="panel-group">
     <div class="panel panel-default">
-      <div class="panel-heading">
+      <div class="panel-heading"><!--Encabezado del panel-->
         <h4 class="panel-title">
-          <a data-toggle="collapse" href="#Seleccion">Selecionar</a>
+          <a data-toggle="collapse" href="#Seleccion"><b>Selecionar</b></a>
         </h4>
       </div>
       <div id="Seleccion" class="panel-collapse collapse">
+        <!--Se utiliza el list group para poder llamar los elementos de la lista de Python-->
         <ul class="list-group">
           {%for d,v in dato.items()%}
-          <h4>  <li class="list-group-item"><a href="{{v}}/{{d+1}}">{{v}}</a></li></h4>
+          <h4>  <li class="list-group-item"><a href="{{v}}/{{d+1}}" style="color:#424242;">{{v}}</a></li></h4>
           {%endfor%}
         </ul>
-        <div class="panel-footer"></div>
       </div>
     </div>
   </div>
@@ -202,7 +205,7 @@
 </br>
 </br>
 </br>
-
+<!--Link de bootstrap para la visualización de los inconos-->
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 <!-- Iconos de redes sociales -->
@@ -219,7 +222,7 @@
 </div>
 
 <br />
-
+<!--Contenedor con la información del INIFAP-->
 <div class="container-fluid bg-1 text-center">
 <p><strong>© 2018 - INIFAP - Campo Experimental Pabellón - Laboratorio Nacional de Modelaje y Sensores Remotos</p></strong>
 <h5>Km. 32.5 Carretera Panamericana Aguascalientes - Zacatecas

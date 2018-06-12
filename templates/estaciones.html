@@ -3,13 +3,15 @@
   <head>
     <title>Estación - LNMySR</title>
   </head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="http://clima.inifap.gob.mx/lnmysr/favicon.ico" rel="shortcut icon" type="image/x-icon" />
- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <!-- META controlar las dimensiones y la escala de la página.-->
+  <meta charset="utf-8"><!--Codificación de Caracteres-->
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!--Caracteristicas de la ventana (Responsiva)-->
+  <link href="http://clima.inifap.gob.mx/lnmysr/favicon.ico" rel="shortcut icon" type="image/x-icon" /><!--Icono-->
+ <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"><!--Enlaces a bootstrap-->
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+<!--Estilo del cuerpo de la página-->
   <style>
   body {
       font: 20px Montserrat, sans-serif;
@@ -18,6 +20,7 @@
   }
   p {font-size: 16px;}
   .margin {margin-bottom: 45px;}
+  /*Estilos a los fondos y del texto*/
   .bg-1 {
       background-color: #088A29 ; /*  Green #088A29*/
       color: #ffffff;
@@ -34,12 +37,12 @@
       background-color: #2f2f2f; /* Black Gray */
       color: #fff;
   }
-  .container-fluid {
+  .container-fluid { /*Contenedor*/
       padding-top: 20px;
       padding-bottom: 20px;
   }
 
-  .navbar {
+  .navbar {  /* Barra de navegación */
       padding-top: 15px;
       padding-bottom: 15px;
       border: 0;
@@ -52,28 +55,39 @@
       color: #B18904 !important;<!-- #1abc9c -->
   }
   </style>
-
+<!--Estilo del panel-->
   <style>
   .panel-default > .panel-heading {
     color: #333;
-    background-color: #D8D8D8;
+    background-color: #F2F2F2;
     border-color: #1C1C1C;
   }
 
+
 </style>
+<!--Estilo del separador hr-->
+<style>
+hr {
+   height:3px;
+   background-color: #BDBDBD;
+   width: 100%;
+ }
+</style>
+
+<!--Etiquetas de la barra de navegación-->
   <body>
     <nav class="navbar navbar-default">
-        <div class="container">
-          <div class="navbar-header">
+        <div class="container"><!--Contenedor-->
+          <div class="navbar-header"><!--El encabezado de la barra-->
           <a class="navbar-brand" href="http://clima.inifap.gob.mx/lnmysr/Principal/Index">LNMySR</a>
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="{{u}}">Regresar</a></li>
+            <li><a href="{{ url_for("est", name = name, id = id) }}">Regresar</a></li>
           </div>
         </div>
     </nav>
-
+<!--Contenedor de la imagen del INIFAP-->
     <div class="container">
       <center>
       <img src="http://clima.inifap.gob.mx/lnmysr/Content/documentos/INIFAP_Website/header_4_v2.png" class="img-responsive" width="1000" height="300">
@@ -83,78 +97,207 @@
 <center>
 <div class="container bg-3">
   <div class="panel-group">
-    <div class="panel panel-default">
-       <div class="panel-heading"><h3>ULTIMO DATO</h3></div>
+    <!--Panel para la tabla-->
+       <div class="panel-heading"><h3>ÚLTIMO DATO</h3>
+         <h3><b>{{est}}</b></h3><!--Imprime el nombre del estado-->
+       </div>
+     </br>
        <div class="panel-body">
-         <table class="table table-hover">
-           <thead>
-             <tr>
-               <th class="col-sm-4">Descripción</th>
-               <th class="col-sm-4">Dato</th>
-             </tr>
-           </thead>
-           <tbody>
-             <tr>
-               <td><h4>Número de Estación</td>
-               <td><h4>{{dato2['estaciones'][0]['Numero']}}</td>
-             </tr>
-             <tr>
-               <td><h4>Dirección promedio del viento (Dirv)</td>
-               <td><h4>{{dato2['estaciones'][0]['Dirv']}}</td>
-             </tr>
-             <tr>
-               <td><h4>Evapotranspiración (Eto)</td>
-               <td><h4>{{dato2['estaciones'][0]['Eto']}}</td>
-             </tr>
-             <tr>
-               <td><h4>Fecha </td>
-               <td><h4>{{dato2['estaciones'][0]['Fecha']}}</td>
-             </tr>
-             <tr>
-               <td><h4>FechaParseo</td>
-               <td><h4>{{dato2['estaciones'][0]['FechaParseo']}}</td>
-             </tr>
-             <tr>
-               <td><h4>Humedad (Humh)</td>
-               <td><h4>{{dato2['estaciones'][0]['Humh']}}</td>
-             </tr>
-             <tr>
-               <td><h4>Humedad relativa (Humr)</td>
-               <td><h4>{{dato2['estaciones'][0]['Humr']}}</td>
-             </tr>
-             <tr>
-               <td><h4>Precipitación (Prec)</td>
-               <td><h4>{{dato2['estaciones'][0]['Prec']}}</td>
-             </tr>
-             <tr>
-               <td><h4>Radiación global (Radg)</td>
-               <td><h4>{{dato2['estaciones'][0]['Radg']}}</td>
-             </tr>
-             <tr>
-               <td><h4>Temperatura (Temt)</td>
-               <td><h4>{{dato2['estaciones'][0]['Temt']}}</td>
-             </tr>
-             <tr>
-               <td><h4>Velocidad (Velv)</td>
-               <td><h4>{{dato2['estaciones'][0]['Velv']}}</td>
-             </tr>
-             <tr>
-               <td><h4>Indíce de calor (IC)</td>
-               <td><h4>{{dat3}}</td>
-             </tr>
-             <tr>
-               <td><h4>Punto de rocío (PR)</td>
-               <td><h4>{{pr}}</td>
-             </tr>
-           </tbody>
-         </table>
+         <!--Tabla responsiva para visualización de los ultimos datos de la estación-->
+         <div class="table-responsive">
+           <table class="table table-hover">
+             <thead>
+               <tr>
+                 <th class="col-sm-4">Descripción</th>
+                 <th class="col-sm-4">Resultado</th>
+               </tr>
+             </thead>
+             <tbody>
+               <tr>
+                 <td><h4>Número de Estación</td>
+                 <td><h4>{{dato2['estaciones'][0]['Numero']}}</td>
+               </tr>
+               <tr>
+                 <td><h4>Dirección promedio del viento (Dirv)</td>
+                 <td><h4>{{dato2['estaciones'][0]['Dirv']}}</td>
+               </tr>
+               <tr>
+                 <td><h4>Evapotranspiración (Eto)</td>
+                 <td><h4>{{dato2['estaciones'][0]['Eto']}}</td>
+               </tr>
+               <tr>
+                 <td><h4>Fecha </td>
+                 <td><h4>{{dato2['estaciones'][0]['Fecha']}}</td>
+               </tr>
+               <tr>
+                 <td><h4>Fecha Parseo</td>
+                 <td><h4>{{dato2['estaciones'][0]['FechaParseo']}}</td>
+               </tr>
+               <tr>
+                 <td><h4>Humedad (Humh)</td>
+                 <td><h4>{{dato2['estaciones'][0]['Humh']}}</td>
+               </tr>
+               <tr>
+                 <td><h4>Humedad relativa (Humr)</td>
+                 <td><h4>{{dato2['estaciones'][0]['Humr']}}</td>
+               </tr>
+               <tr>
+                 <td><h4>Precipitación (Prec)</td>
+                 <td><h4>{{dato2['estaciones'][0]['Prec']}}</td>
+               </tr>
+               <tr>
+                 <td><h4>Radiación global (Radg)</td>
+                 <td><h4>{{dato2['estaciones'][0]['Radg']}}</td>
+               </tr>
+               <tr>
+                 <td><h4>Temperatura (Temt)</td>
+                 <td><h4>{{dato2['estaciones'][0]['Temt']}}</td>
+               </tr>
+               <tr>
+                 <td><h4>Velocidad (Velv)</td>
+                 <td><h4>{{dato2['estaciones'][0]['Velv']}}</td>
+               </tr>
+               <tr>
+                 <td><h4>Indíce de calor (IC)</td>
+                 <td><h4>{{dat3}}</td>
+               </tr>
+               <tr>
+                 <td><h4>Punto de rocío (PR)</td>
+                 <td><h4>{{pr}}</td>
+               </tr>
+             </tbody>
+           </table>
+         </div>
+          <hr>
        </div>
      </div>
+   </div>
+
+   <div class="container bg-3">
+     <div class="panel-group">
+       <!--<div class="panel panel-default">-->
+          <div class="panel-heading"><h3>DATOS HISTÓRICOS</h3>
+          </div>
+        </br>
+   <div class="panel-body">
+     <!--Tabla responsiva para visualización de los datos historicos de la estación-->
+     <div class="table-responsive">
+       <table class="table table-hover">
+         <thead>
+           <tr>
+             <th class="col-sm-1">Indíce</th>
+             <th class="col-sm-1">Número</th>
+             <th class="col-sm-1">Dirv</th>
+             <th class="col-sm-1">DirvMax</th>
+             <th class="col-sm-1">Ep</th>
+             <th class="col-sm-1">Et</th>
+             <th class="col-sm-1">FechaParseo</th>
+             <th class="col-sm-1">Humr</th>
+             <th class="col-sm-1">Prec</th>
+             <th class="col-sm-1">Radg</th>
+             <th class="col-sm-1">Tmax</th>
+             <th class="col-sm-1">Tmed</th>
+             <th class="col-sm-1">Tmin</th>
+             <th class="col-sm-1">Velv</th>
+             <th class="col-sm-1">VelvMax</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <td>0</td>
+             <td>{{consuf['Numero'][0]}}</td>
+             <td>{{consuf['Dirv'][0]}}</td>
+             <td>{{consuf['DirvVMax'][0]}}</td>
+             <td>{{consuf['Ep'][0]}}</td>
+             <td>{{consuf['Et'][0]}}</td>
+             <td>{{consuf['FechaParseo'][0]}}</td>
+             <td>{{consuf['Humr'][0]}}</td>
+             <td>{{consuf['Prec'][0]}}</td>
+             <td>{{consuf['Radg'][0]}}</td>
+             <td>{{consuf['Tmax'][0]}}</td>
+             <td>{{consuf['Tmed'][0]}}</td>
+             <td>{{consuf['Tmin'][0]}}</td>
+             <td>{{consuf['Velv'][0]}}</td>
+             <td>{{consuf['VelvMax'][0]}}</td>
+           </tr>
+           <tr>
+             <td>1</td>
+             <td>{{consuf['Numero'][1]}}</td>
+             <td>{{consuf['Dirv'][1]}}</td>
+             <td>{{consuf['DirvVMax'][1]}}</td>
+             <td>{{consuf['Ep'][1]}}</td>
+             <td>{{consuf['Et'][1]}}</td>
+             <td>{{consuf['FechaParseo'][1]}}</td>
+             <td>{{consuf['Humr'][1]}}</td>
+             <td>{{consuf['Prec'][1]}}</td>
+             <td>{{consuf['Radg'][1]}}</td>
+             <td>{{consuf['Tmax'][1]}}</td>
+             <td>{{consuf['Tmed'][1]}}</td>
+             <td>{{consuf['Tmin'][1]}}</td>
+             <td>{{consuf['Velv'][1]}}</td>
+             <td>{{consuf['VelvMax'][1]}}</td>
+           </tr>
+           <tr>
+             <td>2</td>
+             <td>{{consuf['Numero'][2]}}</td>
+             <td>{{consuf['Dirv'][2]}}</td>
+             <td>{{consuf['DirvVMax'][2]}}</td>
+             <td>{{consuf['Ep'][2]}}</td>
+             <td>{{consuf['Et'][2]}}</td>
+             <td>{{consuf['FechaParseo'][2]}}</td>
+             <td>{{consuf['Humr'][2]}}</td>
+             <td>{{consuf['Prec'][2]}}</td>
+             <td>{{consuf['Radg'][2]}}</td>
+             <td>{{consuf['Tmax'][2]}}</td>
+             <td>{{consuf['Tmed'][2]}}</td>
+             <td>{{consuf['Tmin'][2]}}</td>
+             <td>{{consuf['Velv'][2]}}</td>
+             <td>{{consuf['VelvMax'][2]}}</td>
+           </tr>
+           <tr>
+             <td>3</td>
+             <td>{{consuf['Numero'][3]}}</td>
+             <td>{{consuf['Dirv'][3]}}</td>
+             <td>{{consuf['DirvVMax'][3]}}</td>
+             <td>{{consuf['Ep'][3]}}</td>
+             <td>{{consuf['Et'][3]}}</td>
+             <td>{{consuf['FechaParseo'][3]}}</td>
+             <td>{{consuf['Humr'][3]}}</td>
+             <td>{{consuf['Prec'][3]}}</td>
+             <td>{{consuf['Radg'][3]}}</td>
+             <td>{{consuf['Tmax'][3]}}</td>
+             <td>{{consuf['Tmed'][3]}}</td>
+             <td>{{consuf['Tmin'][3]}}</td>
+             <td>{{consuf['Velv'][3]}}</td>
+             <td>{{consuf['VelvMax'][3]}}</td>
+           </tr>
+           <tr>
+             <td>4</td>
+             <td>{{consuf['Numero'][4]}}</td>
+             <td>{{consuf['Dirv'][4]}}</td>
+             <td>{{consuf['DirvVMax'][4]}}</td>
+             <td>{{consuf['Ep'][4]}}</td>
+             <td>{{consuf['Et'][4]}}</td>
+             <td>{{consuf['FechaParseo'][4]}}</td>
+             <td>{{consuf['Humr'][4]}}</td>
+             <td>{{consuf['Prec'][4]}}</td>
+             <td>{{consuf['Radg'][4]}}</td>
+             <td>{{consuf['Tmax'][4]}}</td>
+             <td>{{consuf['Tmed'][4]}}</td>
+             <td>{{consuf['Tmin'][4]}}</td>
+             <td>{{consuf['Velv'][4]}}</td>
+             <td>{{consuf['VelvMax'][4]}}</td>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+      <hr>
    </div>
  </div>
 </div>
 
 </center>
+<!--Contenedor con la información del INIFAP-->
 <div class="container-fluid bg-1 text-center">
 <p><strong>© 2018 - INIFAP - Campo Experimental Pabellón - Laboratorio Nacional de Modelaje y Sensores Remotos</p></strong>
 <h5>Km. 32.5 Carretera Panamericana Aguascalientes - Zacatecas

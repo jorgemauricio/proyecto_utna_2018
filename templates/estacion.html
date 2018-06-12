@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html><!--Establece el lenguaje, en este caso Español-->
   <head>
-    <meta charset="utf-8">
+    <!-- META controlar las dimensiones y la escala de la página.-->
+    <meta charset="utf-8"><!--Codificación de Caracteres-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="http://clima.inifap.gob.mx/lnmysr/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="http://clima.inifap.gob.mx/lnmysr/favicon.ico" rel="shortcut icon" type="image/x-icon" /> <!--Icono-->
+   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"><!--Enlaces a bootstrap-->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <title>Estaciones - LNMySR</title>
+
+    <!--Estilo del cuerpo de la página-->
     <style>
     body {
         font: 20px Montserrat, sans-serif;
@@ -16,6 +19,7 @@
     }
     p {font-size: 16px;}
     .margin {margin-bottom: 45px;}
+    /*Estilos a los fondos y del texto*/
     .bg-1 {
         background-color: #088A29 ; /* Green INIFAP #088A29*/
         color: #ffffff;
@@ -32,12 +36,12 @@
         background-color: #2f2f2f; /* Black Gray */
         color: #fff;
     }
-    .container-fluid {
+    .container-fluid { /*Contenedor*/
         padding-top: 20px;
         padding-bottom: 20px;
     }
 
-    .navbar {
+    .navbar { /* Barra de navegación */
         padding-top: 15px;
         padding-bottom: 15px;
         border: 0;
@@ -50,39 +54,32 @@
         color: #B18904 !important;<!-- #1abc9c -->
     }
     </style>
-<!--
-    <style>
-    .panel-default > .panel-heading {
-      color: #333;
-      background-color: #BDBDBD;
-      border-color: #1C1C1C;
-    }
 
-  </style>-->
   </head>
   <body>
+    <!--Etiquetas de la barra de navegación-->
     <nav class="navbar navbar-default">
-        <div class="container">
-          <div class="navbar-header">
+        <div class="container"><!--Contenedor-->
+          <div class="navbar-header"><!--El encabezado de la barra-->
           <a class="navbar-brand" href="http://clima.inifap.gob.mx/lnmysr/Principal/Index">LNMySR</a>
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="{{dato}}">Regresar</a></li>
+            <li><a href="{{ url_for("index") }}">Regresar</a></li><!--Se redirecciona a la página Index-->
           </div>
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container"><!--Contenedor de la imagen INIFAP-->
       <center>
       <img src="http://clima.inifap.gob.mx/lnmysr/Content/documentos/INIFAP_Website/header_4_v2.png" class="img-responsive" width="1000" height="300">
     </center>
     </div>
-
+    <!--Contenedor para el panel group de las estaciones-->
     <div class="container bg-3">
       <center>
       </br>
-      <h2>Estaciones</h2>
+      <h2>Estaciones de {{estado}}</h2>
     </br>
     </center>
     <div class="container bg-3">
@@ -90,15 +87,14 @@
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a data-toggle="collapse" href="#Seleccion">Selecionar</a>
+              <a data-toggle="collapse" href="#Seleccion"><b>Selecionar</b></a>
             </h4>
           </div>
+          <!--Panel de selección de las estaciones desde Python-->
           <div id="Seleccion" class="panel-collapse collapse">
-            <ul class="list-group">
               {%for d,v in dato1.items()%}
-              <div class="panel-body"><a href="/{{estado}}/{{num}}/{{v}}/{{estac[d]}}">{{v}}</a></div>
+              <div class="panel-body"><a href="/{{estado}}/{{num}}/{{v}}/{{estac[d]}}" style="color:#424242;">{{v}}</a></div>
               {% endfor %}
-          </ul>
           <div class="panel-footer"></div>
         </div>
       </div>
@@ -110,6 +106,7 @@
 </br>
 </br>
 </br>
+<!--Contenedor con la información del INIFAP-->
 <div class="container-fluid bg-1 text-center">
 <p><strong>© 2018 - INIFAP - Campo Experimental Pabellón - Laboratorio Nacional de Modelaje y Sensores Remotos</p></strong>
 <h5>Km. 32.5 Carretera Panamericana Aguascalientes - Zacatecas
