@@ -65,13 +65,24 @@
 
 
 </style>
-<!--Estilo del separador hr-->
+<!--Estilo del separador hr y de la tabla dinámica-->
 <style>
 hr {
    height:3px;
    background-color: #BDBDBD;
    width: 100%;
  }
+ .nav-tabs > li {
+    float:none;
+    display:inline-block;
+    zoom:1;
+    color: #B18904;
+}
+
+.nav-tabs {
+    text-align:center;
+
+}
 </style>
 
 <!--Etiquetas de la barra de navegación-->
@@ -295,7 +306,69 @@ hr {
    </div>
  </div>
 </div>
+<!--Tabla dinámica-->
+<div class="container bg-3">
+  <h2>PROMEDIO</h2>
+  <p>Promedio de los 5 días de cada uno de los datos históricos</p>
+</br>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#EP">EP</a></li>
+    <li><a data-toggle="tab" href="#ET">ET</a></li>
+    <li><a data-toggle="tab" href="#Humr">Humr</a></li>
+    <li><a data-toggle="tab" href="#Radg">Radg</a></li>
+    <li><a data-toggle="tab" href="#Tmax">Tmax</a></li>
+    <li><a data-toggle="tab" href="#Tmed">Tmed</a></li>
+    <li><a data-toggle="tab" href="#Tmin">Tmin</a></li>
+    <li><a data-toggle="tab" href="#Velv">Velv</a></li>
+    <li><a data-toggle="tab" href="#VelvMax">VelvMax</a></li>
+    <li><a data-toggle="tab" href="#SumPrec">SumPrec</a></li>
+  </ul>
 
+  <div class="tab-content">
+    <div id="EP" class="tab-pane fade in active">
+      <h3>Evaporación potencial</h3>
+      <p>{{Ep}}</p>
+    </div>
+    <div id="ET" class="tab-pane fade">
+      <h3>Evapotranspiración</h3>
+      <p>{{Et}}</p>
+    </div>
+    <div id="Humr" class="tab-pane fade">
+      <h3>Humedad relativa</h3>
+      <p>{{Humr}}</p>
+    </div>
+    <div id="Radg" class="tab-pane fade">
+      <h3>Radiación global</h3>
+      <p>{{Radg}}</p>
+    </div>
+    <div id="Tmax" class="tab-pane fade">
+      <h3>Temperatura máxima (°C)</h3>
+      <p>{{Tmax}}</p>
+    </div>
+    <div id="Tmed" class="tab-pane fade">
+      <h3>Temperatura media (°C)</h3>
+      <p>{{Tmed}}</p>
+    </div>
+    <div id="Tmin" class="tab-pane fade">
+      <h3>Temperatura mínima (°C)</h3>
+      <p>{{Tmin}}</p>
+    </div>
+    <div id="Velv" class="tab-pane fade">
+      <h3>Velocidad</h3>
+      <p>{{Velv}}</p>
+    </div>
+    <div id="VelvMax" class="tab-pane fade">
+      <h3>Velocidad Máxima</h3>
+      <p>{{VelvMax}}</p>
+    </div>
+    <div id="SumPrec" class="tab-pane fade">
+      <h3>Suma Precipitación</h3>
+      <p>{{sumPrec}}</p>
+    </div>
+  </div>
+</div>
+</br>
+</br>
 </center>
 <!--Contenedor con la información del INIFAP-->
 <div class="container-fluid bg-1 text-center">
