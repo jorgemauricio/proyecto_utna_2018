@@ -55,6 +55,7 @@ def estacion(estado,numesta,estacion,numero):
     T=(9*int(t)/5)+32#Conversion de °c a °f
     #Indice de calor
     HI = -42.379 + 2.04901523*T + 10.14333127*h - .22475541*T*h - .00683783*T*T - .05481717*h*h + .00122874*T*T*h + .00085282*T*h*h - .00000199*T*T*h*h
+    #Punto de Rocío
     Pr= ((h/100)**(1/8))*(112+0.9*t)+0.1*t-112
 
     fecha1=fecha()
