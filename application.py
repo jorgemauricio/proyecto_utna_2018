@@ -16,7 +16,7 @@ def index():
     df=pd.DataFrame(data['estados'])
     return render_template("index.html", dato=df['Nombre'])
 #@app.route('/<string:name>')
-#def hello(name):
+#def hello(name):[sum('Prec')]
 #    return "<h1>Tu elegiste: {}</h1>".format(name.upper())
 @app.route('/<string:name>/<string:id>')
 def est(name,id):
@@ -50,6 +50,7 @@ def estacion(estado,numesta,estacion,numero):
     t= dicc['estaciones'][0]['Temt']#temperatura
     h= dicc['estaciones'][0]['Humr']#humedad relativa
     T=(9*int(t)/5)+32#conversion de °c a °f
+    #indice de calor:
     HI = -42.379 + 2.04901523*T + 10.14333127*h - .22475541*T*h - .00683783*T*T - .05481717*h*h + .00122874*T*T*h + .00085282*T*h*h - .00000199*T*T*h*h
     Pr= ((h/100)**(1/8))*(112+0.9*t)+0.1*t-112#punto de rocio
 
@@ -59,8 +60,8 @@ def estacion(estado,numesta,estacion,numero):
     print(fecha1,"    ",fechaC)
     #print(df)
     print("numesta: {}  numero: {} fecha1 {}   fecha2 {}".format(estacion,numero,fecha1,fechaC))
-    cons=consulta1(estacion,numero,fecha1,fechaC)
-    return render_template('estaciones.html',dato2=dicc,dat3=HI,pr=Pr,consuf=cons)
+    cons,promEp, promEt, promHumr, promRadg, promTmax, promTmed, promTmin, promVelv, promVelvMax, sumPrec =consulta1(estacion,numero,fecha1,fechaC)
+    return render_template('estaciones.html',dato2=dicc,dat3=HI,pr=Pr,consuf=cons,est=numesta,Ep=promEp, Et=promEt, Humr=promHumr,Radg=promRadg, Tmax=promTmax, Tmed=promTmed, Tmin=promTmin, Velv=promVelv, VelvMax=promVelvMax, sumPrec=sumPrec)
 
 def consulta1(estacion,numero,fecha,fechaC):
     print("numesta: {}  numero: {} fecha1 {}   fecha2 {}".format(estacion,numero,fecha,fechaC))
@@ -71,7 +72,27 @@ def consulta1(estacion,numero,fecha,fechaC):
         source=response.read()
     data=json.loads(source)
     df=pd.DataFrame(data['estaciones'])
-    return df
+    #promedio EP
+    promEp=df['Ep'].mean()
+     #promedio ET
+    promEt=df['Et'].mean()
+    #promedio Humr
+    promHumr=df['Humr'].mean()
+    #promedio Radg
+    promRadg=df['Radg'].mean()
+    #promedio Tmax
+    promTmax=df['Tmax'].mean()
+    #promedio Tmed
+    promTmed=df['Tmed'].mean()
+    #promedio Tmin
+    promTmin=df['Tmin'].mean()
+    #promedio Velv
+    promVelv=df['Velv'].mean()
+    #promedio VelvMax
+    promVelvMax=df['VelvMax'].mean()
+    #Suma de Precipitación
+    sumPrec=df["Prec"].sum()
+    return df,promEp, promEt, promHumr, promRadg, promTmax, promTmed, promTmin, promVelv, promVelvMax, sumPrec
 
 
 def fecha():
