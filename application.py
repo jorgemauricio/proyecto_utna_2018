@@ -61,8 +61,10 @@ def estacion(fir,esta,estacion,numes):
     fech1=funcionfecha()
     #se almacena el frame enviado desde el metodo de la segunda consulta, y se envian los datos de la primera
 
-    c=funconsulta(esta,numes,fech1,fecha)
-    return render_template('pagina3_1.html',da2=d,c=IC,pr=Pr,f=fecha,f2=fech1,consH=c)
+    c,suma,promEp,promEt,promHumr,promRadg,promTmax,promTmed,promTmin,promVelv,promVelvMax=funconsulta(esta,numes,fech1,fecha)
+    #
+    return render_template('pagina3_1.html',da2=d,c=IC,pr=Pr,f=fecha,f2=fech1,consH=c,sum=suma,pEp=promEp,pEt=promEt,pHumr=promHumr,pRadg=promRadg,pTmax=promTmax,pTmed=promTmed,pTmin=promTmin,pVelv=promVelv,pVelvMax=promVelvMax)
+    #
 #funcion de la segunda consulta, realizada en otra función para no afectar a la primer consulta
 def funconsulta(esta,numes,fech1,fecha):
     print("estacion:  {} numero  {} fecha1 {}  fecha 2 {}".format(esta,numes,fech1,fecha))
@@ -73,7 +75,18 @@ def funconsulta(esta,numes,fech1,fecha):
         source=response.read()
     data=json.loads(source)
     df = pd.DataFrame(data['estaciones'])
-    return df
+    sumaPrec=sum(df['Prec'])
+    promEp=df['Ep'].mean()
+    promEt=df['Et'].mean()
+    promHumr=df['Humr'].mean()
+    promRadg=df['Radg'].mean()
+    promTmax=df['Tmax'].mean()
+    promTmed=df['Tmed'].mean()
+    promTmin=df['Tmin'].mean()
+    promVelv=df['Velv'].mean()
+    promVelvMax=df['VelvMax'].mean()
+    return df,sumaPrec,promEp,promEt,promHumr,promRadg,promTmax,promTmed,promTmin,promVelv,promVelvMax
+    #
 
 def funcion(dia,mes,año,r):
     if mes==1:
