@@ -11,12 +11,11 @@
    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
+
       #map {
         height: 50%;
       }
-      /* Optional: Makes the sample page fill the window. */
+
       html, body {
         height: 100%;
         margin: 0;
@@ -35,7 +34,7 @@
     p {font-size: 16px;}
     .margin {margin-bottom: 45px;}
     .bg-1 {
-        background-color: #B18904 ; /* Brown Green #1abc9c*/
+        background-color: #088A29 ; /* Brown Green #1abc9c*/
         color: #ffffff;
     }
     .bg-2 {
@@ -73,116 +72,42 @@
   .container {
       margin-top: 10px;
   }
+</style>
+<!--Estilo del los iconos sociales-->
+      <style>
+      .social:hover {
+           -webkit-transform: scale(1.1);
+           -moz-transform: scale(1.1);
+           -o-transform: scale(1.1);
+       }
+       .social {
+           -webkit-transform: scale(0.8);
+           /* Browser Variations: */
 
-  /* Carousel Styles */
-  .carousel-indicators .active {
-      background-color: #2980b9;
-  }
+           -moz-transform: scale(0.8);
+           -o-transform: scale(0.8);
+           -webkit-transition-duration: 0.5s;
+           -moz-transition-duration: 0.5s;
+           -o-transition-duration: 0.5s;
+       }
 
-  .carousel-inner img {
-      width: 130%;
-      max-height: 460px
-  }
+      /*
+          Estilos de los iconos
+      */
 
-  .carousel-control {
-      width: 0;
-  }
-
-  .carousel-control.left,
-  .carousel-control.right {
-  	opacity: 1;
-  	filter: alpha(opacity=100);
-  	background-image: none;
-  	background-repeat: no-repeat;
-  	text-shadow: none;
-  }
-
-  .carousel-control.left span {
-  	padding: 0px;
-  }
-
-  .carousel-control.right span {
-  	padding: 0px;
-  }
-
-  .carousel-control .glyphicon-chevron-left,
-  .carousel-control .glyphicon-chevron-right,
-  .carousel-control .icon-prev,
-  .carousel-control .icon-next {
-  	position: absolute;
-  	top: 45%;
-  	z-index: 5;
-  	display: inline-block;
-  }
-
-  .carousel-control .glyphicon-chevron-left,
-  .carousel-control .icon-prev {
-  	left: 0;
-  }
-
-  .carousel-control .glyphicon-chevron-right,
-  .carousel-control .icon-next {
-  	right: 0;
-  }
-
-  .carousel-control.left span,
-  .carousel-control.right span {
-  	background-color: #000;
-  }
-
-  .carousel-control.left span:hover,
-  .carousel-control.right span:hover {
-  	opacity: .7;
-  	filter: alpha(opacity=70);
-  }
-
-  /* Carousel Header Styles */
-  .header-text {
-      position: absolute;
-      top: 20%;
-      left: 1.8%;
-      right: auto;
-      width: 96.66666666666666%;
-      color: #fff;
-  }
-
-  .header-text h2 {
-      font-size: 40px;
-  }
-
-  .header-text h2 span {
-      background-color: #2980b9;
-  	padding: 10px;
-  }
-
-  .header-text h3 span {
-  	background-color: #000;
-  	padding: 15px;
-  }
-
-  .btn-min-block {
-      min-width: 170px;
-      line-height: 26px;
-  }
-
-  .btn-theme {
-      color: #fff;
-      background-color: transparent;
-      border: 2px solid #fff;
-      margin-right: 15px;
-  }
-
-  .btn-theme:hover {
-      color: #000;
-      background-color: #fff;
-      border-color: #fff;
-  }
-  </style>
+       #social-fb:hover {
+           color: #3B5998;
+       }
+       #social-tw:hover {
+           color: #4099FF;
+       }
+       #social-em:hover {
+           color: #f39c12;
+       }
+      </style>
 
   </head>
   <body>
-
-
 
 <nav class="navbar navbar-default">
     <div class="container">
@@ -247,9 +172,11 @@
 </br>
 </br>
 
+<center>
 <div class="container-fluid bg-2 ">
       <p>Responsable de emitir los pronósticos de las condiciones de humedad y temperatura.
         Se emiten dos prónosticos: uno Estacional y otro de corto Plazo.</p>
+      </center>
 </div>
 </div>
 
@@ -257,21 +184,21 @@
 
 
 <div class="container bg-3">
-  <h2>Estados</h2>
+  <center><h2>Estados</h2></center>
   <div class="panel-group">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle="collapse" href="#Seleccion">Selecionar</a>
+          <a data-toggle="collapse" href="#Seleccion"><b>Selecionar</b></a>
         </h4>
       </div>
       <div id="Seleccion" class="panel-collapse collapse">
         <ul class="list-group">
           {%for d,v in dato.items()%}
-          <h4>  <li class="list-group-item"><a href="{{v}}/{{d+1}}">{{v}}</a></li></h4>
+          <h4>  <li class="list-group-item"><a href="{{v}}/{{d+1}}" style="color:#424242;">{{v}}</a></li></h4>
           {%endfor%}
         </ul>
-        <div class="panel-footer"></div>
+
       </div>
     </div>
   </div>
@@ -282,7 +209,23 @@
 </br>
 
 
+<!--Link de bootstrap para la visualización de los inconos-->
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<!-- Iconos de redes sociales -->
+<div class="container">
+    <hr>
+        <div class="text-center center-block">
+            <p class="txt-railway"> Siguenos </p>
+            <br />
+              <a href="https://www.facebook.com/Laboratorio-Nacional-de-Modelaje-y-Sensores-Remotos-Inifap-1302854409816630/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+	            <a href="https://accounts.google.com/signin/v2/identifier?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F%3Ftab%3Dwm&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+	            <a href="https://mail.inifap.gob.mx/owa"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+</div>
+    <hr>
+</div>
 
+<br />
 
 
 <div class="container-fluid bg-1 text-center">
