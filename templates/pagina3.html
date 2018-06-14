@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <!-- Theme Made By www.w3schools.com - No Copyright -->
-  <title>INIFAP Estados</title>
+  <title>INIFAP Ultimo Dato</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -64,13 +64,13 @@
   }
   .carousel-control.right, .carousel-control.left {
       background-image: none;
-      color: #f4511e;
+      color: #DBA901;
   }
   .carousel-indicators li {
-      border-color: #f4511e;
+      border-color: #DBA901;
   }
   .carousel-indicators li.active {
-      background-color: #f4511e;
+      background-color: #DF3A01;
   }
   .item h4 {
       font-size: 19px;
@@ -145,7 +145,7 @@
   footer .glyphicon {
       font-size: 20px;
       margin-bottom: 20px;
-      color: #f4511e;
+      color: #DBA901;
   }
   .slideanim {visibility:hidden;}
   .slide {
@@ -192,26 +192,9 @@
   }
   </style>
 </head>
-<script>
-var search = document.getElementById("search"),
-    food = document.getElementsByTagName("span"),
-    forEach = Array.prototype.forEach;
-
-search.addEventListener("keyup", function(e){
-    var choice = this.value;
-
-    forEach.call(food, function(f){
-        if (f.innerHTML.toLowerCase().search(choice.toLowerCase()) == -1)
-            f.parentNode.style.display = "none";
-        else
-            f.parentNode.style.display = "block";
-    });
-}, false);
-</script>
-
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-
 <nav class="navbar navbar-default navbar-fixed-top">
+
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -223,27 +206,21 @@ search.addEventListener("keyup", function(e){
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#about">Estados</a></li>
-        <li><a href="#services">SERVICES</a></li>
-        <li><a href="#portfolio">PORTFOLIO</a></li>
-        <li><a href="#pricing">PRICING</a></li>
-        <li><a href="#contact">CONTACT</a></li>
+        <li><a href="#about">ÚLTIMO DATO</a></li>
+        <li><a href="#historicos">HÍSTORICOS</a></li>
+        <li><a href="#portfolio">PORTAFOLIO</a></li>
+        <li><a href="#promedios">PROMEDIOS</a></li>
+        <li><a href= " {{ url_for ( 'datos' ) }} ">INICIO</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
 <div class="jumbotron text-center">
-  <h1>Estado</h1>
+  <h1>Último Dato</h1>
   <p>Laboratorio Nacional de Modelaje y Sensores Remotos</p>
   <form>
     <div class="input-group">
-      <label for = "search">Escoge un estado</label>
-      <input type = "text" id = "search" placeholder = "Your choice" autofocus />
-
-      <div class="input-group-btn">
-        <button type="button" class="btn btn-danger">Buscar</button>
-      </div>
     </div>
   </form>
 </div>
@@ -255,153 +232,183 @@ search.addEventListener("keyup", function(e){
   <div class="row">
     <div class="col-sm-8">
 
-      <h2>Estados</h2><br>
-      <div class="container bg-3">
-         <div class="panel-group">
-           <div class="panel panel-default">
+      <h2>Datos</h2><br>
 
-           <div class="panel-heading">
-           <h3 class="panel-title">
-             <a data-toggle="collapse" href="#Seleccion">Selecciona un estado</a>
-           </h3>
-         </div>
-           <div id="Seleccion" class="panel-collapse collapse">
-             <ul class="list-group">
+            <br>
+            <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+              <tr>
+                  <th><h4> Dato</h4></th>
+                  <th><h4> Numero</h4></th>
+              </tr>
+            </thead>
+            <tbody >
+            <tr>
+              <td > <font size="4" color="0B614B">Número </font></td>
+              <td><font size="4" color="0B614B">{{da2['estaciones'][0]['Numero']}}</font></td>
+            </tr>
+            <tr>
+              <td> <font size="4" color="0B614B">Fecha</font></td>
+              <td><font size="4" color="0B614B">{{da2['estaciones'][0]['Fecha']}}</font></td>
+            </tr>
+            <tr>
+              <td><font size="4" color="0B614B">Fecha de Parseo</font></td>
+              <td><font size="4" color="0B614B">{{da2['estaciones'][0]['FechaParseo']}}</font></td>
+            </tr>
+            <tr>
+              <td><font size="4" color="0B614B">Precipitación</font></td>
+              <td><font size="4" color="0B614B">{{da2['estaciones'][0]['Prec']}}</font></td>
+            </tr>
+            <tr>
+              <td><font size="4" color="0B614B">Temperatura</font></td>
+              <td><font size="4" color="0B614B">{{da2['estaciones'][0]['Temt']}}</font></td>
+            </tr>
+            <tr>
+              <td><font size="4" color="0B614B">Dirección del viento</font></td>
+              <td><font size="4" color="0B614B">{{da2['estaciones'][0]['Dirv']}}</font></td>
+            </tr>
+            <tr>
+              <td><font size="4" color="0B614B">Velocidad el viento</font></td>
+              <td><font size="4" color="0B614B">{{da2['estaciones'][0]['Velv']}}</font></td>
+            </tr>
+            <tr>
+              <td><font size="4" color="0B614B">Radiación global (W/m²)</font></td>
+              <td><font size="4" color="0B614B">{{da2['estaciones'][0]['Radg']}}</font></td>
+            </tr>
+            <tr>
+              <td><font size="4" color="0B614B">Humedad relativa (%)</font></td>
+              <td><font size="4" color="0B614B">{{da2['estaciones'][0]['Humr']}}</font></td>
+            </tr>
+            <tr>
+              <td><font size="4" color="0B614B">Humh</font></td>
+              <td><font size="4" color="0B614B">{{da2['estaciones'][0]['Humh']}}</font></td>
+            </tr>
+            <tr>
+              <td><font size="4" color="0B614B">Evapotranspiración</font></td>
+              <td><font size="4" color="0B614B">{{da2['estaciones'][0]['Eto']}}</font></td>
+            </tr>
+            <tr>
+              <td><font size="4" color="0B614B">Índice de calor</font></td>
+              <td><font size="4" color="0B614B">{{c}}</font></td>
+            </tr>
+            <tr>
+              <td><font size="4" color="0B614B">Punto de Rocío (°C)</font></td>
+              <td><font size="4" color="0B614B">{{pr}}</font></td>
+            </tr>
 
-
-
-
-
-       <section>
-        {%for d,v in da.items()%}
-          <li class="list-group-item"><span><a href="{{v}}/{{d+1}}">{{v}}</a><span></li>
-        {%endfor%}
-      </section>
-      </ul>
-
-      <div class="panel-footer"></div>
-            </div>
+            </tbody>
+            </table>
           </div>
-        </div>
-      </div>
-
 
 
 
 
       <br>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p></p>
       <br><button class="btn btn-default btn-lg">Get in Touch</button>
-    </div>
-    <div class="col-sm-4">
-
     </div>
   </div>
 </div>
 
-<div class="container-fluid bg-grey">
+<div class="container-fluid bg-grey" class="container">
   <div class="row">
     <div class="col-sm-4">
-      <span class="glyphicon glyphicon-globe logo slideanim"></span>
+
+
+      <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+            <th class="col-sm-4"><h4> Abreviatura</h4></th>
+            <th class="col-sm-4"><h4> Significado</h4></th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td ><font size="4" color="0B614B">Pp</font></td>
+        <td><font size="4" color="0B614B">Precipitación pluvial (mm)</font></td>
+      </tr>
+      <tr>
+        <td> <font size="4" color="0B614B">T.máx</font></td>
+        <td><font size="4" color="0B614B">Temperatura Máxima(°C)</font></td>
+      </tr>
+      <tr>
+        <td><font size="4" color="0B614B">T.mín</font></td>
+        <td><font size="4" color="0B614B">Temperatura Mínima(°C)</font></td>
+      </tr>
+      <tr>
+        <td><font size="4" color="0B614B">T.Med</font></td>
+        <td><font size="4" color="0B614B">Tempertura Media(°C) </font></td>
+      </tr>
+      <tr>
+        <td><font size="4" color="0B614B">T.Prom</font></td>
+        <td><font size="4" color="0B614B">Temperatura Promedio</font></td>
+      </tr>
+      <tr>
+        <td><font size="4" color="0B614B">VV Máx</font></td>
+        <td><font size="4" color="0B614B">Velocidad del viento máxima (km/h)</font></td>
+      </tr>
+      <tr>
+        <td><font size="4" color="0B614B">DVV Máx</font></td>
+        <td><font size="4" color="0B614B">Dirección de la velocidad del viento máxima (grados azimut)</font></td>
+      </tr>
+      <tr>
+        <td><font size="4" color="0B614B">VV</font></td>
+        <td><font size="4" color="0B614B">Velocidad promedio del viento (km/h)</font></td>
+      </tr>
+      <tr>
+        <td><font size="4" color="0B614B">DV</font></td>
+        <td><font size="4" color="0B614B">Dirección promedio de viento (grados azimut)</font></td>
+      </tr>
+      <tr>
+        <td><font size="4" color="0B614B">Rad.G</font></td>
+        <td><font size="4" color="0B614B">Rdiación global(W/m²)</font></td>
+      </tr>
+      <tr>
+        <td><font size="4" color="0B614B">HR</font></td>
+        <td><font size="4" color="0B614B">Humedad Relativa (%)</font></td>
+      </tr>
+      <tr>
+        <td><font size="4" color="0B614B">ET</font></td>
+        <td><font size="4" color="0B614B">Evapotranspiración de referencia (mm)</font></td>
+      </tr>
+      <tr>
+        <td><font size="4" color="0B614B">EP</font></td>
+        <td><font size="4" color="0B614B">Evaporación potencial (mm)</font></td>
+      </tr>
+      <tr>
+        <td><font size="4" color="0B614B">PR</font></td>
+        <td><font size="4" color="0B614B">Punto de Rocio (C°)</font></td>
+      </tr>
+      </tbody>
+      </table>
+      </div>
     </div>
-    <div class="col-sm-8">
-      <h2>Our Values</h2><br>
-      <h4><strong>MISSION:</strong> Our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
-      <p><strong>VISION:</strong> Our vision Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
+
   </div>
 </div>
 
 <!-- Container (Services Section) -->
 <div id="services" class="container-fluid text-center">
-  <h2>SERVICES</h2>
-  <h4>What we offer</h4>
   <br>
-  <div class="row slideanim">
-    <div class="col-sm-4">
-      <span class="glyphicon glyphicon-off logo-small"></span>
-      <h4>POWER</h4>
-      <p>Lorem ipsum dolor sit amet..</p>
-    </div>
-    <div class="col-sm-4">
-      <span class="glyphicon glyphicon-heart logo-small"></span>
-      <h4>LOVE</h4>
-      <p>Lorem ipsum dolor sit amet..</p>
-    </div>
-    <div class="col-sm-4">
-      <span class="glyphicon glyphicon-lock logo-small"></span>
-      <h4>JOB DONE</h4>
-      <p>Lorem ipsum dolor sit amet..</p>
-    </div>
-  </div>
-  <br><br>
-  <div class="row slideanim">
-    <div class="col-sm-4">
-      <span class="glyphicon glyphicon-leaf logo-small"></span>
-      <h4>GREEN</h4>
-      <p>Lorem ipsum dolor sit amet..</p>
-    </div>
-    <div class="col-sm-4">
-      <span class="glyphicon glyphicon-certificate logo-small"></span>
-      <h4>CERTIFIED</h4>
-      <p>Lorem ipsum dolor sit amet..</p>
-    </div>
-    <div class="col-sm-4">
-      <span class="glyphicon glyphicon-wrench logo-small"></span>
-      <h4 style="color:#303030;">HARD WORK</h4>
-      <p>Lorem ipsum dolor sit amet..</p>
-    </div>
-  </div>
 </div>
 
 <!-- Container (Portfolio Section) -->
-<div id="portfolio" class="container-fluid text-center bg-grey">
-  <h2>Portfolio</h2><br>
-  <h4>What we have created</h4>
-  <div class="row text-center slideanim">
-    <div class="col-sm-4">
-      <div class="thumbnail">
-        <img src="paris.jpg" alt="Paris" width="400" height="300">
-        <p><strong>Paris</strong></p>
-        <p>Yes, we built Paris</p>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="thumbnail">
-        <img src="newyork.jpg" alt="New York" width="400" height="300">
-        <p><strong>New York</strong></p>
-        <p>We built New York</p>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="thumbnail">
-        <img src="sanfran.jpg" alt="San Francisco" width="400" height="300">
-        <p><strong>San Francisco</strong></p>
-        <p>Yes, San Fran is ours</p>
-      </div>
-    </div>
-  </div><br>
-
-  <h2>What our customers say</h2>
   <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <h4>"This company is the best. I am so happy with the result!"<br><span>Michael Roe, Vice President, Comment Box</span></h4>
+        <span><h4>El Laboratorio Nacional de Modelaje y Sensores Remotos (LNMySR), es el responsable por INIFAP.<br></span></h4>
       </div>
       <div class="item">
-        <h4>"One word... WOW!!"<br><span>John Doe, Salesman, Rep Inc</span></h4>
-      </div>
-      <div class="item">
-        <h4>"Could I... BE any more happy with this company?"<br><span>Chandler Bing, Actor, FriendsAlot</span></h4>
+        <span><h4>La Red Nacional de Estaciones Agroclimáticas Automatizadas (RNEAA), fue diseñada para proveer el servicio de monitoreo de las variables del clima.<br></span></h4>
       </div>
     </div>
 
@@ -418,113 +425,339 @@ search.addEventListener("keyup", function(e){
 </div>
 
 <!-- Container (Pricing Section) -->
-<div id="pricing" class="container-fluid">
-  <div class="text-center">
-    <h2>Pricing</h2>
-    <h4>Choose a payment plan that works for you</h4>
-  </div>
-  <div class="row slideanim">
-    <div class="col-sm-4 col-xs-12">
-      <div class="panel panel-default text-center">
-        <div class="panel-heading">
-          <h1>Basic</h1>
-        </div>
-        <div class="panel-body">
-          <p><strong>20</strong> Lorem</p>
-          <p><strong>15</strong> Ipsum</p>
-          <p><strong>5</strong> Dolor</p>
-          <p><strong>2</strong> Sit</p>
-          <p><strong>Endless</strong> Amet</p>
-        </div>
-        <div class="panel-footer">
-          <h3>$19</h3>
-          <h4>per month</h4>
-          <button class="btn btn-lg">Sign Up</button>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4 col-xs-12">
-      <div class="panel panel-default text-center">
-        <div class="panel-heading">
-          <h1>Pro</h1>
-        </div>
-        <div class="panel-body">
-          <p><strong>50</strong> Lorem</p>
-          <p><strong>25</strong> Ipsum</p>
-          <p><strong>10</strong> Dolor</p>
-          <p><strong>5</strong> Sit</p>
-          <p><strong>Endless</strong> Amet</p>
-        </div>
-        <div class="panel-footer">
-          <h3>$29</h3>
-          <h4>per month</h4>
-          <button class="btn btn-lg">Sign Up</button>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4 col-xs-12">
-      <div class="panel panel-default text-center">
-        <div class="panel-heading">
-          <h1>Premium</h1>
-        </div>
-        <div class="panel-body">
-          <p><strong>100</strong> Lorem</p>
-          <p><strong>50</strong> Ipsum</p>
-          <p><strong>25</strong> Dolor</p>
-          <p><strong>10</strong> Sit</p>
-          <p><strong>Endless</strong> Amet</p>
-        </div>
-        <div class="panel-footer">
-          <h3>$49</h3>
-          <h4>per month</h4>
-          <button class="btn btn-lg">Sign Up</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- Container (Contact Section) -->
+
+<!-- Container (Tabla de ultimos 5 dias  Section) -->
 <div id="contact" class="container-fluid bg-grey">
   <h2 class="text-center">CONTACT</h2>
   <div class="row">
-    <div class="col-sm-5">
-      <p>Contact us and we'll get back to you within 24 hours.</p>
-      <p><span class="glyphicon glyphicon-map-marker"></span> Chicago, US</p>
-      <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
-      <p><span class="glyphicon glyphicon-envelope"></span> myemail@something.com</p>
-    </div>
-    <div class="col-sm-7 slideanim">
-      <div class="row">
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
-        </div>
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
-        </div>
-      </div>
-      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
-      <div class="row">
-        <div class="col-sm-12 form-group">
-          <button class="btn btn-default pull-right" type="submit">Send</button>
-        </div>
-      </div>
-    </div>
+
+    <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th class="col-sm-8"><h4> Dia</h4></th>
+                  <th class="col-sm-8"><h4> Dirv</h4></th>
+                  <th class="col-sm-8"><h4> DirvVMax</h4></th>
+                  <th class="col-sm-8"><h4> Ep</h4></th>
+                  <th class="col-sm-8"><h4> Et</h4></th>
+                  <th class="col-sm-8"><h4> FechaParseo</h4></th>
+                  <th class="col-sm-8"><h4> Humr</h4></th>
+                  <th class="col-sm-8"><h4> Numero</h4></th>
+                  <th class="col-sm-8"><h4> Prec</h4></th>
+                  <th class="col-sm-8"><h4> Radg</h4></th>
+                  <th class="col-sm-8"><h4> Tmax</h4></th>
+                  <th class="col-sm-8"><h4> Tmed</h4></th>
+                  <th class="col-sm-8"><h4> Tmin</h4></th>
+                  <th class="col-sm-8"><h4> Velv</h4></th>
+                  <th class="col-sm-8"><h4> VelvMax</h4></th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td ><font size="4" color="0B614B">1</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Dirv'][0]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['DirvVMax'][0]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Ep'][0]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Et'][0]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['FechaParseo'][0]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Humr'][0]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Numero'][0]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Prec'][0]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Radg'][0]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Tmax'][0]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Tmed'][0]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Tmin'][0]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Velv'][0]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['VelvMax'][0]}}</font></td>
+                </tr>
+                <tr>
+                  <td ><font size="4" color="0B614B">2</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Dirv'][1]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['DirvVMax'][1]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Ep'][1]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Et'][1]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['FechaParseo'][1]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Humr'][1]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Numero'][1]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Prec'][1]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Radg'][1]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Tmax'][1]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Tmed'][1]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Tmin'][1]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Velv'][1]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['VelvMax'][1]}}</font></td>
+                </tr>
+                <tr>
+                  <td ><font size="4" color="0B614B">3</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Dirv'][2]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['DirvVMax'][2]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Ep'][2]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Et'][2]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['FechaParseo'][2]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Humr'][2]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Numero'][2]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Prec'][2]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Radg'][2]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Tmax'][2]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Tmed'][2]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Tmin'][2]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Velv'][2]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['VelvMax'][2]}}</font></td>
+                </tr>
+                <tr>
+                  <td ><font size="4" color="0B614B">4</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Dirv'][3]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['DirvVMax'][3]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Ep'][3]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Et'][3]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['FechaParseo'][3]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Humr'][3]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Numero'][3]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Prec'][3]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Radg'][3]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Tmax'][3]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Tmed'][3]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Tmin'][3]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Velv'][3]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['VelvMax'][3]}}</font></td>
+                </tr>
+                <tr>
+                  <td ><font size="4" color="0B614B">5</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Dirv'][4]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['DirvVMax'][4]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Ep'][4]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Et'][4]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['FechaParseo'][4]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Humr'][4]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Numero'][4]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Prec'][4]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Radg'][4]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Tmax'][4]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Tmed'][4]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Tmin'][4]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Velv'][4]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['VelvMax'][4]}}</font></td>
+                </tr>
+
+
+              </tbody>
+            </table>
+          </div>
+
   </div>
 </div>
 
+<!-- Container (Tabla de ultimos 5 dias  Section) -->
+<div id="historicos" class="container-fluid bg-grey">
+  <h2 class="text-center">DATOS HÍSTORICOS</h2>
+  <div class="row">
+
+    <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th class="col-sm-1"><h4> Dia</h4></th>
+                  <th class="col-sm-1"><h4> Dirv</h4></th>
+                  <th class="col-sm-1"><h4> DirvVMax</h4></th>
+                  <th class="col-sm-1"><h4> Ep</h4></th>
+                  <th class="col-sm-1"><h4> Et</h4></th>
+                  <th class="col-sm-1"><h4> FechaParseo</h4></th>
+                  <th class="col-sm-1"><h4> Humr</h4></th>
+                  <th class="col-sm-1"><h4> Numero</h4></th>
+                  <th class="col-sm-1"><h4> Prec</h4></th>
+                  <th class="col-sm-1"><h4> Radg</h4></th>
+                  <th class="col-sm-1"><h4> Tmax</h4></th>
+                  <th class="col-sm-1"><h4> Tmed</h4></th>
+                  <th class="col-sm-3"><h4> Tmin</h4></th>
+                  <th class="col-sm-3"><h4> Velv</h4></th>
+                  <th class="col-sm-3"><h4> VelvMax</h4></th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td ><font size="4" color="0B614B">1</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Dirv'][0]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['DirvVMax'][0]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Ep'][0]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Et'][0]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['FechaParseo'][0]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Humr'][0]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Numero'][0]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Prec'][0]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Radg'][0]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Tmax'][0]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Tmed'][0]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Tmin'][0]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Velv'][0]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['VelvMax'][0]}}</font></td>
+                </tr>
+                <tr>
+                  <td ><font size="4" color="0B614B">2</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Dirv'][1]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['DirvVMax'][1]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Ep'][1]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Et'][1]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['FechaParseo'][1]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Humr'][1]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Numero'][1]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Prec'][1]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Radg'][1]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Tmax'][1]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Tmed'][1]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Tmin'][1]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Velv'][1]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['VelvMax'][1]}}</font></td>
+                </tr>
+                <tr>
+                  <td ><font size="4" color="0B614B">3</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Dirv'][2]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['DirvVMax'][2]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Ep'][2]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Et'][2]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['FechaParseo'][2]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Humr'][2]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Numero'][2]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Prec'][2]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Radg'][2]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Tmax'][2]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Tmed'][2]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Tmin'][2]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Velv'][2]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['VelvMax'][2]}}</font></td>
+                </tr>
+                <tr>
+                  <td ><font size="4" color="0B614B">4</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Dirv'][3]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['DirvVMax'][3]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Ep'][3]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Et'][3]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['FechaParseo'][3]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Humr'][3]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Numero'][3]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Prec'][3]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Radg'][3]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Tmax'][3]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Tmed'][3]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Tmin'][3]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Velv'][3]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['VelvMax'][3]}}</font></td>
+                </tr>
+                <tr>
+                  <td ><font size="4" color="0B614B">5</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Dirv'][4]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['DirvVMax'][4]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Ep'][4]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Et'][4]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['FechaParseo'][4]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Humr'][4]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Numero'][4]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Prec'][4]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Radg'][4]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Tmax'][4]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Tmed'][4]}}</font></td>
+                  <td ><font size="4" color="0B614B">{{consH['Tmin'][4]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['Velv'][4]}}</font></td>
+                  <td><font size="4" color="0B614B">{{consH['VelvMax'][4]}}</font></td>
+                </tr>
+
+
+              </tbody>
+            </table>
+          </div>
+
+  </div>
+</div>
+
+
+<!-- PROMEDIO  -->
+
+
+<div id="promedios" class="container-fluid bg-grey">
+  <h2 class="text-center">DATOS PROMEDIOS</h2>
+  <div class="row">
+
+    <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th class="col-sm-4"><h4> Titulo</h4></th>
+              <th class="col-sm-4"><h4> Promedios</h4></th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td ><font size="4" color="0B614B">sum</font></td>
+              <td><font size="4" color="0B614B">{{sum}}</font></td>
+            </tr>
+            <tr>
+              <td ><font size="4" color="0B614B">pEp</font></td>
+              <td><font size="4" color="0B614B">{{pEp}}</font></td>
+
+            </tr>
+            <tr>
+              <td ><font size="4" color="0B614B">pEt</font></td>
+              <td><font size="4" color="0B614B">{{pEt}}</font></td>
+
+            </tr>
+            <tr>
+              <td ><font size="4" color="0B614B">pHumr</font></td>
+              <td><font size="4" color="0B614B">{{pHumr}}</font></td>
+
+            </tr>
+            <tr>
+              <td ><font size="4" color="0B614B">pRadg</font></td>
+              <td><font size="4" color="0B614B">{{pRadg}}</font></td>
+
+            </tr>
+            <tr>
+              <td ><font size="4" color="0B614B">pTmax</font></td>
+              <td><font size="4" color="0B614B">{{pTmax}}</font></td>
+
+            </tr>
+            <tr>
+              <td ><font size="4" color="0B614B">pTmed</font></td>
+              <td><font size="4" color="0B614B">{{pTmed}}</font></td>
+
+            </tr>
+            <tr>
+              <td ><font size="4" color="0B614B">pTmin</font></td>
+              <td><font size="4" color="0B614B">{{pTmin}}</font></td>
+
+            </tr>
+            <tr>
+              <td ><font size="4" color="0B614B">pVelv</font></td>
+              <td><font size="4" color="0B614B">{{pVelv}}</font></td>
+
+            </tr>
+            <tr>
+              <td ><font size="4" color="0B614B">pVelvMax</font></td>
+              <td><font size="4" color="0B614B">{{pVelvMax}}</font></td>
+
+            </tr>
+            <tr>
+              <td ><font size="4" color="0B614B">Dirección del viento</font></td>
+              <td><font size="4" color="0B614B">{{pd}}</font></td>
+
+            </tr>
+
+
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
 <!-- Add Google Maps -->
-<div id="googleMap" style="height:400px;width:100%;"></div>
-<script>
-function myMap() {
-var myCenter = new google.maps.LatLng(41.878114, -87.629798);
-var mapProp = {center:myCenter, zoom:12, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};
-var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-var marker = new google.maps.Marker({position:myCenter});
-marker.setMap(map);
-}
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+
+
+  <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLxbFhKtQRUtokbiSBQeIighVcdmXKeGM&callback=initMap">
+      </script>
 <!--
 To use this code on your website, get a free API key from Google.
 Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
@@ -535,7 +768,9 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
     <span class="glyphicon glyphicon-chevron-up"></span>
   </a>
   <p>© 2018 - INIFAP - Campo Experimental Pabellón - Laboratorio Nacional de Modelaje y Sensores Remotos - Algunos Derechos Reservados.</p>
-  <p> <a href="http://clima.inifap.gob.mx" title="Visit INIFAP">http://clima.inifap.gob.mx</a></p>
+  <p> <a href="http://clima.inifap.gob.mx" title="Visit INIFAP">http://clima.inifap.gob.mx</a> ó <a href="https://es-la.facebook.com/inifap/" title="Visita nuestra página de facebook">Facebook Oficial</a>
+    <href></p>
+
 </footer>
 
 <script>
