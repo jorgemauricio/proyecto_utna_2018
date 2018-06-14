@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <!-- Theme Made By www.w3schools.com - No Copyright -->
-  <title>INIFAP Estacione</title>
+  <title>INIFAP Estaciones</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -45,7 +45,7 @@
       background-color: #f6f6f6;
   }
   .logo-small {
-      color: #f4511e;
+      color: #0B610B;
       font-size: 50px;
   }
   .logo {
@@ -207,8 +207,8 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#about">ESTACIONES</a></li>
-        <li><a href="#services">SERVICES</a></li>
-        <li><a href="#portfolio">PORTFOLIO</a></li>
+        <li><a href="#services">SERVICIOS</a></li>
+        <li><a href= " {{ url_for ( 'datos' ) }} ">ESTADOS</a></li>
         <li><a href="#pricing">PRICING</a></li>
       </ul>
     </div>
@@ -268,40 +268,133 @@
 </div>
 
 <div class="container-fluid bg-grey">
-  <div class="row">
+<h4>
+<p align=center>NÚMERO DE ESTACIONES POR ESTADO</p>
+</h4>
+  <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th class="col-sm-4"><h4> Estado</h4></th>
+                <th class="col-sm-2"><h4> Estaciones</h4></th>
+                <th class="col-sm-4"><h4> Estado</h4></th>
+                <th class="col-sm-2"><h4> Estaciones</h4></th>
 
-    <div id="services" class="col-sm-8">
-      <br>
-      <h2>SERVICIOS </h2><br>
-      <h4><strong>Pronóstico del clima</strong><br>El Laboratorio Nacional de Modelaje y Sensores Remotos (LNMySR), es el responsable por INIFAP de emitir los pronósticos de las condiciones de humedad y temperatura. Se emiten dos prónosticos: uno Estacional y otro de corto Plazo.</h4><br>
-      <p><strong>Red Nacional de Estaciones Agrometeorológicas Automatizadas</strong><br> La Red Nacional de Estaciones Agroclimáticas Automatizadas (RNEAA), fue diseñada para proveer el servicio de monitoreo de las variables del clima. Con una distribución geográfica nacional, las estaciones están equipadas con sensores electrónicos que registran datos de: temperatura, humedad relativa, precipitación, radiación solar global, y velocidad y dirección del viento, a una frecuencia continua de 15 minutos. Una vez sometidos a pruebas de análisis de calidad, los paquetes de datos son manejados y almacenados en el Laboratorio Nacional de modelaje y Sensores Remotos.</p>
-    </div>
-  </div>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td ><font size="4" color="0B614B">Aguascalientes</font></td>
+                <td ><font size="4" color="0B614B">38</font></td>
+                <td ><font size="4" color="0B614B">Nayarit</font></td>
+                <td ><font size="4" color="0B614B">40</font></td>
+              </tr>
+              <tr>
+                <td><font size="4" color="0B614B">Baja California</font></td>
+                <td ><font size="4" color="0B614B">5</font></td>
+                <td ><font size="4" color="0B614B">Nuevo León</font></td>
+                <td ><font size="4" color="0B614B">38</font></td>
+              </tr>
+              <tr>
+                <td ><font size="4" color="0B614B">Baja California Sur</font></td>
+                <td ><font size="4" color="0B614B">18</font></td>
+                <td ><font size="4" color="0B614B">Oaxaca</font></td>
+                <td ><font size="4" color="0B614B">58</font></td>
+              </tr>
+              <tr>
+                <td><font size="4" color="0B614B">Campeche</font></td>
+                <td ><font size="4" color="0B614B">39</font></td>
+                <td ><font size="4" color="0B614B">Puebla</font></td>
+                <td ><font size="4" color="0B614B">34</font></td>
+              </tr>
+              <tr>
+                <td ><font size="4" color="0B614B">Coahuila	</font></td>
+                <td ><font size="4" color="0B614B">32</font></td>
+                <td ><font size="4" color="0B614B">Querétaro</font></td>
+                <td ><font size="4" color="0B614B">5</font></td>
+              </tr>
+              <tr>
+                <td><font size="4" color="0B614B">Colima</font></td>
+                <td ><font size="4" color="0B614B">17</font></td>
+                <td ><font size="4" color="0B614B">Quintana Roo</font></td>
+                <td ><font size="4" color="0B614B">28</font></td>
+              </tr>
+              <tr>
+                <td ><font size="4" color="0B614B">Chiapas</font></td>
+                <td ><font size="4" color="0B614B">38</font></td>
+                <td ><font size="4" color="0B614B">San Luis Potosí</font></td>
+                <td ><font size="4" color="0B614B">53</font></td>
+              </tr>
+              <tr>
+                <td><font size="4" color="0B614B">Chihuahua</font></td>
+                <td ><font size="4" color="0B614B">84</font></td>
+                <td ><font size="4" color="0B614B">Sinaloa</font></td>
+                <td ><font size="4" color="0B614B">52</font></td>
+              </tr>
+              <tr>
+                <td><font size="4" color="0B614B">Durango</font></td>
+                <td ><font size="4" color="0B614B">25</font></td>
+                <td ><font size="4" color="0B614B">Sonora</font></td>
+                <td ><font size="4" color="0B614B">59</font></td>
+              </tr>
+              <tr>
+                <td ><font size="4" color="0B614B">Estado de México</font></td>
+                <td ><font size="4" color="0B614B">27</font></td>
+                <td ><font size="4" color="0B614B">Tabasco</font></td>
+                <td ><font size="4" color="0B614B">19</font></td>
+              </tr>
+              <tr>
+                <td><font size="4" color="0B614B">Guanajuato</font></td>
+                <td ><font size="4" color="0B614B">46</font></td>
+                <td ><font size="4" color="0B614B">Tamaulipas</font></td>
+                <td ><font size="4" color="0B614B">39</font></td>
+              </tr>
+              <tr>
+                <td ><font size="4" color="0B614B">Guerrero</font></td>
+                <td ><font size="4" color="0B614B">24</font></td>
+                <td ><font size="4" color="0B614B">Tlaxcala</font></td>
+                <td ><font size="4" color="0B614B">14</font></td>
+              </tr>
+              <tr>
+                <td><font size="4" color="0B614B">Hidalgo</font></td>
+                <td ><font size="4" color="0B614B">41</font></td>
+                <td ><font size="4" color="0B614B">Veracruz</font></td>
+                <td ><font size="4" color="0B614B">96</font></td>
+              </tr>
+              <tr>
+                <td><font size="4" color="0B614B">Jalisco</font></td>
+                <td ><font size="4" color="0B614B">95</font></td>
+                <td ><font size="4" color="0B614B">Yucatán</font></td>
+                <td ><font size="4" color="0B614B">28</font></td>
+              </tr>
+              <tr>
+                <td><font size="4" color="0B614B">Michoacán</font></td>
+                <td ><font size="4" color="0B614B">32</font></td>
+                <td ><font size="4" color="0B614B">Zacatecas</font></td>
+                <td ><font size="4" color="0B614B">38</font></td>
+              </tr>
+              <tr>
+                <td><font size="4" color="0B614B">Morelos</font></td>
+                <td ><font size="4" color="0B614B">32</font></td>
+                <td ><font size="4" color="0B614B">Distrito Federal</font></td>
+                <td ><font size="4" color="0B614B">4</font></td>
+              </tr>
+
+
+
+
+
+            </tbody>
+          </table>
+        </div>
+
 </div>
 
 
 
 <!-- Container (Services Section) -->
-<div id="services" class="container-fluid text-center">
 
-
-  <br>
-  <div class="row slideanim">
-    <div class="col-sm-4">
-
-    </div>
-  </div>
-  <br><br>
-  <div class="row slideanim">
-    <div class="col-sm-4">
-      <span class="glyphicon glyphicon-leaf logo-small"></span>
-      <h4>GREEN</h4>
-      <p>Lorem ipsum dolor sit amet..</p>
-    </div>
-
-
-  </div>
-</div>
 
 <!-- Container (Portfolio Section) -->
 <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
@@ -350,7 +443,7 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
 -->
 
 <footer class="container-fluid text-center">
-  <a href="#myPage" title="To Top">
+  <a href="#myPage" title="Subir">
     <span class="glyphicon glyphicon-chevron-up"></span>
   </a>
   <p>© 2018 - INIFAP - Campo Experimental Pabellón - Laboratorio Nacional de Modelaje y Sensores Remotos - Algunos Derechos Reservados.</p>
