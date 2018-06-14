@@ -2,6 +2,7 @@
 import pandas as pd
 import json
 import time
+import math
 from urllib.request import urlopen
 from flask import Flask, render_template
 from api import claves
@@ -60,8 +61,8 @@ def estacion(estado,numesta,estacion,numero):
     print(fecha1,"    ",fechaC)
     #print(df)
     print("numesta: {}  numero: {} fecha1 {}   fecha2 {}".format(estacion,numero,fecha1,fechaC))
-    cons,promEp, promEt, promHumr, promRadg, promTmax, promTmed, promTmin, promVelv, promVelvMax, sumPrec =consulta1(estacion,numero,fecha1,fechaC)
-    return render_template('estaciones.html',dato2=dicc,dat3=HI,pr=Pr,consuf=cons,est=numesta,Ep=promEp, Et=promEt, Humr=promHumr,Radg=promRadg, Tmax=promTmax, Tmed=promTmed, Tmin=promTmin, Velv=promVelv, VelvMax=promVelvMax, sumPrec=sumPrec)
+    cons,promEp, promEt, promHumr, promRadg, promTmax, promTmed, promTmin, promVelv, promVelvMax, sumPrec,PromG =consulta1(estacion,numero,fecha1,fechaC)
+    return render_template('estaciones.html',dato2=dicc,dat3=HI,pr=Pr,consuf=cons,est=numesta,Ep=promEp, Et=promEt, Humr=promHumr,Radg=promRadg, Tmax=promTmax, Tmed=promTmed, Tmin=promTmin, Velv=promVelv, VelvMax=promVelvMax, sumPrec=sumPrec,PromG=PromG)
 
 def consulta1(estacion,numero,fecha,fechaC):
     print("numesta: {}  numero: {} fecha1 {}   fecha2 {}".format(estacion,numero,fecha,fechaC))
@@ -92,8 +93,63 @@ def consulta1(estacion,numero,fecha,fechaC):
     promVelvMax=df['VelvMax'].mean()
     #Suma de Precipitación
     sumPrec=df["Prec"].sum()
-    return df,promEp, promEt, promHumr, promRadg, promTmax, promTmed, promTmin, promVelv, promVelvMax, sumPrec
 
+    v1=df['Velv'][0]
+    d1=df["Dirv"][0]
+    v2=df['Velv'][1]
+    d2=df["Dirv"][1]
+    v3=df['Velv'][2]
+    d3=df["Dirv"][2]
+    v4=df['Velv'][3]
+    d4=df["Dirv"][3]
+    v5=df['Velv'][4]
+    d5=df["Dirv"][4]
+
+    Cv1=componenteV(v1,d1)
+    Cu1=componenteU(v1,d1)
+    Prom1=diasDir(v1,d1)
+    Cv2=componenteV(v2,d2)
+    Cu2=componenteU(v2,d2)
+    Prom2=diasDir(v2,d2)
+    Cv3=componenteV(v3,d3)
+    Cu3=componenteU(v3,d3)
+    Prom3=diasDir(v3,d3)
+    Cv4=componenteV(v4,d4)
+    Cu4=componenteU(v4,d4)
+    Prom4=diasDir(v4,d4)
+    Cv5=componenteV(v5,d5)
+    Cu5=componenteU(v5,d5)
+    Prom5=diasDir(v5,d5)
+
+    PromG= (Prom1+Prom2+Prom3+Prom4+Prom5)/5
+    return df,promEp, promEt, promHumr, promRadg, promTmax, promTmed, promTmin, promVelv, promVelvMax, sumPrec,PromG
+
+def componenteV(velv,dirv):
+    v= velv* math.cos(dirv*math.pi/180)
+    return v
+
+def componenteU(velv,dirv):
+    u= velv* math.sin(dirv*math.pi/180)
+    return u
+
+def diasDir(v,u):
+    zRadians = math.atan(u / v)#atan: acontangente
+    zDegrees = zRadians * (180.0 / math.pi)
+    if (u == 0 and v > 0):
+        zDegrees = 180.0
+    if (u == 0 and v < 0):
+        zDegrees = 360.0
+    if (u > 0 and v == 0):
+        zDegrees = 270.0
+    if (u < 0 and v == 0):
+        zDegrees = 90.0
+    if (v > 0):
+        zDegrees = zDegrees + 180
+    if (u > 0 and v < 0):
+        zDegrees = zDegrees + 360
+
+    z = zDegrees
+    return z
 
 def fecha():
     dia=int(time.strftime("%d"))
