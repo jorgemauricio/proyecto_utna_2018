@@ -53,8 +53,10 @@ def estacion(fir,esta,estacion,numes):
     T =F * 1.8000 + 32.00
     #IC el índice de calor
     IC=  -42.379 + 2.04901523*T + 10.14333127*RH - .22475541*T*RH - .00683783*T*T - .05481717*RH*RH + .00122874*T*T*RH + .00085282*T*RH*RH - .00000199*T*T*RH*RH
+    IC=("{0:.3f}".format(IC))
     #Pr significa el punto de rocío
     Pr=((RH/100)**(1/8)) *(112+0.9*F)+0.1*F-112
+    Pr=("{0:.3f}".format(Pr))
     #fecha obtenida desde python y no desde la computadora, en dia, mes y año, el año es Y por 2018
     fecha=time.strftime("%d/%m/%Y")
     print("temperatura: {}  hum= {} punto de rocio  {}".format(F,RH,Pr))
@@ -80,10 +82,12 @@ def funconsulta(esta,numes,fech1,fecha):
     promEt=df['Et'].mean()
     promHumr=df['Humr'].mean()
     promRadg=df['Radg'].mean()
+    promRadg=("{0:.3f}".format(promRadg))
     promTmax=df['Tmax'].mean()
     promTmed=df['Tmed'].mean()
     promTmin=df['Tmin'].mean()
     promVelv=df['Velv'].mean()
+    promVelv=("{0:.3f}".format(promVelv))
     promVelvMax=df['VelvMax'].mean()
 
     #asignacion de v y u por cada uno de los dias
@@ -119,6 +123,7 @@ def funconsulta(esta,numes,fech1,fecha):
     pdia5=DiaDir(d5V,d5U)
 
     promedioDias= (pdia1+pdia2+pdia3+pdia4+pdia5)/5
+    promedioDias=("{0:.3f}".format(promedioDias))
     print("promedio de los dias {}".format(promedioDias))
 
 
