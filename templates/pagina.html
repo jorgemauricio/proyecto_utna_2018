@@ -207,9 +207,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#about">ESTACIONES</a></li>
-        <li><a href="#services">SERVICIOS</a></li>
         <li><a href= " {{ url_for ( 'datos' ) }} ">ESTADOS</a></li>
-        <li><a href="#pricing">PRICING</a></li>
       </ul>
     </div>
   </div>
@@ -218,14 +216,6 @@
 <div class="jumbotron text-center">
   <h1>Estaciones</h1>
   <p>Laboratorio Nacional de Modelaje y Sensores Remotos</p>
-  <form>
-    <div class="input-group">
-      <input type="text" class="form-control" size="50" placeholder="Buscar estación" required>
-      <div class="input-group-btn">
-        <button type="button" class="btn btn-danger">Buscar</button>
-      </div>
-    </div>
-  </form>
 </div>
 <div class="container">
   <img class="img-responsive" src="http://clima.inifap.gob.mx/lnmysr/Content/documentos/INIFAP_Website/header_4_v2.png">
@@ -268,17 +258,15 @@
 </div>
 
 <div class="container-fluid bg-grey">
-<h4>
-<p align=center>NÚMERO DE ESTACIONES POR ESTADO</p>
-</h4>
+  <h2 class="text-center">NÚMERO DE ESTACIONES POR ESTADO</h2>
   <div class="table-responsive">
           <table class="table table-striped">
             <thead>
               <tr>
-                <th class="col-sm-4"><h4> Estado</h4></th>
-                <th class="col-sm-2"><h4> Estaciones</h4></th>
-                <th class="col-sm-4"><h4> Estado</h4></th>
-                <th class="col-sm-2"><h4> Estaciones</h4></th>
+                <th class="col-sm-3"><h4> Estado</h4></th>
+                <th class="col-sm-3"><h4> Estaciones</h4></th>
+                <th class="col-sm-3"><h4> Estado</h4></th>
+                <th class="col-sm-3"><h4> Estaciones</h4></th>
 
 
               </tr>
