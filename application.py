@@ -108,6 +108,7 @@ def consulta1(estacion,numero,fecha,fechaC):
     v5=df['Velv'][4]
     d5=df["Dirv"][4]
 
+    #Calculo de los componenes U V
     Cv1=componenteV(v1,d1)
     Cu1=componenteU(v1,d1)
     Prom1=diasDir(v1,d1)

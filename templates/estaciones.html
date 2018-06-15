@@ -18,6 +18,8 @@
       line-height: 1.8;
       color: #f5f6f7;
   }
+
+  
   p {font-size: 16px;}
   .margin {margin-bottom: 45px;}
   /*Estilos a los fondos y del texto*/
@@ -94,6 +96,9 @@ hr {
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="#utlimo">Último Dato</a></li>
+              <li><a href="#historicos">Datos históricos</a></li>
+              <li><a href="#promedio">Promedio</a></li>
             <li><a href="{{ url_for("est", name = name, id = id) }}">Regresar</a></li>
           </div>
         </div>
@@ -109,7 +114,7 @@ hr {
 <div class="container bg-3">
   <div class="panel-group">
     <!--Panel para la tabla-->
-       <div class="panel-heading"><h3>ÚLTIMO DATO</h3>
+       <div id="utlimo" class="panel-heading"><a style="text-decoration:none; color:#424242" href="#myNavbar"><h3>ÚLTIMO DATO</a></h3>
          <h3><b>{{est}}</b></h3><!--Imprime el nombre del estado-->
        </div>
      </br>
@@ -187,7 +192,7 @@ hr {
    <div class="container bg-3">
      <div class="panel-group">
        <!--<div class="panel panel-default">-->
-          <div class="panel-heading"><h3>DATOS HISTÓRICOS</h3>
+          <div id="historicos" class="panel-heading"><a style="text-decoration:none; color:#424242" href="#myNavbar"><h3>DATOS HISTÓRICOS</h3></a>
           </div>
         </br>
    <div class="panel-body">
@@ -307,8 +312,8 @@ hr {
  </div>
 </div>
 <!--Tabla dinámica-->
-<div class="container bg-3">
-  <h2>PROMEDIO</h2>
+<div id="promedio"class="container bg-3">
+  <a style="text-decoration:none; color:#424242" href="#myNavbar"><h2>PROMEDIO</h2></a>
   <p>Promedio de los 5 días de cada uno de los datos históricos</p>
 </br>
   <ul class="nav nav-tabs">
