@@ -7,7 +7,104 @@ from urllib.request import urlopen
 from flask import Flask, render_template
 from api import claves
 app=Flask(__name__) #asignacion de la página
+"""
+#control de excepciones
+#1XX: Informativo - Solicitud recibida, proceso continuo.
+#2XX: Éxito - La acción fue recibida con éxito, comprendida y aceptado.
+#3XX: Redirección - Hay que tomar acciones complementarias con el fin de completar la solicitud.
+#4XX: Error del lado del cliente - La solicitud contiene una sintaxis incorrecta o no puede cumplirse.
+#5XX: Error del lado del servidor - El servidor no pudo cumplir una aparente solicitud válida.
+"""
+#400 Bad Request
+#Este código de error aparece cuando los datos enviados por el cliente a través del navegador web
+#no respetan las reglas del protocolo HTTP. El servidor web no puede procesar una solicitud que
+#contiene una sintaxis incorrecta. Para verificar que no haya nada malo con tu sistema o con la
+#conexión a Internet, abre la misma página web en un navegador diferente y comprueba que la dirección
+#sea correcta, borra la caché, y revisa si hay actualizaciones de seguridad pendientes.
 
+@app.errorhandler(400)
+def pageNotFound(error):
+    return "los datos enviados por el cliente a través del navegador web no respetan las reglas del protocolo HTTP"
+#401 Authorization Required
+#Cuando la página web que solicita el cliente está protegida con contraseña,
+#el servidor responde con un código 401. En este caso, la página no devuelve un mensaje
+#de error clásico, sino que aparece una ventana emergente para solicitar al usuario que
+#proporcione sus datos de inicio de sesión y su contraseña.
+@app.errorhandler(401)
+def pageNotFound(error):
+    return "la página web que solicita el cliente está protegida con contraseña"
+
+#403 Forbidden
+#Aparecerá el código de error 403 cuando el servidor haya sido capaz de entender
+#la petición del cliente, pero se niegue a cumplirla. No se trata de un problema
+#de sintaxis o de autorización, la razón más común es que el propietario del sitio
+#web simplemente no permite a los visitantes ver la página web solicitada.
+@app.errorhandler(403)
+def pageNotFound(error):
+    return "el servidor fue capaz de entender la petición del cliente, pero se niegua a cumplirla"
+
+#404 Not found
+#Este es, quizás, el código de error más popular de todos.
+#Aparece cuando el servidor no encuentra nada en la ubicación solicitada por el cliente.
+#Esto puede deberse a que (1) el cliente escribió mal la URL; (2) a que la estructura de
+#enlaces permanentes del sitio ha sido cambiada, por ejemplo, cuando un sitio ha sido trasladado
+#a otro servidor web y el DNS todavía apunta a la ubicación anterior; (3) a que la página web
+#solicitada no está disponible temporalmente, pero puede intentarlo de nuevo más tarde;
+# o (4) a que se eliminó definitivamente la página web.
+@app.errorhandler(404)
+def not_found(error):
+    return "el host ha sido capaz de comunicarse con el servidor  error:",404
+
+#408 Request Timeout
+#Cuando la solicitud del cliente no se llevó a cabo dentro del plazo de tiempo que el servidor
+#estaba dispuesto a esperar, la conexión se cierra y se muestra un código de error 408.
+#Generalmente el tiempo agotado se debe a que había demasiadas personas solicitando el mismo recurso.
+#En este caso, el problema puede solucionarse con tan solo refrescar la página (F5).
+@app.errorhandler(408)
+def pageNotFound(error):
+    return "la solicitud del cliente no se llevó a cabo dentro del plazo de tiempo que el servidor estaba dispuesto a esperar"
+
+#410 Gone
+#A diferencia del error 404, el código de error 410 indica que el recurso solicitado ya no
+#se encuentra disponible y no lo estará nuevamente. Este código es permanente y es activado
+#de forma intencional por el administrador del sitio para que los buscadores lo eliminen de sus índices.
+@app.errorhandler(410)
+def pageNotFound(error):
+    return "el recurso solicitado ya no se encuentra disponible y no lo estará nuevamente"
+##500 Internal Server Error
+#Este error aparece cuando el servidor encuentra una condición inesperada que le impide cumplir
+#la solicitud que realizó el cliente, es decir, no se muestra el recurso solicitado.
+#El error puede ser resultado del mantenimiento al sitio web, de un error de programación,
+#o de un conflicto en los plugins del sitio.
+@app.errorhandler(500)
+def pageNotFound(error):
+    return "La estación no tiene datos o no esta activa"
+
+#502 Bad Gateway
+#El error se produce cuando el cliente se conecta a un servidor que actúa como una puerta de
+#enlace o proxy para acceder a otro servidor que proporciona servicio adicional a la misma,
+#pero este último devuelve una respuesta inválida al primero. En la mayoría de los casos esto
+#sucede porque los servidores que se comunican no están de acuerdo sobre el protocolo para intercambiar datos.
+@app.errorhandler(502)
+def pageNotFound(error):
+    return "los servidores que se comunican no están de acuerdo sobre el protocolo para intercambiar datos."
+
+#503 Service Temporarily Unavailable
+#El servicio está temporalmente no disponible cuando hay una sobrecarga temporal en el servidor,
+#o cuando se realiza un mantenimiento programado. La condición temporal indica que el servicio estará
+#disponible nuevamente en otro momento
+@app.errorhandler(503)
+def pageNotFound(error):
+    return "hay una sobrecarga temporal en el servidor, o se realiza un mantenimiento programado."
+
+#504 Gateway Timeout
+#Cuando se devuelve el código de estado 504 hay un servidor de nivel superior que se suponía que
+#iba a enviar datos al servidor que está conectado a nuestro cliente pero se agotó el tiempo de
+#respuesta. En el código 408 la comunicación se realiza de servidor a cliente, en el caso del
+#código 504 la comunicación es de servidor a servidor.
+@app.errorhandler(504)
+def pageNotFound(error):
+    return "se agotó el tiempo de respuesta de servidor a servidor"
 a=""
 @app.route('/') #asignacion del index
 def datos():
@@ -79,8 +176,10 @@ def funconsulta(esta,numes,fech1,fecha):
     df = pd.DataFrame(data['estaciones'])
     sumaPrec=sum(df['Prec'])
     promEp=df['Ep'].mean()
+    promEp=("{0:.3f}".format(promEp))
     promEt=df['Et'].mean()
     promHumr=df['Humr'].mean()
+    promHumr=("{0:.3f}".format(promHumr))
     promRadg=df['Radg'].mean()
     promRadg=("{0:.3f}".format(promRadg))
     promTmax=df['Tmax'].mean()

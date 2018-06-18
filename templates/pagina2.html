@@ -216,7 +216,7 @@
   </div>
 </nav>
 
-<div class="jumbotron text-center">
+<div class="jumbotron text-center"><!--  -->
   <h1>Último Dato</h1>
   <p>Laboratorio Nacional de Modelaje y Sensores Remotos</p>
   <form>
@@ -229,7 +229,7 @@
   <img class="img-responsive" src="http://clima.inifap.gob.mx/lnmysr/Content/documentos/INIFAP_Website/header_4_v2.png">
 </div>
 <!-- Container (About Section) -->
-<div id="about" class="container-fluid">
+<div id="about" class="container-fluid"><!-- Contenedor que abarca todo el ancho de la pantalla-->
   <div class="row">
     <div class="col-sm-8">
 
@@ -249,10 +249,10 @@
               <td > <font size="4" color="0B614B">Número </font></td>
               <td><font size="4" color="0B614B">{{da2['estaciones'][0]['Numero']}}</font></td>
             </tr>
-            <tr>
+          <!--   <tr>
               <td> <font size="4" color="0B614B">Fecha</font></td>
               <td><font size="4" color="0B614B">{{da2['estaciones'][0]['Fecha']}}</font></td>
-            </tr>
+            </tr>-->
             <tr>
               <td><font size="4" color="0B614B">Fecha de Parseo</font></td>
               <td><font size="4" color="0B614B">{{da2['estaciones'][0]['FechaParseo']}}</font></td>
@@ -281,10 +281,10 @@
               <td><font size="4" color="0B614B">Humedad relativa (%)</font></td>
               <td><font size="4" color="0B614B">{{da2['estaciones'][0]['Humr']}}</font></td>
             </tr>
-            <tr>
+          <!--  <tr>
               <td><font size="4" color="0B614B">Humh</font></td>
               <td><font size="4" color="0B614B">{{da2['estaciones'][0]['Humh']}}</font></td>
-            </tr>
+            </tr>-->
             <tr>
               <td><font size="4" color="0B614B">Evapotranspiración</font></td>
               <td><font size="4" color="0B614B">{{da2['estaciones'][0]['Eto']}}</font></td>
@@ -305,10 +305,6 @@
   </div>
 </div>
 
-
-<!-- Container (Services Section) -->
-
-
 <!-- Container (Portfolio Section) -->
   <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
     <!-- Indicators -->
@@ -317,7 +313,7 @@
       <li data-target="#myCarousel" data-slide-to="1"></li>
     </ol>
 
-    <!-- Wrapper for slides -->
+    <!-- carrusel -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
         <span><h4>El Laboratorio Nacional de Modelaje y Sensores Remotos (LNMySR), es el responsable por INIFAP.<br></span></h4>
@@ -468,8 +464,8 @@
   <h2 class="text-center">DATOS PROMEDIOS</h2>
   <div class="row">
 
-    <div class="table-responsive">
-            <table class="table table-hover">
+    <div class="table-responsive"><!-- Hace la tabla responsiva -->
+            <table class="table table-hover"><!-- Hace que la celda se active cunado el puntero pasa sobre ella  -->
               <thead>
                 <tr>
                   <th class="col-sm-4"><h4> Variable</h4></th>
@@ -543,12 +539,12 @@
 <div id="referencias" class="container-fluid bg-grey" class="container">
     <h2 class="text-center">REFERNCIAS</h2>
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-12"><!-- Indicar el tamaño que va tomar la tabla -->
       <div class="table-responsive">
       <table class="table table-hover">
-        <thead>
+        <thead><!-- Enacabezado de la tabla -->
         <tr>
-            <th class="col-sm-2"><h4> Abreviación</h4></th>
+            <th class="col-sm-2"><h4> Abreviación</h4></th><!-- Tamaño que va tenr cada columna de la tabla -->
             <th class="col-sm-4"><h4> Significado</h4></th>
             <th class="col-sm-2"><h4> Abreviación</h4></th>
             <th class="col-sm-4"><h4> Significado</h4></th>
