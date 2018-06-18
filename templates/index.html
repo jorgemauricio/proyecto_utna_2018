@@ -67,6 +67,28 @@
         color: #B18904 !important;<!-- #1abc9c -->
     }
     </style>
+    <!-- Estilo del Parallax-->
+        <style>
+        body, html {
+            height: 100%;
+        }
+
+        .parallax {
+            /* Imagen */
+            background-image: url('http://www.freejpg.com.ar/asset/900/14/1441/F100010619.jpg');
+
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+            /* Altura */
+            height:5%;
+
+            /* Creación de efecto Parallax */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        </style>
 
   <style>
   .container {
@@ -114,8 +136,9 @@
       <div class="navbar-header">
       <a class="navbar-brand" href="http://clima.inifap.gob.mx/lnmysr/Principal/Index">LNMySR</a>
       </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
+      <div class="collapse navbar-collapse" id="menú">
       <ul class="nav navbar-nav navbar-right">
+        <li><a href="#estados">Estados</a></li>
       </div>
     </div>
 </nav>
@@ -184,7 +207,7 @@
 
 
 <div class="container bg-3">
-  <center><h2>Estados</h2></center>
+  <center><h2 id="estados"><a style="text-decoration:none; color:#424242" href="#menú">Estados</h2></center>
   <div class="panel-group">
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -227,13 +250,13 @@
 
 <br />
 
-
+<div class="parallax"></div>
 <div class="container-fluid bg-1 text-center">
-<p><strong>INIFAP - Campo Experimental Pabellón - Laboratorio Nacional de Modelaje y Sensores Remotos</p></strong>
-<h5>Km. 32.5 Carretera Panamericana Aguascalientes - Zacatecas
-Pabellón de Arteaga, Aguascalientes, México
-Apartado Postal No. 20 // C.P. 20670
-01 800 088 22 22 ext 82536. </h5>
+  <h5><strong>© 2018 - INIFAP - Campo Experimental Pabellón - Laboratorio Nacional de Modelaje y Sensores Remotos</h5></strong>
+  <h6>Km. 32.5 Carretera Panamericana Aguascalientes - Zacatecas
+  Pabellón de Arteaga, Aguascalientes, México
+  Apartado Postal No. 20 // C.P. 20670
+  01 800 088 22 22 ext 82536. </h6>
 </div>
 
 

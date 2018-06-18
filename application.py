@@ -7,6 +7,15 @@ from urllib.request import urlopen
 from flask import Flask, render_template
 from api import claves
 app = Flask(__name__)
+
+@app.errorhandler(500)
+def internal_error(error):
+    return "Estación no activa"
+
+@app.errorhandler(404)
+def not_found(error):
+    return "Error de servidor"
+
 @app.route('/')#
 def index():
     acceso=claves()

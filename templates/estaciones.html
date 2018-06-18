@@ -84,6 +84,28 @@ hr {
 
 }
 </style>
+<!-- Estilo del Parallax-->
+     <style>
+     body, html {
+         height: 100%;
+     }
+
+     .parallax {
+         /* Imagen */
+         background-image: url('http://www.freejpg.com.ar/asset/900/14/1441/F100010619.jpg');
+
+         opacity: 0.5;
+         filter: alpha(opacity=50);
+         /* Altura */
+         height:5%;
+
+         /* Creación de efecto Parallax */
+         background-attachment: fixed;
+         background-position: center;
+         background-repeat: no-repeat;
+         background-size: cover;
+     }
+     </style>
 
 <!--Etiquetas de la barra de navegación-->
   <body>
@@ -94,7 +116,7 @@ hr {
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="#utlimo">Último Dato</a></li>
+            <li><a href="#utlimo">Último Dato</a></li>
              <li><a href="#historicos">Datos históricos</a></li>
              <li><a href="#promedio">Promedio</a></li>
            <li><a href="{{ url_for("est", name = name, id = id) }}">Regresar</a></li>
@@ -378,13 +400,14 @@ hr {
 </br>
 </br>
 </center>
+<div class="parallax"></div><!--Efecto Parallax-->
 <!--Contenedor con la información del INIFAP-->
 <div class="container-fluid bg-1 text-center">
-<p><strong>© 2018 - INIFAP - Campo Experimental Pabellón - Laboratorio Nacional de Modelaje y Sensores Remotos</p></strong>
-<h5>Km. 32.5 Carretera Panamericana Aguascalientes - Zacatecas
-Pabellón de Arteaga, Aguascalientes, México
-Apartado Postal No. 20 // C.P. 20670
-01 800 088 22 22 ext 82536. </h5>
+  <h5><strong>© 2018 - INIFAP - Campo Experimental Pabellón - Laboratorio Nacional de Modelaje y Sensores Remotos</h5></strong>
+  <h6>Km. 32.5 Carretera Panamericana Aguascalientes - Zacatecas
+  Pabellón de Arteaga, Aguascalientes, México
+  Apartado Postal No. 20 // C.P. 20670
+  01 800 088 22 22 ext 82536. </h6>
 </div>
   </body>
 </html>

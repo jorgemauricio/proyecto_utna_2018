@@ -50,7 +50,28 @@
         color: #B18904 !important;<!-- #1abc9c -->
     }
     </style>
+    <!-- Estilo del Parallax-->
+           <style>
+           body, html {
+               height: 100%;
+           }
 
+           .parallax {
+               /* Imagen */
+               background-image: url('http://www.freejpg.com.ar/asset/900/14/1441/F100010619.jpg');
+
+               opacity: 0.5;
+               filter: alpha(opacity=50);
+               /* Altura */
+               height:5%;
+
+               /* Creación de efecto Parallax */
+               background-attachment: fixed;
+               background-position: center;
+               background-repeat: no-repeat;
+               background-size: cover;
+           }
+           </style>
   </head>
   <body>
     <nav class="navbar navbar-default">
@@ -82,7 +103,7 @@
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a data-toggle="collapse" href="#Seleccion">Selecionar</a>
+              <a data-toggle="collapse" href="#Seleccion">Seleccionar</a>
             </h4>
           </div>
           <div id="Seleccion" class="panel-collapse collapse">
@@ -98,19 +119,133 @@
   </div>
 </div>
 </br>
+<div class="container bg-3"><!--Tabla de estaciones por estado-->
+<div class="panel-body">
+  <div class="table-responsive">
+      <table class="table table-hover">
+       <thead>
+         <tr>
+           <th>Estado</th>
+           <th>Estaciones</th>
+           <th>Estado</th>
+           <th>Estaciones</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr>
+           <td>Aguascalientes</td>
+           <td>38</td>
+           <td>Nayarit</td>
+           <td>40</td>
+         </tr>
+         <tr>
+           <td>Baja California</td>
+           <td>5</td>
+           <td>Nuevo León</td>
+           <td>38</td>
+         </tr>
+         <tr>
+           <td>Baja California Sur</td>
+           <td>18</td>
+           <td>Oaxaca</td>
+           <td>58</td>
+         </tr>
+         <tr>
+           <td>Campeche</td>
+           <td>39</td>
+           <td>Puebla</td>
+           <td>34</td>
+         </tr>
+         <tr>
+           <td>Coahuila</td>
+           <td>32</td>
+           <td>Querétaro</td>
+           <td>5</td>
+         </tr>
+         <tr>
+           <td>Colima</td>
+           <td>17</td>
+           <td>Quintana Roo</td>
+           <td>28</td>
+         </tr>
+         <tr>
+           <td>Chiapas</td>
+           <td>38</td>
+           <td>San Luis Potosí</td>
+           <td>53</td>
+         </tr>
+         <tr>
+           <td>Chihuahua</td>
+           <td>84</td>
+           <td>Sinaloa</td>
+           <td>52</td>
+         </tr>
+         <tr>
+           <td>Durango</td>
+           <td>25</td>
+           <td>Sonora</td>
+           <td>59</td>
+         </tr>
+         <tr>
+           <td>Estado de México</td>
+           <td>27</td>
+           <td>Tabasco</td>
+           <td>19</td>
+         </tr>
+         <tr>
+           <td>Guanajuato</td>
+           <td>46</td>
+           <td>Tamaulipas</td>
+           <td>39</td>
+         </tr>
+         <tr>
+           <td>Guerrero</td>
+           <td>24</td>
+           <td>Tlaxcala</td>
+           <td>14</td>
+         </tr>
+         <tr>
+           <td>Hidalgo</td>
+           <td>41</td>
+           <td>Veracruz</td>
+           <td>96</td>
+         </tr>
+         <tr>
+           <td>Jalisco</td>
+           <td>95</td>
+           <td>Yucatán</td>
+           <td>28</td>
+         </tr>
+         <tr>
+           <td>Michoacán</td>
+           <td>32</td>
+           <td>Zacatecas</td>
+           <td>38</td>
+         </tr>
+         <tr>
+           <td>Morelos</td>
+           <td>32</td>
+           <td>Distrito Federal</td>
+           <td>4</td>
+         </tr>
+       </tbody>
+     </table>
+   </div>
+ </div>
+</div>
 </br>
 </br>
 </br>
 </br>
 
 
-
+<div class="parallax"></div><!--Efecto Parallax-->
 <div class="container-fluid bg-1 text-center">
-<p><strong>INIFAP - Campo Experimental Pabellón - Laboratorio Nacional de Modelaje y Sensores Remotos</p></strong>
-<h5>Km. 32.5 Carretera Panamericana Aguascalientes - Zacatecas
-Pabellón de Arteaga, Aguascalientes, México
-Apartado Postal No. 20 // C.P. 20670
-01 800 088 22 22 ext 82536. </h5>
+  <h5><strong>© 2018 - INIFAP - Campo Experimental Pabellón - Laboratorio Nacional de Modelaje y Sensores Remotos</h5></strong>
+  <h6>Km. 32.5 Carretera Panamericana Aguascalientes - Zacatecas
+  Pabellón de Arteaga, Aguascalientes, México
+  Apartado Postal No. 20 // C.P. 20670
+  01 800 088 22 22 ext 82536. </h6>
 </div>
   </body>
 </html>
