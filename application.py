@@ -8,6 +8,14 @@ from flask import Flask, render_template, redirect, url_for
 from api import claves
 app = Flask(__name__)
 
+#Excepciones
+@app.errorhandler(500)
+def internal_error(error):
+    return "Estación no activa"
+
+@app.errorhandler(404)
+def not_found(error):
+    return "Error de servidor"
 
 
 @app.route('/')#Primera página Index
@@ -53,15 +61,16 @@ def estacion(estado,numesta,estacion,numero):
     h= dicc['estaciones'][0]['Humr']#Humedad relativa
     T=(9*int(t)/5)+32#Conversion de °C a °F
     #Indice de calor
-    HI = -42.379 + 2.04901523*T + 10.14333127*h - .22475541*T*h - .00683783*T*T - .05481717*h*h + .00122874*T*T*h + .00085282*T*h*h - .00000199*T*T*h*h
+    H = -42.379 + 2.04901523*T + 10.14333127*h - .22475541*T*h - .00683783*T*T - .05481717*h*h + .00122874*T*T*h + .00085282*T*h*h - .00000199*T*T*h*h
+    HI=("{0:.2f}".format(H))#Imprimir forfato corto
     #Punto de Rocío
-    Pr= ((h/100)**(1/8))*(112+0.9*t)+0.1*t-112
+    P= ((h/100)**(1/8))*(112+0.9*t)+0.1*t-112
+    Pr=("{0:.2f}".format(P))#Imprimir formato corto
     #Función Fecha
     fecha1=fecha()
 
     fechaC=time.strftime("%d/%m/%Y")
     print(fecha1,"    ",fechaC)
-    #print(df)
     print("numesta: {}  numero: {} fecha1 {}   fecha2 {}".format(estacion,numero,fecha1,fechaC))
     cons, promEp, promEt, promHumr, promRadg, promTmax, promTmed, promTmin, promVelv, promVelvMax, sumPrec, PromG =consulta1(estacion,numero,fecha1,fechaC)
     return render_template('estaciones.html',dato2=dicc,dat3=HI,pr=Pr,consuf=cons, est=numesta,Ep=promEp, Et=promEt, Humr=promHumr, Radg=promRadg, Tmax=promTmax, Tmed=promTmed, Tmin=promTmin, Velv=promVelv, VelvMax=promVelvMax, sumPrec=sumPrec, promG=PromG)
@@ -76,23 +85,32 @@ def consulta1(estacion,numero,fecha,fechaC):
     data=json.loads(source)
     df=pd.DataFrame(data['estaciones'])
      #promedio EP
-    promEp=df['Ep'].mean()
+    pEp=df['Ep'].mean()
+    promEp=("{0:.2f}".format(pEp))
      #promedio ET
-    promEt=df['Et'].mean()
+    pEt=df['Et'].mean()
+    promEt=("{0:.2f}".format(pEt))
     #promedio Humr
-    promHumr=df['Humr'].mean()
+    pHumr=df['Humr'].mean()
+    promHumr=("{0:.2f}".format(pHumr))
     #promedio Radg
-    promRadg=df['Radg'].mean()
+    pRadg=df['Radg'].mean()
+    promRadg=("{0:.2f}".format(pRadg))
     #promedio Tmax
-    promTmax=df['Tmax'].mean()
+    pTmax=df['Tmax'].mean()
+    promTmax=("{0:.2f}".format(pTmax))
     #promedio Tmed
-    promTmed=df['Tmed'].mean()
+    pTmed=df['Tmed'].mean()
+    promTmed=("{0:.2f}".format(pTmed))
     #promedio Tmin
-    promTmin=df['Tmin'].mean()
+    pTmin=df['Tmin'].mean()
+    promTmin=("{0:.2f}".format(pTmin))
     #promedio Velv
-    promVelv=df['Velv'].mean()
+    pVelv=df['Velv'].mean()
+    promVelv=("{0:.2f}".format(pVelv))
     #promedio VelvMax
-    promVelvMax=df['VelvMax'].mean()
+    pVelvMax=df['VelvMax'].mean()
+    promVelvMax=("{0:.2f}".format(pVelvMax))
     #Suma de Precipitación
     sumPrec=df["Prec"].sum()
 
@@ -125,7 +143,8 @@ def consulta1(estacion,numero,fecha,fechaC):
     Cu5=componenteU(v5,d5)
     Prom5=diasDir(v5,d5)
 
-    PromG= (Prom1+Prom2+Prom3+Prom4+Prom5)/5
+    PG= (Prom1+Prom2+Prom3+Prom4+Prom5)/5
+    PromG=("{0:.2f}".format(PG))
 
     return df, promEp, promEt, promHumr, promRadg, promTmax, promTmed, promTmin, promVelv, promVelvMax, sumPrec, PromG
 
@@ -139,7 +158,7 @@ def componenteU(velv,dirv):
     u= velv* math.sin(dirv*math.pi/180)
     return u
 
-#Promedio de direccion de dias
+#Promedio de direccion de días
 def diasDir(v,u):
     zRadians = math.atan(u / v)#atan: acontangente
     zDegrees = zRadians * (180.0 / math.pi)

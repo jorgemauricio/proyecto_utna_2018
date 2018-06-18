@@ -19,7 +19,7 @@
       color: #f5f6f7;
   }
 
-  
+
   p {font-size: 16px;}
   .margin {margin-bottom: 45px;}
   /*Estilos a los fondos y del texto*/
@@ -57,6 +57,31 @@
       color: #B18904 !important;<!-- #1abc9c -->
   }
   </style>
+
+  <!-- Estilo del Parallax-->
+      <style>
+      body, html {
+          height: 100%;
+      }
+
+      .parallax {
+          /* Imagen */
+          background-image: url('http://www.freejpg.com.ar/asset/900/14/1441/F100010619.jpg');
+
+          opacity: 0.5;
+          filter: alpha(opacity=50);
+          /* Altura */
+          height:5%;
+
+          /* Creación de efecto Parallax */
+          background-attachment: fixed;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+      }
+      </style>
+
+
 <!--Estilo del panel-->
   <style>
   .panel-default > .panel-heading {
@@ -88,21 +113,22 @@ hr {
 </style>
 
 <!--Etiquetas de la barra de navegación-->
-  <body>
-    <nav class="navbar navbar-default">
-        <div class="container"><!--Contenedor-->
-          <div class="navbar-header"><!--El encabezado de la barra-->
-          <a class="navbar-brand" href="http://clima.inifap.gob.mx/lnmysr/Principal/Index">LNMySR</a>
-          </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="#utlimo">Último Dato</a></li>
-              <li><a href="#historicos">Datos históricos</a></li>
-              <li><a href="#promedio">Promedio</a></li>
-            <li><a href="{{ url_for("est", name = name, id = id) }}">Regresar</a></li>
-          </div>
+<body>
+  <nav class="navbar navbar-default">
+      <div class="container"><!--Contenedor-->
+        <div class="navbar-header"><!--El encabezado de la barra-->
+        <a class="navbar-brand" href="http://clima.inifap.gob.mx/lnmysr/Principal/Index">LNMySR</a>
         </div>
-    </nav>
+        <div class="collapse navbar-collapse" id="menú">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#utlimo">Último Dato</a></li>
+            <li><a href="#historicos">Datos Históricos</a></li>
+            <li><a href="#promedio">Promedio</a></li>
+            <li><a href="{{ url_for("est", name = name, id = id) }}">Regresar</a></li>
+        </div>
+      </div>
+  </nav>
+</br>
 <!--Contenedor de la imagen del INIFAP-->
     <div class="container">
       <center>
@@ -114,7 +140,7 @@ hr {
 <div class="container bg-3">
   <div class="panel-group">
     <!--Panel para la tabla-->
-       <div id="utlimo" class="panel-heading"><a style="text-decoration:none; color:#424242" href="#myNavbar"><h3>ÚLTIMO DATO</a></h3>
+       <div id="utlimo" class="panel-heading"><a style="text-decoration:none; color:#424242" href="#menú"><h3>ÚLTIMO DATO</a></h3>
          <h3><b>{{est}}</b></h3><!--Imprime el nombre del estado-->
        </div>
      </br>
@@ -142,16 +168,8 @@ hr {
                  <td><h4>{{dato2['estaciones'][0]['Eto']}}</td>
                </tr>
                <tr>
-                 <td><h4>Fecha </td>
-                 <td><h4>{{dato2['estaciones'][0]['Fecha']}}</td>
-               </tr>
-               <tr>
                  <td><h4>Fecha Parseo</td>
                  <td><h4>{{dato2['estaciones'][0]['FechaParseo']}}</td>
-               </tr>
-               <tr>
-                 <td><h4>Humedad (Humh)</td>
-                 <td><h4>{{dato2['estaciones'][0]['Humh']}}</td>
                </tr>
                <tr>
                  <td><h4>Humedad relativa (Humr)</td>
@@ -192,7 +210,7 @@ hr {
    <div class="container bg-3">
      <div class="panel-group">
        <!--<div class="panel panel-default">-->
-          <div id="historicos" class="panel-heading"><a style="text-decoration:none; color:#424242" href="#myNavbar"><h3>DATOS HISTÓRICOS</h3></a>
+          <div id="historicos" class="panel-heading"><a style="text-decoration:none; color:#424242" href="#menú"><h3>DATOS HISTÓRICOS</h3></a>
           </div>
         </br>
    <div class="panel-body">
@@ -313,7 +331,7 @@ hr {
 </div>
 <!--Tabla dinámica-->
 <div id="promedio"class="container bg-3">
-  <a style="text-decoration:none; color:#424242" href="#myNavbar"><h2>PROMEDIO</h2></a>
+  <a style="text-decoration:none; color:#424242" href="#menú"><h2>PROMEDIO</h2></a>
   <p>Promedio de los 5 días de cada uno de los datos históricos</p>
 </br>
   <ul class="nav nav-tabs">
@@ -382,13 +400,14 @@ hr {
 </br>
 </br>
 </center>
+<div class="parallax"></div><!--Efecto Parallax-->
 <!--Contenedor con la información del INIFAP-->
 <div class="container-fluid bg-1 text-center">
-<p><strong>© 2018 - INIFAP - Campo Experimental Pabellón - Laboratorio Nacional de Modelaje y Sensores Remotos</p></strong>
-<h5>Km. 32.5 Carretera Panamericana Aguascalientes - Zacatecas
+<h5><strong>© 2018 - INIFAP - Campo Experimental Pabellón - Laboratorio Nacional de Modelaje y Sensores Remotos</h5></strong>
+<h6>Km. 32.5 Carretera Panamericana Aguascalientes - Zacatecas
 Pabellón de Arteaga, Aguascalientes, México
 Apartado Postal No. 20 // C.P. 20670
-01 800 088 22 22 ext 82536. </h5>
+01 800 088 22 22 ext 82536. </h6>
 </div>
   </body>
 </html>

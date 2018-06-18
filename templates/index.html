@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><!--Establece el lenguaje, en este caso Español-->
+<html>
   <head>
     <!-- META controlar las dimensiones y la escala de la página.-->
     <meta charset="utf-8"><!--Codificación de Caracteres-->
@@ -60,18 +60,42 @@
     }
 
     .navbar { /* Barra de navegación */
-        padding-top: 15px;
-        padding-bottom: 15px;
-        border: 0;
-        border-radius: 0;
-        margin-bottom: 0;
-        font-size: 12px;
-        letter-spacing: 5px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border: 0;
+      border-radius: 0;
+      margin-bottom: 0;
+      font-size: 12px;
+      letter-spacing: 5px;
     }
     .navbar-nav  li a:hover {
         color: #B18904 !important;<!-- #1abc9c -->
     }
     </style>
+<!-- Estilo del Parallax-->
+    <style>
+    body, html {
+        height: 100%;
+    }
+
+    .parallax {
+        /* Imagen */
+        background-image: url('http://www.freejpg.com.ar/asset/900/14/1441/F100010619.jpg');
+
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+        /* Altura */
+        height:5%;
+
+        /* Creación de efecto Parallax */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    </style>
+
+
 <!--Estilo del mapa-->
     <style>
          /* Always set the map height explicitly to define the size of the div
@@ -122,16 +146,17 @@
 </head>
 <body>
 <!--Etiquetas de la barra de navegación-->
-<nav class="navbar navbar-default">
-    <div class="container"><!--Contenedor-->
-      <div class="navbar-header"><!--El encabezado de la barra-->
-      <a class="navbar-brand" href="http://clima.inifap.gob.mx/lnmysr/Principal/Index">LNMySR</a>
+  <nav class="navbar navbar-default">
+      <div class="container"><!--Contenedor-->
+        <div class="navbar-header"><!--El encabezado de la barra-->
+        <a class="navbar-brand" href="http://clima.inifap.gob.mx/lnmysr/Principal/Index">LNMySR</a>
+        </div>
+        <div class="collapse navbar-collapse" id="menú">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#estados">Estados</a></li>
+        </div>
       </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-      </div>
-    </div>
-</nav>
+  </nav>
 </br>
 <!--Contenedor de la imagen del INIFAP-->
 <div class="container">
@@ -142,7 +167,6 @@
 <div class="container-fluid bg-3 text-center">
   <h1 class="margin">Datos Diarios</h1><br>
 </div>
-
 <div id="map"></div>
 <!-- Script del mapa -->
      <script>
@@ -185,8 +209,6 @@
      <script async defer
      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyoOSCgSzgU2MQZkQ8LnaK74GJxUtmjGM&callback=initMap">
      </script>
-
-
 </br>
 </br>
 <center>
@@ -195,17 +217,16 @@
         Se emiten dos prónosticos: uno Estacional y otro de corto Plazo.</p>
       </center>
 </div>
-</div>
 <!--Contenedor para el panel de selección-->
 <div class="container bg-3">
 </br>
-  <center><h2>Estados</h2></center>
+  <center><h2 id="estados"><a style="text-decoration:none; color:#424242" href="#menú">Estados</h2></center>
 </br>
   <div class="panel-group">
     <div class="panel panel-default">
       <div class="panel-heading"><!--Encabezado del panel-->
         <h4 class="panel-title">
-          <a data-toggle="collapse" href="#Seleccion"><b>Selecionar</b></a>
+          <a data-toggle="collapse" href="#Seleccion"><b>Seleccionar</b></a>
         </h4>
       </div>
       <div id="Seleccion" class="panel-collapse collapse">
@@ -238,15 +259,15 @@
 </div>
     <hr>
 </div>
-
 <br />
+<div class="parallax"></div>
 <!--Contenedor con la información del INIFAP-->
 <div class="container-fluid bg-1 text-center">
 <h5><strong>© 2018 - INIFAP - Campo Experimental Pabellón - Laboratorio Nacional de Modelaje y Sensores Remotos</h5></strong>
-<h5>Km. 32.5 Carretera Panamericana Aguascalientes - Zacatecas
+<h6>Km. 32.5 Carretera Panamericana Aguascalientes - Zacatecas
 Pabellón de Arteaga, Aguascalientes, México
 Apartado Postal No. 20 // C.P. 20670
-01 800 088 22 22 ext 82536. </h5>
+01 800 088 22 22 ext 82536. </h6>
 </div>
   </body>
 </html>
