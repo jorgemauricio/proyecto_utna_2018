@@ -52,8 +52,10 @@ def estacion(estado,numesta,estacion,numero):
     h= dicc['estaciones'][0]['Humr']#humedad relativa
     T=(9*int(t)/5)+32#conversion de °c a °f
     #indice de calor:
-    HI = -42.379 + 2.04901523*T + 10.14333127*h - .22475541*T*h - .00683783*T*T - .05481717*h*h + .00122874*T*T*h + .00085282*T*h*h - .00000199*T*T*h*h
-    Pr= ((h/100)**(1/8))*(112+0.9*t)+0.1*t-112#punto de rocio
+    H = -42.379 + 2.04901523*T + 10.14333127*h - .22475541*T*h - .00683783*T*T - .05481717*h*h + .00122874*T*T*h + .00085282*T*h*h - .00000199*T*T*h*h
+    HI=("{0:.2f}".format(H))
+    P= ((h/100)**(1/8))*(112+0.9*t)+0.1*t-112#punto de rocio
+    Pr=("{0:.2f}".format(P))
 
     fecha1=fecha()
 
@@ -74,25 +76,35 @@ def consulta1(estacion,numero,fecha,fechaC):
     data=json.loads(source)
     df=pd.DataFrame(data['estaciones'])
     #promedio EP
-    promEp=df['Ep'].mean()
+    pEp=df['Ep'].mean()
+    promEp=("{0:.2f}".format(pEp))
      #promedio ET
-    promEt=df['Et'].mean()
+    pEt=df['Et'].mean()
+    promEt=("{0:.2f}".format(pEt))
     #promedio Humr
-    promHumr=df['Humr'].mean()
+    pHumr=df['Humr'].mean()
+    promHumr=("{0:.2f}".format(pHumr))
     #promedio Radg
-    promRadg=df['Radg'].mean()
+    pRadg=df['Radg'].mean()
+    promRadg=("{0:.2f}".format(pRadg))
     #promedio Tmax
-    promTmax=df['Tmax'].mean()
+    pTmax=df['Tmax'].mean()
+    promTmax=("{0:.2f}".format(pTmax))
     #promedio Tmed
-    promTmed=df['Tmed'].mean()
+    pTmed=df['Tmed'].mean()
+    promTmed=("{0:.2f}".format(pTmed))
     #promedio Tmin
-    promTmin=df['Tmin'].mean()
+    pTmin=df['Tmin'].mean()
+    promTmin=("{0:.2f}".format(pTmin))
     #promedio Velv
-    promVelv=df['Velv'].mean()
+    pVelv=df['Velv'].mean()
+    promVelv=("{0:.2f}".format(pVelv))
     #promedio VelvMax
-    promVelvMax=df['VelvMax'].mean()
+    pVelvMax=df['VelvMax'].mean()
+    promVelvMax=("{0:.2f}".format(pVelvMax))
     #Suma de Precipitación
-    sumPrec=df["Prec"].sum()
+    sPrec=df["Prec"].sum()
+    sumPrec=("{0:.2f}".format(sPrec))
 
     v1=df['Velv'][0]
     d1=df["Dirv"][0]
@@ -121,7 +133,8 @@ def consulta1(estacion,numero,fecha,fechaC):
     Cu5=componenteU(v5,d5)
     Prom5=diasDir(v5,d5)
 
-    PromG= (Prom1+Prom2+Prom3+Prom4+Prom5)/5
+    PromGe= (Prom1+Prom2+Prom3+Prom4+Prom5)/5
+    PromG=("{0:.2f}".format(PromGe))
     return df,promEp, promEt, promHumr, promRadg, promTmax, promTmed, promTmin, promVelv, promVelvMax, sumPrec,PromG
 
 def componenteV(velv,dirv):
@@ -149,6 +162,7 @@ def diasDir(v,u):
         zDegrees = zDegrees + 360
 
     z = zDegrees
+
     return z
 
 def fecha():
