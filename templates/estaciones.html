@@ -45,17 +45,35 @@
   }
 
   .navbar {  /* Barra de navegación */
-      padding-top: 15px;
-      padding-bottom: 15px;
+      padding-top: 5px;
+      padding-bottom: 5px;
       border: 0;
       border-radius: 0;
       margin-bottom: 0;
       font-size: 12px;
       letter-spacing: 5px;
+
+      overflow: hidden;
+      background-color: #333;
+      position: fixed;
+      top: 0;
+      width: 100%;
+  }
+
+  .navbar a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 12px;
   }
   .navbar-nav  li a:hover {
       color: #B18904 !important;<!-- #1abc9c -->
   }
+
+
   </style>
 
   <!-- Estilo del Parallax-->
@@ -94,32 +112,32 @@
 </style>
 <!--Estilo del separador hr y de la tabla dinámica-->
 <style>
-hr {
-   height:3px;
-   background-color: #BDBDBD;
-   width: 100%;
- }
- .nav-tabs > li {
-    float:none;
-    display:inline-block;
-    zoom:1;
-    color: #B18904;
-}
+    hr {
+       height:3px;
+       background-color: #BDBDBD;
+       width: 100%;
+     }
+     .nav-tabs > li {
+        float:none;
+        display:inline-block;
+        zoom:1;
+        color: #B18904;
+    }
 
-.nav-tabs {
-    text-align:center;
+    .nav-tabs {
+        text-align:center;
 
-}
+    }
 </style>
 
 <!--Etiquetas de la barra de navegación-->
 <body>
-  <nav class="navbar navbar-default">
-      <div class="container"><!--Contenedor-->
+  <nav class="navbar" >
+      <div class="container" id="menú"><!--Contenedor-->
         <div class="navbar-header"><!--El encabezado de la barra-->
         <a class="navbar-brand" href="http://clima.inifap.gob.mx/lnmysr/Principal/Index">LNMySR</a>
         </div>
-        <div class="collapse navbar-collapse" id="menú">
+        <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
             <li><a href="#utlimo">Último Dato</a></li>
             <li><a href="#historicos">Datos Históricos</a></li>
@@ -129,6 +147,8 @@ hr {
       </div>
   </nav>
 </br>
+</br>
+</br>
 <!--Contenedor de la imagen del INIFAP-->
     <div class="container">
       <center>
@@ -137,10 +157,10 @@ hr {
     </div>
 </br>
 <center>
-<div class="container bg-3">
+<div id="utlimo" class="container bg-3">
   <div class="panel-group">
     <!--Panel para la tabla-->
-       <div id="utlimo" class="panel-heading"><a style="text-decoration:none; color:#424242" href="#menú"><h3>ÚLTIMO DATO</a></h3>
+       <div class="panel-heading"><a style="text-decoration:none; color:#424242" href="#menú"><h3>ÚLTIMO DATO</a></h3>
          <h3><b>{{est}}</b></h3><!--Imprime el nombre del estado-->
        </div>
      </br>
@@ -207,10 +227,10 @@ hr {
      </div>
    </div>
 
-   <div class="container bg-3">
+   <div id="historicos" class="container bg-3">
      <div class="panel-group">
        <!--<div class="panel panel-default">-->
-          <div id="historicos" class="panel-heading"><a style="text-decoration:none; color:#424242" href="#menú"><h3>DATOS HISTÓRICOS</h3></a>
+          <div class="panel-heading"><a style="text-decoration:none; color:#424242" href="#menú"><h3>DATOS HISTÓRICOS</h3></a>
           </div>
         </br>
    <div class="panel-body">

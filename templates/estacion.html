@@ -41,17 +41,35 @@
     }
 
     .navbar { /* Barra de navegación */
-        padding-top: 15px;
-        padding-bottom: 15px;
+        padding-top: 5px;
+        padding-bottom: 5px;
         border: 0;
         border-radius: 0;
         margin-bottom: 0;
         font-size: 12px;
         letter-spacing: 5px;
+
+        overflow: hidden;
+        background-color: #333;
+        position: fixed;
+        top: 0;
+        width: 100%;
     }
+
+    .navbar a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 12px;
+      }
+
     .navbar-nav  li a:hover {
         color: #B18904 !important;<!-- #1abc9c -->
     }
+
     </style>
 
     <!-- Estilo del Parallax-->
@@ -80,17 +98,20 @@
   </head>
   <body>
     <!--Etiquetas de la barra de navegación-->
-    <nav class="navbar navbar-default">
-        <div class="container"><!--Contenedor-->
+    <nav class="navbar">
+        <div class="container" id="menú"><!--Contenedor-->
           <div class="navbar-header"><!--El encabezado de la barra-->
           <a class="navbar-brand" href="http://clima.inifap.gob.mx/lnmysr/Principal/Index">LNMySR</a>
           </div>
           <div class="collapse navbar-collapse" id="menú">
           <ul class="nav navbar-nav navbar-right">
+            <li><a href="#estaciones">Estaciones</a></li>
             <li><a href="{{ url_for("index") }}">Regresar</a></li><!--Se redirecciona a la página Index-->
           </div>
         </div>
     </nav>
+</br>
+</br>
 </br>
     <div class="container"><!--Contenedor de la imagen INIFAP-->
       <center>
@@ -104,6 +125,10 @@
       <h2>Estaciones de {{estado}}</h2>
     </br>
     </center>
+    <!--<div class="alert alert-danger">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>ERROR!</strong>
+    </div>-->
     <div class="container bg-3">
       <div class="panel-group">
         <div class="panel panel-default">
@@ -124,7 +149,13 @@
   </div>
 </div>
 </br>
-<div class="container bg-3"><!--Tabla de estaciones por estado-->
+</br>
+</br>
+</br>
+</br>
+</br>
+<div class="container bg-3" id="estaciones"><!--Tabla de estaciones por estado-->
+<center><h3><b><a style="text-decoration:none; color:#424242" href="#menú">Número de Estaciones por Estado</a></b></h3></center>
 <div class="panel-body">
   <div class="table-responsive">
       <table class="table table-hover">

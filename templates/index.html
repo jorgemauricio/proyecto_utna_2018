@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://clima.inifap.gob.mx/lnmysr/favicon.ico" rel="shortcut icon" type="image/x-icon" /><!--Icono-->
    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"><!--Enlaces a bootstrap-->
+   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <title>Datos Diarios - LNMySR</title>
@@ -60,17 +62,36 @@
     }
 
     .navbar { /* Barra de navegación */
-      padding-top: 15px;
-      padding-bottom: 15px;
+      padding-top: 5px;
+      padding-bottom: 5px;
       border: 0;
       border-radius: 0;
       margin-bottom: 0;
       font-size: 12px;
       letter-spacing: 5px;
+
+      overflow: hidden;
+      background-color: #333;
+      position: fixed;
+      top: 0;
+      width: 100%;
     }
+
+    .navbar a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 12px;
+      }
+
     .navbar-nav  li a:hover {
         color: #B18904 !important;<!-- #1abc9c -->
+
     }
+}
     </style>
 <!-- Estilo del Parallax-->
     <style>
@@ -146,8 +167,8 @@
 </head>
 <body>
 <!--Etiquetas de la barra de navegación-->
-  <nav class="navbar navbar-default">
-      <div class="container"><!--Contenedor-->
+  <nav class="navbar">
+      <div class="container" id="menú"><!--Contenedor-->
         <div class="navbar-header"><!--El encabezado de la barra-->
         <a class="navbar-brand" href="http://clima.inifap.gob.mx/lnmysr/Principal/Index">LNMySR</a>
         </div>
@@ -158,11 +179,13 @@
       </div>
   </nav>
 </br>
+</br>
+</br>
 <!--Contenedor de la imagen del INIFAP-->
 <div class="container">
   <center>
-  <img src="http://clima.inifap.gob.mx/lnmysr/Content/documentos/INIFAP_Website/header_4_v2.png" class="img-responsive" width="1000" height="300">
-</center>
+    <img src="http://clima.inifap.gob.mx/lnmysr/Content/documentos/INIFAP_Website/header_4_v2.png" class="img-responsive" width="1000" height="300">
+  </center>
 </div>
 <div class="container-fluid bg-3 text-center">
   <h1 class="margin">Datos Diarios</h1><br>
@@ -211,7 +234,7 @@
      </script>
 </br>
 </br>
-<center>
+      <center>
 <div class="container-fluid bg-2 ">
       <p>Responsable de emitir los pronósticos de las condiciones de humedad y temperatura.
         Se emiten dos prónosticos: uno Estacional y otro de corto Plazo.</p>
@@ -245,18 +268,17 @@
 </br>
 </br>
 <!--Link de bootstrap para la visualización de los inconos-->
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
 <!-- Iconos de redes sociales -->
-<div class="container">
+<div class="container bg-3">
     <hr>
         <div class="text-center center-block">
-            <h5 class="txt-railway"> Siguenos </h5>
+          <h3>Siguenos </h3>
             <br />
               <a href="https://www.facebook.com/Laboratorio-Nacional-de-Modelaje-y-Sensores-Remotos-Inifap-1302854409816630/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
 	            <a href="https://accounts.google.com/signin/v2/identifier?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F%3Ftab%3Dwm&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
 	            <a href="https://mail.inifap.gob.mx/owa"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
-</div>
+        </div>
     <hr>
 </div>
 <br />
