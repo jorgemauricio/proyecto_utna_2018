@@ -35,7 +35,7 @@
   .jumbotron {
       background-color: #088A08;
       color: #fff;
-      padding: 100px 25px;
+      padding: 30px 25px;
       font-family: Montserrat, sans-serif;
   }
   .container-fluid {
@@ -45,12 +45,12 @@
       background-color: #f6f6f6;
   }
   .logo-small {
-      color: #f4511e;
-      font-size: 50px;
+      color: #0B610B;
+      font-size: 18px;
   }
   .logo {
-      color: #f4511e;
-      font-size: 200px;
+      color: #FFF;
+      font-size: 18px;
   }
   .thumbnail {
       padding: 0 0 15px 0;
@@ -134,9 +134,10 @@
   .navbar li a, .navbar .navbar-brand {
       color: #fff !important;
   }
-  .navbar-nav li a:hover, .navbar-nav li.active a {
+  .navbar-nav li a:hover, .navbar-nav li.active a ,.logo{
       color: #298A08 !important;
       background-color: #fff !important;
+
   }
   .navbar-default .navbar-toggle {
       border-color: transparent;
@@ -210,12 +211,16 @@
         <li><a href="#historicos">HÍSTORICOS</a></li>
         <li><a href="#promedios">PROMEDIOS</a></li>
         <li><a href="#referencias">REFERNCIAS</a></li>
-        <li><a href= " {{ url_for ( 'datos' ) }} ">INICIO</a></li>
+        <li title="Inicio"><a href= " {{ url_for ( 'datos' ) }} "><span class="glyphicon glyphicon-leaf "></a> </span></li>
       </ul>
     </div>
   </div>
 </nav>
-
+<br>
+<br>
+<div class="container">
+  <img class="img-responsive" src="http://clima.inifap.gob.mx/lnmysr/Content/documentos/INIFAP_Website/header_4_v2.png">
+</div>
 <div class="jumbotron text-center"><!--  -->
   <h1>Último Dato</h1>
   <p>Laboratorio Nacional de Modelaje y Sensores Remotos</p>
@@ -225,9 +230,7 @@
     </div>
   </form>
 </div>
-<div class="container">
-  <img class="img-responsive" src="http://clima.inifap.gob.mx/lnmysr/Content/documentos/INIFAP_Website/header_4_v2.png">
-</div>
+
 <!-- Container (About Section) -->
 <div id="about" class="container-fluid"><!-- Contenedor que abarca todo el ancho de la pantalla-->
   <div class="row">

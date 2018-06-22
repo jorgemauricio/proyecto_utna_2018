@@ -35,7 +35,7 @@
   .jumbotron {
       background-color: #088A08;
       color: #fff;
-      padding: 100px 25px;
+      padding: 30px 25px;
       font-family: Montserrat, sans-serif;
   }
   .container-fluid {
@@ -46,11 +46,11 @@
   }
   .logo-small {
       color: #0B610B;
-      font-size: 50px;
+      font-size: 18px;
   }
   .logo {
-      color: #f4511e;
-      font-size: 200px;
+      color: #FFF;
+      font-size: 18px;
   }
   .thumbnail {
       padding: 0 0 15px 0;
@@ -134,7 +134,7 @@
   .navbar li a, .navbar .navbar-brand {
       color: #fff !important;
   }
-  .navbar-nav li a:hover, .navbar-nav li.active a {
+  .navbar-nav li a:hover, .navbar-nav li.active a ,.logo{
       color: #298A08 !important;
       background-color: #fff !important;
   }
@@ -207,35 +207,37 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#about">ESTACIONES</a></li>
-        <li><a href= " {{ url_for ( 'datos' ) }} ">ESTADOS</a></li>
+        <li title="Inicio" ><a href= " {{ url_for ( 'datos' ) }} "><span class="glyphicon glyphicon-leaf"></a> </span></li>
       </ul>
     </div>
   </div>
 </nav>
-
+<br>
+<br>
+<div class="container">
+  <img class="img-responsive" src="http://clima.inifap.gob.mx/lnmysr/Content/documentos/INIFAP_Website/header_4_v2.png">
+</div>
 <div class="jumbotron text-center">
   <h1>Estaciones</h1>
   <p>Laboratorio Nacional de Modelaje y Sensores Remotos</p>
 </div>
-<div class="container">
-  <img class="img-responsive" src="http://clima.inifap.gob.mx/lnmysr/Content/documentos/INIFAP_Website/header_4_v2.png">
-</div>
+
 <!-- Container (About Section) -->
 
 <div id="about" class="container-fluid">
   <div class="row">
     <div class="col-sm-8">
 
-      <h2>ESTACIONES</h2><br>
+      <h2> {{estado}}</h2><br>
       <div class="container bg-3">
          <div class="panel-group">
            <div class="panel panel-default">
 
-           <div class="panel-heading">
+           <!--<div class="panel-heading">
            <h3 class="panel-title">
              <a data-toggle="collapse" href="#Seleccion">Selecciona una estación</a>
            </h3>
-         </div>
+         </div>-->
 
            <div id="Seleccion" class="panel-collapse collapse">
              <ul class="list-group">
@@ -435,7 +437,7 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
     <span class="glyphicon glyphicon-chevron-up"></span>
   </a>
   <p>© 2018 - INIFAP - Campo Experimental Pabellón - Laboratorio Nacional de Modelaje y Sensores Remotos - Algunos Derechos Reservados.</p>
-  <p> <a href="http://clima.inifap.gob.mx" title="Visit INIFAP">http://clima.inifap.gob.mx</a> ó <a href="https://es-la.facebook.com/inifap/" title="Visita nuestra página de facebook">Facebook Oficial</a>
+  <p> <a href="http://clima.inifap.gob.mx" title="Visita INIFAP">http://clima.inifap.gob.mx</a> ó <a href="https://es-la.facebook.com/inifap/" title="Visita nuestra página de facebook">Facebook Oficial</a>
     <href></p>
 
 </footer>

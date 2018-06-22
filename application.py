@@ -178,16 +178,21 @@ def funconsulta(esta,numes,fech1,fecha):
     promEp=df['Ep'].mean()
     promEp=("{0:.3f}".format(promEp))
     promEt=df['Et'].mean()
+    promEt=("{0:.3f}".format(promEt))
     promHumr=df['Humr'].mean()
     promHumr=("{0:.3f}".format(promHumr))
     promRadg=df['Radg'].mean()
     promRadg=("{0:.3f}".format(promRadg))
     promTmax=df['Tmax'].mean()
+    promTmax=("{0:.3f}".format(promTmax))
     promTmed=df['Tmed'].mean()
+    promTmed=("{0:.3f}".format(promTmed))
     promTmin=df['Tmin'].mean()
+    promTmin=("{0:.3f}".format(promTmin))
     promVelv=df['Velv'].mean()
     promVelv=("{0:.3f}".format(promVelv))
     promVelvMax=df['VelvMax'].mean()
+    promVelvMax=("{0:.3f}".format(promVelvMax))
 
     #asignacion de v y u por cada uno de los dias
     #despues asignacion de la direccion de cada dia
