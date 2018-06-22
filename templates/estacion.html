@@ -38,13 +38,28 @@
     }
 
     .navbar {
-        padding-top: 15px;
-        padding-bottom: 15px;
+        padding-top: 5px;
+        padding-bottom: 5px;
         border: 0;
         border-radius: 0;
         margin-bottom: 0;
         font-size: 12px;
         letter-spacing: 5px;
+
+        overflow: hidden;
+        background-color: #333;
+        position: fixed;
+        top: 0;
+        width: 100%;
+}
+    .navbar a {
+      float:left;
+      display:block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 12px;
     }
     .navbar-nav  li a:hover {
         color: #B18904 !important;<!-- #1abc9c -->
@@ -74,18 +89,21 @@
            </style>
   </head>
   <body>
-    <nav class="navbar navbar-default">
+    <nav class="navbar">
         <div class="container">
           <div class="navbar-header">
           <a class="navbar-brand" href="http://clima.inifap.gob.mx/lnmysr/Principal/Index">LNMySR</a>
           </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
+          <div class="collapse navbar-collapse" id="menú">
           <ul class="nav navbar-nav navbar-right">
+              <li><a href="#estados">Estaciones</a></li>
             <li><a href="{{ url_for("index") }}">Regresar</a></li><!--Se redirecciona a la página Index-->
           </div>
         </div>
     </nav>
-
+</br>
+</br>
+</br>
     <div class="container">
       <center>
       <img src="http://clima.inifap.gob.mx/lnmysr/Content/documentos/INIFAP_Website/header_4_v2.png" class="img-responsive" width="1000" height="300">
@@ -119,7 +137,13 @@
   </div>
 </div>
 </br>
+</br>
+</br>
+</br>
+</br>
+</br>
 <div class="container bg-3"><!--Tabla de estaciones por estado-->
+  <center><h3 id="estados"><a style="text-decoration:none; color:#424242" href="#menú">Número de Estaciones por Estado</h3></center>
 <div class="panel-body">
   <div class="table-responsive">
       <table class="table table-hover">

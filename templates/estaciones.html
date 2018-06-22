@@ -43,17 +43,34 @@
   }
 
   .navbar {  /* Barra de navegación */
-      padding-top: 15px;
-      padding-bottom: 15px;
+      padding-top: 5px;
+      padding-bottom: 5px;
       border: 0;
       border-radius: 0;
       margin-bottom: 0;
       font-size: 12px;
       letter-spacing: 5px;
-  }
+
+
+      overflow: hidden;
+      background-color: #333;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      }
+      .navbar a {
+        float:left;
+        display:block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 12px;
+      }
   .navbar-nav  li a:hover {
       color: #B18904 !important;<!-- #1abc9c -->
   }
+
   </style>
 <!--Estilo del panel-->
   <style>
@@ -109,7 +126,7 @@ hr {
 
 <!--Etiquetas de la barra de navegación-->
   <body>
-    <nav class="navbar navbar-default">
+    <nav class="navbar">
         <div class="container"><!--Contenedor-->
           <div class="navbar-header"><!--El encabezado de la barra-->
           <a class="navbar-brand" href="http://clima.inifap.gob.mx/lnmysr/Principal/Index">LNMySR</a>
@@ -123,6 +140,10 @@ hr {
           </div>
         </div>
     </nav>
+
+  </br>
+</br>
+</br>
 <!--Contenedor de la imagen del INIFAP-->
     <div class="container">
       <center>
@@ -332,7 +353,7 @@ hr {
  </div>
 </div>
 <!--Tabla dinámica-->
-<div class="container bg-3">
+<div id="promedio"class="container bg-3">
   <a style="text-decoration:none; color:#424242" href="#myNavbar"><h2>PROMEDIO</h2></a>
   <p>Promedio de los 5 días de cada uno de los datos históricos</p>
 </br>

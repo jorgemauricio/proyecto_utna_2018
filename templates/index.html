@@ -6,10 +6,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://clima.inifap.gob.mx/lnmysr/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
+   <title>Datos Diarios</title>
    <style>
 
       #map {
@@ -22,6 +24,7 @@
         padding: 0;
       }
     </style>
+
 
     <title>Estados - LNMySR</title>
 
@@ -55,17 +58,34 @@
     }
 
     .navbar {
-        padding-top: 15px;
-        padding-bottom: 15px;
+        padding-top: 5px;
+        padding-bottom: 5px;
         border: 0;
-        border-radius: 0;Se emiten dos prónosticos: uno Estacional y otro de corto Plazo
+        border-radius: 0;
         margin-bottom: 0;
         font-size: 12px;
         letter-spacing: 5px;
+
+        overflow: hidden;
+        background-color: #333;
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+    .navbar a {
+      float:left;
+      display:block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 12px;
     }
     .navbar-nav  li a:hover {
         color: #B18904 !important;<!-- #1abc9c -->
     }
+
+
     </style>
     <!-- Estilo del Parallax-->
         <style>
@@ -90,11 +110,6 @@
         }
         </style>
 
-  <style>
-  .container {
-      margin-top: 10px;
-  }
-</style>
 <!--Estilo del los iconos sociales-->
       <style>
       .social:hover {
@@ -131,7 +146,7 @@
   </head>
   <body>
 
-<nav class="navbar navbar-default">
+<nav class="navbar">
     <div class="container">
       <div class="navbar-header">
       <a class="navbar-brand" href="http://clima.inifap.gob.mx/lnmysr/Principal/Index">LNMySR</a>
@@ -142,6 +157,8 @@
       </div>
     </div>
 </nav>
+</br>
+</br>
 </br>
 <div class="container">
   <center>
@@ -233,10 +250,9 @@
 
 
 <!--Link de bootstrap para la visualización de los inconos-->
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
 <!-- Iconos de redes sociales -->
-<div class="container">
+<div class="container bg-3">
     <hr>
         <div class="text-center center-block">
             <p class="txt-railway"> Siguenos </p>
