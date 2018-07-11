@@ -2,30 +2,30 @@
 <html>
   <head>
     <!-- META controlar las dimensiones y la escala de la página.-->
-    <meta charset="utf-8"><!--Codificación de Caracteres-->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="http://clima.inifap.gob.mx/lnmysr/favicon.ico" rel="shortcut icon" type="image/x-icon" /><!--Icono-->
-   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"><!--Enlaces a bootstrap-->
-   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<meta charset="utf-8"><!--Codificación de Caracteres-->
+<meta name="viewport" content="width=device-width, initial-scale=1"><!--Se adapte a pantalla-->
+<link href="http://clima.inifap.gob.mx/lnmysr/favicon.ico" rel="shortcut icon" type="image/x-icon" /><!--Icono-->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"><!--Enlaces a bootstrap-->
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <title>Datos Diarios - LNMySR</title>
 
 <!--Estilo del cuerpo de la página-->
     <style>
-    body {
+    body { /*Estilo del Cuerpo de la página */
         font: 20px Montserrat, sans-serif;
         line-height: 1.8;
         color: #f5f6f7;
     }
-    p {
+    p { /*Estilo de los párrafos */
       font-size: 16px;
       animation-duration: 8s;
       animation-name: slidein;
     }
 
-    @keyframes slidein {
+    @keyframes slidein { /*Efecto de los párrafos */
       from {
         margin-left: 100%;
         width: 300%
@@ -36,10 +36,8 @@
         width: 100%;
       }
     }
-
-
     .margin {margin-bottom: 45px;}
-    /*Estilos a los fondos y del texto*/
+    /*Estilos de los container y del texto*/
     .bg-1 {
         background-color: #088A29 ; /*  Green #088A29*/
         color: #ffffff;
@@ -61,7 +59,7 @@
         padding-bottom: 20px;
     }
 
-    .navbar { /* Barra de navegación */
+    .navbar { /* Propiedades de la barra de navegación */
       padding-top: 5px;
       padding-bottom: 5px;
       border: 0;
@@ -77,7 +75,7 @@
       width: 100%;
     }
 
-    .navbar a {
+    .navbar a { /* Propiedades de la etiquetas <a>*/
         float: left;
         display: block;
         color: #f2f2f2;
@@ -87,7 +85,7 @@
         font-size: 12px;
       }
 
-    .navbar-nav  li a:hover {
+    .navbar-nav  li a:hover { /* Propiedades de la etiquetas <i>*/
         color: #B18904 !important;<!-- #1abc9c -->
 
     }
@@ -95,14 +93,15 @@
     </style>
 <!-- Estilo del Parallax-->
     <style>
-    body, html {
+    body, html { /*Tamaño de la imagen*/
         height: 100%;
     }
 
     .parallax {
-        /* Imagen */
+        /* Dirección del archivo de la imagen */
         background-image: url('http://www.freejpg.com.ar/asset/900/14/1441/F100010619.jpg');
 
+        /*Propiedades de efecto de la imagen*/
         opacity: 0.5;
         filter: alpha(opacity=50);
         /* Altura */
@@ -119,12 +118,11 @@
 
 <!--Estilo del mapa-->
     <style>
-         /* Always set the map height explicitly to define the size of the div
-          * element that contains the map. */
+         /* Tamaño de la altura del mapa. */
          #map {
            height: 50%;
          }
-         /* Optional: Makes the sample page fill the window. */
+         /* Propiedades del cuerpo del mapa en la página. */
          html, body {
            height: 100%;
            margin: 0;
@@ -133,6 +131,7 @@
        </style>
 <!--Estilo del los iconos sociales-->
       <style>
+      /*Propiedades de animacion de los iconos */
       .social:hover {
            -webkit-transform: scale(1.1);
            -moz-transform: scale(1.1);
@@ -149,9 +148,7 @@
            -o-transition-duration: 0.5s;
        }
 
-      /*
-          Estilos de los iconos
-      */
+      /* Estilos de los iconos (Colores) */
 
        #social-fb:hover {
            color: #3B5998;
@@ -167,12 +164,20 @@
 </head>
 <body>
 <!--Etiquetas de la barra de navegación-->
-  <nav class="navbar">
-      <div class="container" id="menú"><!--Contenedor-->
-        <div class="navbar-header"><!--El encabezado de la barra-->
+  <nav class="navbar"> <!-- Clase NavBar-->
+      <div class="container" id="menú"><!--Contenedor para la barra de menú-->
+        <div class="navbar-header"><!--El encabezado de la barra de menú-->
+          <!-- Botón de opciones -->
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+          </button>
+        <!-- Enlace a la página principal LNMySR -->
         <a class="navbar-brand" href="http://clima.inifap.gob.mx/lnmysr/Principal/Index">LNMySR</a>
         </div>
-        <div class="collapse navbar-collapse" id="menú">
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <!-- Enlaces a los apartados de la página -->
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#estados">Estados</a></li>
         </div>
@@ -193,14 +198,14 @@
 <div id="map"></div>
 <!-- Script del mapa -->
      <script>
-
+      /* Función para las variables de longitud y latitud del lugar */
        function initMap() {
          var uluru = {lat: 22.162131, lng: -102.295401};
          var map = new google.maps.Map(document.getElementById('map'), {
            zoom: 6,
            center: uluru
          });
-
+         /* Información general de la ubicación del lugar */
          var contentString = '<div id="content">'+
              '<div id="siteNotice">'+
              '</div>'+
@@ -214,6 +219,7 @@
              '</div>'+
              '</div>';
 
+        /* Métodos para mandar llamar las variables de latitud y longitud */
          var infowindow = new google.maps.InfoWindow({
            content: contentString
          });
@@ -238,13 +244,15 @@
 <div class="container-fluid bg-2 ">
       <p>Responsable de emitir los pronósticos de las condiciones de humedad y temperatura.
         Se emiten dos prónosticos: uno Estacional y otro de corto Plazo.</p>
-      </center>
-</div>
+    </div>
+  </center>
 <!--Contenedor para el panel de selección-->
 <div class="container bg-3">
 </br>
+<!-- Encabezado de la sección -->
   <center><h2 id="estados"><a style="text-decoration:none; color:#424242" href="#menú">Estados</h2></center>
 </br>
+  <!-- Panel Group -->
   <div class="panel-group">
     <div class="panel panel-default">
       <div class="panel-heading"><!--Encabezado del panel-->
@@ -255,6 +263,7 @@
       <div id="Seleccion" class="panel-collapse collapse">
         <!--Se utiliza el list group para poder llamar los elementos de la lista de Python-->
         <ul class="list-group">
+          <!-- Código Jinja (Permite llamara los datos de python) -->
           {%for d,v in dato.items()%}
           <h4>  <li class="list-group-item"><a href="{{v}}/{{d+1}}" style="color:#424242;">{{v}}</a></li></h4>
           {%endfor%}
@@ -267,7 +276,6 @@
 </br>
 </br>
 </br>
-<!--Link de bootstrap para la visualización de los inconos-->
 
 <!-- Iconos de redes sociales -->
 <div class="container bg-3">

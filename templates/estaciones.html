@@ -102,6 +102,7 @@
 
 <!--Estilo del panel-->
   <style>
+  /* Propiedades del panel */
   .panel-default > .panel-heading {
     color: #333;
     background-color: #F2F2F2;
@@ -112,12 +113,12 @@
 </style>
 <!--Estilo del separador hr y de la tabla dinámica-->
 <style>
-    hr {
+    hr { /* Propiedades del separador <hr> */
        height:3px;
        background-color: #BDBDBD;
        width: 100%;
      }
-     .nav-tabs > li {
+     .nav-tabs > li { /* Propiedades de la tabla <li> */
         float:none;
         display:inline-block;
         zoom:1;
@@ -133,16 +134,23 @@
 <!--Etiquetas de la barra de navegación-->
 <body>
   <nav class="navbar" >
-      <div class="container" id="menú"><!--Contenedor-->
+      <div class="container"><!--Contenedor-->
         <div class="navbar-header"><!--El encabezado de la barra-->
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+          </button>
         <a class="navbar-brand" href="http://clima.inifap.gob.mx/lnmysr/Principal/Index">LNMySR</a>
         </div>
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
             <li><a href="#utlimo">Último Dato</a></li>
             <li><a href="#historicos">Datos Históricos</a></li>
             <li><a href="#promedio">Promedio</a></li>
             <li><a href="{{ url_for("est", name = name, id = id) }}">Regresar</a></li>
+          </ul>
         </div>
       </div>
   </nav>
@@ -157,11 +165,12 @@
     </div>
 </br>
 <center>
-<div id="utlimo" class="container bg-3">
+<div id="utlimo" class="container bg-3"> <!-- Contenedor para la tabla -->
+  <!--Panel para la tabla-->
   <div class="panel-group">
-    <!--Panel para la tabla-->
+      <!-- Encabezado de la tabla -->
        <div class="panel-heading"><a style="text-decoration:none; color:#424242" href="#menú"><h3>ÚLTIMO DATO</a></h3>
-         <h3><b>{{est}}</b></h3><!--Imprime el nombre del estado-->
+         <h3><b>{{est}}</b></h3><!--Imprime el nombre de la estación con el código Jinja-->
        </div>
      </br>
        <div class="panel-body">
@@ -169,15 +178,15 @@
          <div class="table-responsive">
            <table class="table table-hover">
              <thead>
-               <tr>
+               <tr> <!-- Encabezado de las columnas de la tabla -->
                  <th class="col-sm-4">Descripción</th>
                  <th class="col-sm-4">Resultado</th>
                </tr>
              </thead>
              <tbody>
-               <tr>
-                 <td><h4>Número de Estación</td>
-                 <td><h4>{{dato2['estaciones'][0]['Numero']}}</td>
+               <tr> <!-- Fila de la tabla -->
+                 <td><h4>Número de Estación</td> <!-- Celdas de la tabla -->
+                 <td><h4>{{dato2['estaciones'][0]['Numero']}}</td> <!-- Código Jinja-->
                </tr>
                <tr>
                  <td><h4>Dirección promedio del viento (Dirv)</td>
@@ -227,9 +236,9 @@
      </div>
    </div>
 
-   <div id="historicos" class="container bg-3">
+   <div id="historicos" class="container bg-3"> <!-- Contenedor del Panel -->
      <div class="panel-group">
-       <!--<div class="panel panel-default">-->
+       <!-- Encabezado de la tabla-->
           <div class="panel-heading"><a style="text-decoration:none; color:#424242" href="#menú"><h3>DATOS HISTÓRICOS</h3></a>
           </div>
         </br>
@@ -238,7 +247,7 @@
      <div class="table-responsive">
        <table class="table table-hover">
          <thead>
-           <tr>
+           <tr> <!-- Columnas de la tabla -->
              <th class="col-sm-1">Indíce</th>
              <th class="col-sm-1">Número</th>
              <th class="col-sm-1">Dirv</th>

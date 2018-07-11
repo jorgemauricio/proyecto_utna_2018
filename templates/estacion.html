@@ -73,7 +73,7 @@
     </style>
 
     <!-- Estilo del Parallax-->
-        <style>
+    <style>
         body, html {
             height: 100%;
         }
@@ -93,17 +93,22 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
-        </style>
+    </style>
 
   </head>
   <body>
     <!--Etiquetas de la barra de navegación-->
     <nav class="navbar">
-        <div class="container" id="menú"><!--Contenedor-->
+        <div class="container"><!--Contenedor-->
           <div class="navbar-header"><!--El encabezado de la barra-->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+            </button>
           <a class="navbar-brand" href="http://clima.inifap.gob.mx/lnmysr/Principal/Index">LNMySR</a>
           </div>
-          <div class="collapse navbar-collapse" id="menú">
+          <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#estaciones">Estaciones</a></li>
             <li><a href="{{ url_for("index") }}">Regresar</a></li><!--Se redirecciona a la página Index-->
@@ -113,32 +118,36 @@
 </br>
 </br>
 </br>
-    <div class="container"><!--Contenedor de la imagen INIFAP-->
-      <center>
+<div class="container"><!--Contenedor de la imagen INIFAP-->
+    <center>
       <img src="http://clima.inifap.gob.mx/lnmysr/Content/documentos/INIFAP_Website/header_4_v2.png" class="img-responsive" width="1000" height="300">
     </center>
-    </div>
+</div>
     <!--Contenedor para el panel group de las estaciones-->
-    <div class="container bg-3">
-      <center>
-      </br>
-      <h2>Estaciones de {{estado}}</h2>
-    </br>
-    </center>
+<div class="container bg-3">
+<center>
+</br>
+  <!-- Código Jinja (Manda llamar los datos de Python) -->
+  <h2>Estaciones de {{estado}}</h2>
+</br>
+</center>
     <!--<div class="alert alert-danger">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <strong>ERROR!</strong>
+      <strong>ERROR! <a href="{{erro}}"></strong>
     </div>-->
-    <div class="container bg-3">
-      <div class="panel-group">
-        <div class="panel panel-default">
-          <div class="panel-heading">
+  <!-- Contenedor para el Panel - Group -->
+  <div class="container bg-3">
+    <!-- Panel - Group -->
+    <div class="panel-group">
+      <div class="panel panel-default">
+        <div class="panel-heading">
             <h4 class="panel-title">
               <a data-toggle="collapse" href="#Seleccion"><b>Seleccionar</b></a>
             </h4>
           </div>
           <!--Panel de selección de las estaciones desde Python-->
           <div id="Seleccion" class="panel-collapse collapse">
+            <!-- Código Jinja (Manda llamar los datos de Python) -->
               {%for d,v in dato1.items()%}
               <div class="panel-body"><a href="/{{estado}}/{{num}}/{{v}}/{{estac[d]}}" style="color:#424242;">{{v}}</a></div>
               {% endfor %}
@@ -154,13 +163,16 @@
 </br>
 </br>
 </br>
-<div class="container bg-3" id="estaciones"><!--Tabla de estaciones por estado-->
-<center><h3><b><a style="text-decoration:none; color:#424242" href="#menú">Número de Estaciones por Estado</a></b></h3></center>
+<div class="container bg-3" id="estaciones"><!-- Contenedor para la tabla de estaciones por estado-->
+<!-- Encabezado de la sección donde esta la tabla-->
+<center><h3><b><a style="text-decoration:none; color:#424242" href="#myNavbar">Número de Estaciones por Estado</a></b></h3></center>
+<!-- Estructura de la tabla -->
 <div class="panel-body">
+  <!-- Tabla responsiva -->
   <div class="table-responsive">
       <table class="table table-hover">
        <thead>
-         <tr>
+         <tr> <!-- Encabezado de las columnas de la tabla -->
            <th>Estado</th>
            <th>Estaciones</th>
            <th>Estado</th>
@@ -168,14 +180,14 @@
          </tr>
        </thead>
        <tbody>
-         <tr>
-           <td>Aguascalientes</td>
+         <tr> <!-- Fila de la tabla -->
+           <td>Aguascalientes</td> <!-- Celdas de la tabla -->
            <td>38</td>
            <td>Nayarit</td>
            <td>40</td>
          </tr>
-         <tr>
-           <td>Baja California</td>
+         <tr> <!-- Fila de la tabla -->
+           <td>Baja California</td>  <!-- Celdas de la tabla -->
            <td>5</td>
            <td>Nuevo León</td>
            <td>38</td>

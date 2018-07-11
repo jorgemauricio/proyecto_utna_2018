@@ -1,8 +1,10 @@
-#Se importan librerias
+#SE IMPORTAN LIBRERIAS
+#Librerías de Python
 import pandas as pd
 import json
 import time
 import math
+#Librerías de Flask 
 from urllib.request import urlopen
 from flask import Flask, render_template, redirect, url_for
 from api import claves
