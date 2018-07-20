@@ -103,7 +103,7 @@ def estacion(fir,esta,estacion,numes):
     Pr=("{0:.3f}".format(Pr))
     #fecha obtenida desde python y no desde la computadora, en dia, mes y año, el año es Y por 2018
     fecha=time.strftime("%d/%m/%Y")
-    print("temperatura: {}  hum= {} punto de rocio  {}".format(F,RH,Pr))
+    print("temperatura: {}  hum= {} punto de rocío  {}".format(F,RH,Pr))
     fech1=funcionfecha()
     #se almacena el frame enviado desde el metodo de la segunda consulta, y se envian los datos de la primera
 
@@ -124,7 +124,7 @@ def funconsulta(esta,numes,fech1,fecha):
     df = pd.DataFrame(data['estaciones'])
     #suma de la precipitación
     sumaPrec=sum(df['Prec'])
-    #promedios de las demáss variables
+    #promedios de las demás variables
     promEp=df['Ep'].mean()
     promEp=("{0:.3f}".format(promEp))
     promEt=df['Et'].mean()
@@ -214,7 +214,7 @@ def DiaDir(v,u):
     #if (u < 0 and v < 0)
 
     z = zDegrees
-    print("dia dirección del viento {}".format(z))
+    print("día dirección del viento {}".format(z))
     return z
 
 def funcion(dia,mes,año,r):
