@@ -35,7 +35,7 @@
   .jumbotron {
       background-color: #088A08;
       color: #fff;
-      padding: 100px 25px;
+      padding: 30px 25px;
       font-family: Montserrat, sans-serif;
   }
   .container-fluid {
@@ -45,12 +45,12 @@
       background-color: #f6f6f6;
   }
   .logo-small {
-      color: #f4511e;
-      font-size: 50px;
+      color: #0B610B;
+      font-size: 18px;
   }
   .logo {
-      color: #f4511e;
-      font-size: 200px;
+      color: #fff;
+      font-size: 18px;
   }
   .thumbnail {
       padding: 0 0 15px 0;
@@ -134,7 +134,7 @@
   .navbar li a, .navbar .navbar-brand {
       color: #fff !important;
   }
-  .navbar-nav li a:hover, .navbar-nav li.active a {
+  .navbar-nav li a:hover, .navbar-nav li.active a, .logo{
       color: #298A08 !important;
       background-color: #fff !important;
   }
@@ -207,15 +207,19 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#about">ÚLTIMO DATO</a></li>
-        <li><a href="#historicos">HÍSTORICOS</a></li>
+        <li><a href="#historicos">HISTÓRICOS</a></li>
         <li><a href="#promedios">PROMEDIOS</a></li>
-        <li><a href="#referencias">REFERNCIAS</a></li>
-        <li><a href= " {{ url_for ( 'datos' ) }} ">INICIO</a></li>
+        <li><a href="#referencias">REFERENCIAS</a></li>
+        <li title="Inicio"><a href= " {{ url_for ( 'datos' ) }} "><span class="glyphicon glyphicon-leaf"></span></a></li>
       </ul>
     </div>
   </div>
 </nav>
-
+<br>
+<br>
+<div class="container">
+  <img class="img-responsive" src="http://clima.inifap.gob.mx/lnmysr/Content/documentos/INIFAP_Website/header_4_v2.png">
+</div>
 <div class="jumbotron text-center">
   <h1>Último Dato</h1>
   <p>Laboratorio Nacional de Modelaje y Sensores Remotos</p>
@@ -225,9 +229,7 @@
     </div>
   </form>
 </div>
-<div class="container">
-  <img class="img-responsive" src="http://clima.inifap.gob.mx/lnmysr/Content/documentos/INIFAP_Website/header_4_v2.png">
-</div>
+
 <!-- Container (About Section) -->
 <div id="about" class="container-fluid">
   <div class="row">
@@ -241,7 +243,7 @@
               <thead>
               <tr>
                   <th><h4> Dato</h4></th>
-                  <th><h4> Numero</h4></th>
+                  <th><h4> Número</h4></th>
               </tr>
             </thead>
             <tbody >
@@ -281,10 +283,10 @@
               <td><font size="4" color="0B614B">Humedad relativa (%)</font></td>
               <td><font size="4" color="0B614B">{{da2['estaciones'][0]['Humr']}}</font></td>
             </tr>
-            <tr>
+            <!--<tr>
               <td><font size="4" color="0B614B">Humh</font></td>
               <td><font size="4" color="0B614B">{{da2['estaciones'][0]['Humh']}}</font></td>
-            </tr>
+            </tr> -->
             <tr>
               <td><font size="4" color="0B614B">Evapotranspiración</font></td>
               <td><font size="4" color="0B614B">{{da2['estaciones'][0]['Eto']}}</font></td>
@@ -343,21 +345,21 @@
 
 <!-- Container (Tabla de ultimos 5 dias  Section) -->
 <div id="historicos" class="container-fluid bg-grey">
-  <h2 class="text-center">DATOS HÍSTORICOS</h2>
+  <h2 class="text-center">DATOS HISTÓRICOS</h2>
   <div class="row">
 
     <div class="table-responsive">
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th class="col-sm-1"><h4> Dia</h4></th>
+                  <th class="col-sm-1"><h4> Día</h4></th>
                   <th class="col-sm-1"><h4> Dirv</h4></th>
                   <th class="col-sm-1"><h4> DirvVMax</h4></th>
                   <th class="col-sm-1"><h4> Ep</h4></th>
                   <th class="col-sm-1"><h4> Et</h4></th>
                   <th class="col-sm-1"><h4> FechaParseo</h4></th>
                   <th class="col-sm-1"><h4> Humr</h4></th>
-                  <th class="col-sm-1"><h4> Numero</h4></th>
+                  <th class="col-sm-1"><h4> Número</h4></th>
                   <th class="col-sm-1"><h4> Prec</h4></th>
                   <th class="col-sm-1"><h4> Radg</h4></th>
                   <th class="col-sm-1"><h4> Tmax</h4></th>
@@ -511,7 +513,7 @@
 
                 </tr>
                 <tr>
-                  <td ><font size="4" color="0B614B">Promedio de Tempratura Media</font></td>
+                  <td ><font size="4" color="0B614B">Promedio de Temperatura Media</font></td>
                   <td><font size="4" color="0B614B">{{pTmed}}</font></td>
 
                 </tr>
@@ -528,7 +530,7 @@
                   <td><font size="4" color="0B614B">{{pVelvMax}}</font></td>
                 </tr>
                 <tr>
-                  <td ><font size="4" color="0B614B">Promedio de la Direccion del Viento</font></td>
+                  <td ><font size="4" color="0B614B">Promedio de la Dirección del Viento</font></td>
                   <td><font size="4" color="0B614B">{{pd}}</font></td>
 
                 </tr>
@@ -544,7 +546,7 @@
 <!-- Abreviatura -->
 
 <div id="referencias" class="container-fluid bg-grey" class="container">
-    <h2 class="text-center">REFERNCIAS</h2>
+    <h2 class="text-center">REFERENCIAS</h2>
   <div class="row">
     <div class="col-sm-12">
       <div class="table-responsive">
@@ -569,7 +571,7 @@
         <td><font size="4" color="0B614B">Temperatura Mínima(°C)</font></td>
 
         <td><font size="4" color="0B614B">T.Med</font></td>
-        <td><font size="4" color="0B614B">Tempertura Media(°C) </font></td>
+        <td><font size="4" color="0B614B">Temperatura Media(°C) </font></td>
       </tr>
       <tr>
         <td><font size="4" color="0B614B">T.Prom</font></td>
@@ -590,7 +592,7 @@
         <td><font size="4" color="0B614B">Dirección promedio de viento (grados azimut)</font></td>
 
         <td><font size="4" color="0B614B">Rad.G</font></td>
-        <td><font size="4" color="0B614B">Rdiación global(W/m²)</font></td>
+        <td><font size="4" color="0B614B">Radiación global(W/m²)</font></td>
       </tr>
       <tr>
         <td><font size="4" color="0B614B">Humr</font></td>
