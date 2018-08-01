@@ -235,16 +235,14 @@
 <div id="about" class="container-fluid"><!-- Contenedor que abarca todo el ancho de la pantalla-->
   <div class="row">
     <div class="col-sm-8">
-
       <h2>Datos</h2><br>
-
             <br>
             <div class="table-responsive">
             <table class="table table-hover">
               <thead>
               <tr>
                   <th><h4> Dato</h4></th>
-                  <th><h4> Numero</h4></th>
+                  <th><h4> Número</h4></th>
               </tr>
             </thead>
             <tbody >
@@ -252,10 +250,6 @@
               <td > <font size="4" color="0B614B">Número </font></td>
               <td><font size="4" color="0B614B">{{da2['estaciones'][0]['Numero']}}</font></td>
             </tr>
-          <!--   <tr>
-              <td> <font size="4" color="0B614B">Fecha</font></td>
-              <td><font size="4" color="0B614B">{{da2['estaciones'][0]['Fecha']}}</font></td>
-            </tr>-->
             <tr>
               <td><font size="4" color="0B614B">Fecha de Parseo</font></td>
               <td><font size="4" color="0B614B">{{da2['estaciones'][0]['FechaParseo']}}</font></td>
@@ -284,10 +278,6 @@
               <td><font size="4" color="0B614B">Humedad relativa (%)</font></td>
               <td><font size="4" color="0B614B">{{da2['estaciones'][0]['Humr']}}</font></td>
             </tr>
-          <!--  <tr>
-              <td><font size="4" color="0B614B">Humh</font></td>
-              <td><font size="4" color="0B614B">{{da2['estaciones'][0]['Humh']}}</font></td>
-            </tr>-->
             <tr>
               <td><font size="4" color="0B614B">Evapotranspiración</font></td>
               <td><font size="4" color="0B614B">{{da2['estaciones'][0]['Eto']}}</font></td>
@@ -329,20 +319,19 @@
     <!-- Left and right controls -->
     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
+      <span class="sr-only">Anterior</span>
     </a>
     <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
+      <span class="sr-only">Siguiente</span>
     </a>
   </div>
-</div>
+
 
 <!-- Container (Tabla de últimos 5 dias ) -->
 <div id="historicos" class="container-fluid bg-grey">
   <h2 class="text-center">DATOS HISTÓRICOS</h2>
   <div class="row">
-
     <div class="table-responsive">
             <table class="table table-hover">
               <thead>
@@ -362,7 +351,6 @@
                   <th class="col-sm-3"><h4> Tmin</h4></th>
                   <th class="col-sm-3"><h4> Velv</h4></th>
                   <th class="col-sm-3"><h4> VelvMax</h4></th>
-
                 </tr>
               </thead>
               <tbody>
@@ -463,14 +451,12 @@
 <div id="promedios" class="container-fluid bg-grey">
   <h2 class="text-center">DATOS PROMEDIOS</h2>
   <div class="row">
-
     <div class="table-responsive"><!-- Hace la tabla responsiva -->
-            <table class="table table-hover"><!-- Hace que la celda se active cunado el puntero pasa sobre ella  -->
+            <table class="table table-hover"><!-- Hace que la celda se active cuando el puntero pasa sobre ella  -->
               <thead>
                 <tr>
                   <th class="col-sm-4"><h4> Variable</h4></th>
                   <th class="col-sm-4"><h4> Promedios</h4></th>
-
                 </tr>
               </thead>
               <tbody>
@@ -481,32 +467,26 @@
                 <tr>
                   <td ><font size="4" color="0B614B">Promedio de Evaporación Potencial</font></td>
                   <td><font size="4" color="0B614B">{{pEp}}</font></td>
-
                 </tr>
                 <tr>
                   <td ><font size="4" color="0B614B">Promedio de la Evapotranspiración</font></td>
                   <td><font size="4" color="0B614B">{{pEt}}</font></td>
-
                 </tr>
                 <tr>
                   <td ><font size="4" color="0B614B">Promedio de la Humedad Relativa</font></td>
                   <td><font size="4" color="0B614B">{{pHumr}}</font></td>
-
                 </tr>
                 <tr>
                   <td ><font size="4" color="0B614B">Promedio de Radiación Global</font></td>
                   <td><font size="4" color="0B614B">{{pRadg}}</font></td>
-
                 </tr>
                 <tr>
                   <td ><font size="4" color="0B614B">Promedio de Tempertura Máxima</font></td>
                   <td><font size="4" color="0B614B">{{pTmax}}</font></td>
-
                 </tr>
                 <tr>
                   <td ><font size="4" color="0B614B">Promedio de Tempratura Media</font></td>
                   <td><font size="4" color="0B614B">{{pTmed}}</font></td>
-
                 </tr>
                 <tr>
                   <td ><font size="4" color="0B614B">Promedio de Temperatura Mínima</font></td>
@@ -521,16 +501,12 @@
                   <td><font size="4" color="0B614B">{{pVelvMax}}</font></td>
                 </tr>
                 <tr>
-                  <td ><font size="4" color="0B614B">Promedio de la Direccion del Viento</font></td>
+                  <td ><font size="4" color="0B614B">Promedio de la Dirección del Viento</font></td>
                   <td><font size="4" color="0B614B">{{pd}}</font></td>
-
                 </tr>
-
-
               </tbody>
             </table>
           </div>
-
   </div>
 </div>
 
@@ -602,11 +578,6 @@
 </div>
 
 
-<!--
-To use this code on your website, get a free API key from Google.
-Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
--->
-
 <footer class="container-fluid text-center">
   <a href="#myPage" title="To Top">
     <span class="glyphicon glyphicon-chevron-up"></span>
@@ -625,16 +596,13 @@ $(document).ready(function(){
     if (this.hash !== "") {
       // Prevent default anchor click behavior
       event.preventDefault();
-
       // Store hash
       var hash = this.hash;
-
       // Using jQuery's animate() method to add smooth page scroll
       // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
       $('html, body').animate({
         scrollTop: $(hash).offset().top
       }, 900, function(){
-
         // Add hash (#) to URL when done scrolling (default click behavior)
         window.location.hash = hash;
       });

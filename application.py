@@ -24,7 +24,7 @@ app=Flask(__name__) #asignacion de la página
 
 @app.errorhandler(400)
 def pageNotFound(error):
-    return "los datos enviados por el cliente a través del navegador web no respetan las reglas del protocolo HTTP"
+    return "Los datos enviados por el cliente a través del navegador web no respetan las reglas del protocolo HTTP"
 #401 Authorization Required
 #Cuando la página web que solicita el cliente está protegida con contraseña,
 #el servidor responde con un código 401. En este caso, la página no devuelve un mensaje
@@ -32,7 +32,7 @@ def pageNotFound(error):
 #proporcione sus datos de inicio de sesión y su contraseña.
 @app.errorhandler(401)
 def pageNotFound(error):
-    return "la página web que solicita el cliente está protegida con contraseña"
+    return "La página web que solicita el cliente está protegida con contraseña"
 
 #403 Forbidden
 #Aparecerá el código de error 403 cuando el servidor haya sido capaz de entender
@@ -41,7 +41,7 @@ def pageNotFound(error):
 #web simplemente no permite a los visitantes ver la página web solicitada.
 @app.errorhandler(403)
 def pageNotFound(error):
-    return "el servidor fue capaz de entender la petición del cliente, pero se niegua a cumplirla"
+    return "El servidor fue capaz de entender la petición del cliente, pero se niega a cumplirla"
 
 #404 Not found
 #Este es, quizás, el código de error más popular de todos.
@@ -53,7 +53,7 @@ def pageNotFound(error):
 # o (4) a que se eliminó definitivamente la página web.
 @app.errorhandler(404)
 def not_found(error):
-    return "el host ha sido capaz de comunicarse con el servidor  error:",404
+    return "El host ha sido capaz de comunicarse con el servidor  error:",404
 
 #408 Request Timeout
 #Cuando la solicitud del cliente no se llevó a cabo dentro del plazo de tiempo que el servidor
@@ -62,7 +62,7 @@ def not_found(error):
 #En este caso, el problema puede solucionarse con tan solo refrescar la página (F5).
 @app.errorhandler(408)
 def pageNotFound(error):
-    return "la solicitud del cliente no se llevó a cabo dentro del plazo de tiempo que el servidor estaba dispuesto a esperar"
+    return "La solicitud del cliente no se llevó a cabo dentro del plazo de tiempo que el servidor estaba dispuesto a esperar"
 
 #410 Gone
 #A diferencia del error 404, el código de error 410 indica que el recurso solicitado ya no
@@ -70,7 +70,7 @@ def pageNotFound(error):
 #de forma intencional por el administrador del sitio para que los buscadores lo eliminen de sus índices.
 @app.errorhandler(410)
 def pageNotFound(error):
-    return "el recurso solicitado ya no se encuentra disponible y no lo estará nuevamente"
+    return "El recurso solicitado ya no se encuentra disponible y no lo estará nuevamente"
 ##500 Internal Server Error
 #Este error aparece cuando el servidor encuentra una condición inesperada que le impide cumplir
 #la solicitud que realizó el cliente, es decir, no se muestra el recurso solicitado.
@@ -87,7 +87,7 @@ def pageNotFound(error):
 #sucede porque los servidores que se comunican no están de acuerdo sobre el protocolo para intercambiar datos.
 @app.errorhandler(502)
 def pageNotFound(error):
-    return "los servidores que se comunican no están de acuerdo sobre el protocolo para intercambiar datos."
+    return "Los servidores que se comunican no están de acuerdo sobre el protocolo para intercambiar datos."
 
 #503 Service Temporarily Unavailable
 #El servicio está temporalmente no disponible cuando hay una sobrecarga temporal en el servidor,
@@ -95,7 +95,7 @@ def pageNotFound(error):
 #disponible nuevamente en otro momento
 @app.errorhandler(503)
 def pageNotFound(error):
-    return "hay una sobrecarga temporal en el servidor, o se realiza un mantenimiento programado."
+    return "Hay una sobrecarga temporal en el servidor, o se realiza un mantenimiento programado."
 
 #504 Gateway Timeout
 #Cuando se devuelve el código de estado 504 hay un servidor de nivel superior que se suponía que
@@ -104,8 +104,8 @@ def pageNotFound(error):
 #código 504 la comunicación es de servidor a servidor.
 @app.errorhandler(504)
 def pageNotFound(error):
-    return "se agotó el tiempo de respuesta de servidor a servidor"
-a=""
+    return "Se agotó el tiempo de respuesta de servidor a servidor"
+
 @app.route('/') #asignacion del index
 def datos():
     acceso=claves()
@@ -142,7 +142,7 @@ def estacion(fir,esta,estacion,numes):
 
     d = dict(data)
     print(d)
-    #F significa el valor en centrigrados
+    #F significa el valor en centigrados
     F=d['estaciones'][0]['Temt']
     #RH significa la humedad relativa
     RH=d['estaciones'][0]['Humr']
@@ -194,8 +194,8 @@ def funconsulta(esta,numes,fech1,fecha):
     promVelvMax=df['VelvMax'].mean()
     promVelvMax=("{0:.3f}".format(promVelvMax))
 
-    #asignacion de v y u por cada uno de los dias
-    #despues asignacion de la direccion de cada dia
+    #asignacion de v y u por cada uno de los días
+    #después asignación de la dirección de cada día
     v1=df['Velv'][0]
     d1=df['Dirv'][0]
     v2=df['Velv'][1]
@@ -230,9 +230,8 @@ def funconsulta(esta,numes,fech1,fecha):
     promedioDias=("{0:.3f}".format(promedioDias))
     print("promedio de los dias {}".format(promedioDias))
 
-
     return df,sumaPrec,promEp,promEt,promHumr,promRadg,promTmax,promTmed,promTmin,promVelv,promVelvMax,promedioDias
-#descompocision de la dirección del viento y la velocidad para poder promediar
+#descomposición de la dirección del viento y la velocidad para poder promediar
     #componente V para el promedio de la dirección del viento
 def ComponentV(velv, dirv):
         v = velv * math.cos(dirv * math.pi / 180)
